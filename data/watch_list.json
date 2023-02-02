@@ -1,0 +1,32 @@
+{
+    "tech": [
+        "AAPL",
+        "MSFT",
+        "GOOG",
+        "AMZN",
+        "META",
+        "BABA",
+        "ASML",
+        "AVGO",
+        "ORCL",
+        "ADBE",
+        "TXN",
+        "IBM"
+    ],
+    "semi_conductor": [
+        "NVDA",
+        "TSM",
+        "ASML",
+        "QCOM",
+        "INTC",
+        "AMD",
+        "MU"
+    ],
+    "Automakers": [
+        "TSLA",
+        "F",
+        "GM",
+        "LCID",
+        "RIVN"
+    ]
+}

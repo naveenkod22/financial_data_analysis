@@ -1,0 +1,8 @@
+/*.ipynb
+/*.csv
+/Dockerfile
+/.vscode/
+/__pycache__/
+/*.py
+/scripts/*.sql
+/temp/

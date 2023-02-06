@@ -1,0 +1,21 @@
+Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
+2023-01-18,Initiated,DA Davidson,Neutral,Neutral,85,85
+2023-01-11,Initiated,Mizuho,Buy,Buy,116,116
+2023-01-09,Upgrade,Piper Sandler,Neutral,Overweight,85,104
+2023-01-05,Upgrade,Jefferies,Hold,Buy,90,105
+2022-10-21,Upgrade,KeyBanc Capital Markets,Sector Weight,Overweight,80,80
+2022-10-20,Upgrade,Piper Sandler,Underweight,Neutral,70,70
+2022-09-14,Initiated,Berenberg,Hold,Hold,72,72
+2022-08-12,Initiated,Guggenheim,Buy,Buy,107,107
+2022-06-29,Upgrade,Exane BNP Paribas,Neutral,Outperform,90,90
+2022-06-27,Resumed,Goldman,Sell,Sell,75,75
+2022-06-14,Reiterated,Monness Crespi & Hardt,Buy,Buy,126,113
+2022-04-01,Initiated,Daiwa Securities,Neutral,Neutral,87,87
+2022-03-29,Downgrade,Exane BNP Paribas,Neutral,Underperform,79,79
+2022-03-11,Upgrade,Societe Generale,Hold,Buy,,
+2022-03-11,Downgrade,Piper Sandler,Neutral,Underweight,100,70
+2021-12-21,Downgrade,KeyBanc Capital Markets,Overweight,Sector Weight,,
+2021-12-15,Upgrade,DZ Bank,Sell,Hold,105,105
+2021-12-10,Upgrade,Deutsche Bank,Hold,Buy,110,120
+2021-12-10,Reiterated,Wolfe Research,Peer Perform,Peer Perform,80,95
+2021-12-10,Reiterated,UBS,Neutral,Neutral,86,94

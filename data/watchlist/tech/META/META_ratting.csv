@@ -1,0 +1,61 @@
+Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
+2023-02-03 00:00:00,Upgrade,DZ Bank,Sell,Hold,180,180
+2023-02-03 00:00:00,Downgrade,HSBC Securities,Hold,Reduce,110,110
+2023-02-02 00:00:00,Upgrade,Rosenblatt,Neutral,Buy,104,220
+2023-02-02 00:00:00,Upgrade,Piper Sandler,Neutral,Overweight,136,215
+2023-02-02 00:00:00,Upgrade,BofA Securities,Neutral,Buy,160,220
+2023-02-02 00:00:00,Reiterated,Wolfe Research,Outperform,Outperform,150,220
+2023-02-02 00:00:00,Reiterated,UBS,Buy,Buy,158,235
+2023-02-02 00:00:00,Reiterated,SVB Securities,Outperform,Outperform,220,255
+2023-02-02 00:00:00,Reiterated,Susquehanna,Positive,Positive,140,225
+2023-02-02 00:00:00,Reiterated,Stifel,Buy,Buy,180,210
+2023-02-02 00:00:00,Reiterated,ROTH Capital,Buy,Buy,125,210
+2023-02-02 00:00:00,Reiterated,Robert W. Baird,Outperform,Outperform,145,205
+2023-02-02 00:00:00,Reiterated,Raymond James,Outperform,Outperform,171,220
+2023-02-02 00:00:00,Reiterated,Morgan Stanley,Equal-Weight,Equal-Weight,130,190
+2023-02-02 00:00:00,Reiterated,Monness Crespi & Hardt,Buy,Buy,150,240
+2023-02-02 00:00:00,Reiterated,Mizuho,Buy,Buy,170,210
+2023-02-02 00:00:00,Reiterated,JP Morgan,Overweight,Overweight,150,225
+2023-02-02 00:00:00,Reiterated,JMP Securities,Mkt Outperform,Mkt Outperform,150,210
+2023-02-02 00:00:00,Reiterated,Jefferies,Buy,Buy,175,225
+2023-02-02 00:00:00,Reiterated,Guggenheim,Buy,Buy,130,210
+2023-02-03 00:00:00,Upgrade,DZ Bank,Sell,Hold,180,180
+2023-02-03 00:00:00,Downgrade,HSBC Securities,Hold,Reduce,110,110
+2023-02-02 00:00:00,Upgrade,Rosenblatt,Neutral,Buy,104,220
+2023-02-02 00:00:00,Upgrade,Piper Sandler,Neutral,Overweight,136,215
+2023-02-02 00:00:00,Upgrade,BofA Securities,Neutral,Buy,160,220
+2023-02-02 00:00:00,Reiterated,Wolfe Research,Outperform,Outperform,150,220
+2023-02-02 00:00:00,Reiterated,UBS,Buy,Buy,158,235
+2023-02-02 00:00:00,Reiterated,SVB Securities,Outperform,Outperform,220,255
+2023-02-02 00:00:00,Reiterated,Susquehanna,Positive,Positive,140,225
+2023-02-02 00:00:00,Reiterated,Stifel,Buy,Buy,180,210
+2023-02-02 00:00:00,Reiterated,ROTH Capital,Buy,Buy,125,210
+2023-02-02 00:00:00,Reiterated,Robert W. Baird,Outperform,Outperform,145,205
+2023-02-02 00:00:00,Reiterated,Raymond James,Outperform,Outperform,171,220
+2023-02-02 00:00:00,Reiterated,Morgan Stanley,Equal-Weight,Equal-Weight,130,190
+2023-02-02 00:00:00,Reiterated,Monness Crespi & Hardt,Buy,Buy,150,240
+2023-02-02 00:00:00,Reiterated,Mizuho,Buy,Buy,170,210
+2023-02-02 00:00:00,Reiterated,JP Morgan,Overweight,Overweight,150,225
+2023-02-02 00:00:00,Reiterated,JMP Securities,Mkt Outperform,Mkt Outperform,150,210
+2023-02-02 00:00:00,Reiterated,Jefferies,Buy,Buy,175,225
+2023-02-02 00:00:00,Reiterated,Guggenheim,Buy,Buy,130,210
+2023-02-03,Upgrade,DZ Bank,Sell,Hold,180,180
+2023-02-03,Downgrade,HSBC Securities,Hold,Reduce,110,110
+2023-02-02,Upgrade,Rosenblatt,Neutral,Buy,104,220
+2023-02-02,Upgrade,Piper Sandler,Neutral,Overweight,136,215
+2023-02-02,Upgrade,BofA Securities,Neutral,Buy,160,220
+2023-02-02,Reiterated,Wolfe Research,Outperform,Outperform,150,220
+2023-02-02,Reiterated,UBS,Buy,Buy,158,235
+2023-02-02,Reiterated,SVB Securities,Outperform,Outperform,220,255
+2023-02-02,Reiterated,Susquehanna,Positive,Positive,140,225
+2023-02-02,Reiterated,Stifel,Buy,Buy,180,210
+2023-02-02,Reiterated,ROTH Capital,Buy,Buy,125,210
+2023-02-02,Reiterated,Robert W. Baird,Outperform,Outperform,145,205
+2023-02-02,Reiterated,Raymond James,Outperform,Outperform,171,220
+2023-02-02,Reiterated,Morgan Stanley,Equal-Weight,Equal-Weight,130,190
+2023-02-02,Reiterated,Monness Crespi & Hardt,Buy,Buy,150,240
+2023-02-02,Reiterated,Mizuho,Buy,Buy,170,210
+2023-02-02,Reiterated,JP Morgan,Overweight,Overweight,150,225
+2023-02-02,Reiterated,JMP Securities,Mkt Outperform,Mkt Outperform,150,210
+2023-02-02,Reiterated,Jefferies,Buy,Buy,175,225
+2023-02-02,Reiterated,Guggenheim,Buy,Buy,130,210

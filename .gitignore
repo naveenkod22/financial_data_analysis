@@ -6,3 +6,4 @@
 /*.py
 /scripts/*.sql
 /temp/
+__pycache__/

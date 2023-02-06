@@ -1,66 +1,140 @@
+import os
+import json
+import time
 import datetime
-if datetime.datetime.today().weekday() in [0, 1, 2, 3, 4]:
-    from numpy import number as np_number
-    import pandas as pd
-    import yfinance as yf
-    from yahoo_fin import stock_info as si
+import pandas as pd
+from finvizfinance import quote
 
-    now = str(datetime.datetime.now())
-    now = now[0:16].replace("-", "").replace(" ", "_").replace(":","")
+os.chdir('C://Users//navee//Documents//code//financial_data_analysis/')
+global base_path
 
-    def convert_to_numeric(x):
-        try:
-            return pd.to_numeric(x)
-        except ValueError:
-            if x.endswith("T"):
-                return float(x[:-1]) * 1e12
-            elif x.endswith("B"):
-                return float(x[:-1]) * 1e9
-            elif x.endswith("M"):
-                return float(x[:-1]) * 1e6
+def _transform_save_rating(df,path):
+    if df['Rating'].str.contains(" → ").any():
+        df[['Previous_ratting', 'Current_ratting']] = df['Rating'].str.split(" → ", expand=True)
+        df['Current_ratting'].fillna(df['Previous_ratting'], inplace=True)
+    else:
+        df['Current_Rating'] = df['Rating']
+        df['Previous_rating'] = df['Rating']
+    
+    if df['Price'].str.contains(" → ").any():    
+        df[['Previous_price', 'Current_price']] = df['Price'].str.split(" → ", expand=True)
+        df[['Previous_price', 'Current_price']] = df[['Previous_price', 'Current_price']].apply(lambda x: x.str.replace('$', '',regex=False))
+        df['Current_price'].fillna(df['Previous_price'], inplace=True)
+    else:
+        df['Current_price'] = df['Price']
+        df['Previous_price'] = df['Price']       
+    
+    
+    df.drop(columns=['Rating', 'Price'], inplace=True)
+    if os.path.exists(path):
+        ratings = pd.read_csv(path)
+        ratings = pd.concat( [df,ratings],ignore_index=True).drop_duplicates()
+        ratings.reset_index(inplace=True,drop=True)
+        ratings.to_csv(path, index = False)
+    else:
+        df.to_csv(path, index = False)
 
-    file_name = './data/active/active'+now+'.csv'
-    day_active = si.get_day_most_active(count = 200)
-    day_active["Market Cap"] = day_active["Market Cap"].apply(convert_to_numeric)
-    day_active['Market Cap'] = day_active['Market Cap']/1000000000
-    day_active.rename(columns={"Market Cap" : "Market Cap(Billions)"}, inplace=True)
-    day_active.to_csv(file_name, index=False)
+def _transform_save_news(df,path):
+    df['Source'] = df['Link'].str.extract(r'//(.*?).com/')
+    if os.path.exists(path):
+        news = pd.read_csv(path,parse_dates=['Date'])
+        mask = df['Date']>df['Date'][0]
+        df = df[mask]
+        news = pd.concat([df,news], ignore_index=True)
+        news.reset_index(inplace=True, drop=True)
+    else:
+        df.to_csv(path, index = False)
 
-    file_name = './data/losers/losers'+now+'.csv'
-    day_losers = si.get_day_losers(count = 200)
-    day_losers["Market Cap"] = day_losers["Market Cap"].apply(convert_to_numeric)
-    day_losers['Market Cap'] = day_losers['Market Cap']/1000000000
-    day_losers.rename(columns={"Market Cap" : "Market Cap(Billions)"}, inplace=True)
-    day_losers.to_csv(file_name, index=False)
+def _transform_save_inside_trade(df,path):
+    df.to_csv(path, index=False)
+    if os.path.exists(path):
+        inside_trade = pd.read_csv(path)
+        inside_trade = pd.concat( [df,inside_trade],ignore_index=True).drop_duplicates()
+        inside_trade.reset_index(inplace=True,drop=True)
+        inside_trade.to_csv(path, index = False)
+    else:
+        df.to_csv(path, index = False)
 
-    file_name = './data/gainers/gainers_'+now+'.csv'
-    day_gainers = si.get_day_gainers(count = 200)
-    day_gainers["Market Cap"] = day_gainers["Market Cap"].apply(convert_to_numeric)
-    day_gainers['Market Cap'] = day_gainers['Market Cap']/1000000000
-    day_gainers.rename(columns={"Market Cap" : "Market Cap(Billions)"}, inplace=True)
-    day_gainers.to_csv(file_name, index=False)
+def _rename_chart(path,ticker):
+    date = str(datetime.datetime.now())[0:10].replace("-", "")
+    to_file_name = "{path}{ticker}_{date}.jpg".format(path=path, ticker=ticker,date=date)
+    if not os.path.exists(to_file_name):
+        from_file_name = "{path}{ticker}.jpg".format(path=path, ticker=ticker)
+        os.rename(from_file_name, to_file_name)
+        if os.path.exists(from_file_name):
+            os.remove(from_file_name)
 
+    
 
-    start = datetime.datetime.today() - datetime.timedelta(1)
-    to = datetime.datetime.today()
+# This function gets Ticker description, Daily chart, Fundamentals, Ticker Rating, Ticker News, Inside Trade
+def get_data(watch_list, sector, ticker):
+    base_path = "./data/{watch_list}/{sector}/{ticker}/".format(watch_list = watch_list,sector=sector,ticker=ticker)
+    os.makedirs(os.path.dirname(base_path), exist_ok=True)
 
-    tech = ["AAPL", "MSFT", "GOOG", "AMZN", "META","BABA", "ASML", "AVGO", "ORCL", "ADBE", "TXN"]
-    semi_conductor = ["NVDA", "TSM", "ASML", "QCOM", "INTC", "AMD", "MU"]
-    Automakers = ["TSLA", "F", "GM", "LCID", "RIVN"]
+    # Setting tick variable to get the data
+    tick = quote.finvizfinance(ticker=ticker)
 
+# Ticker Description
+    path = "{base_path}{ticker}_description.txt".format(base_path=base_path, ticker=ticker)
+    if not os.path.exists(path):
+        ticker_description = tick.ticker_description()
+        time.sleep(0.1)
+        with open(path, "w") as file:
+            file.write(ticker_description)
 
-    watch_list = {"tech": tech,"semi_conductor": semi_conductor, "Automakers": Automakers}
+# Ticker Chart
+    path = "{base_path}charts/".format(base_path=base_path)
+    os.makedirs(path, exist_ok=True)
+    tick.ticker_charts(out_dir=path)
+    time.sleep(0.1)
+    _rename_chart(path,ticker=ticker)
 
-    for key, value in watch_list.items():
-        for ticker in value:
-            temp = yf.download(ticker, start=start, end=to, interval = "1d", actions = True)
-            temp.reset_index(drop=False, inplace = True)
-            temp["Date"] = pd.to_datetime(temp['Date'], utc=True).dt.date
-            temp[temp.select_dtypes(include=[np_number]).columns] = temp.select_dtypes(include=[np_number]).apply(lambda x: round(x, 4))
+    try:
+# Ticker Full Info.
+        full_info = tick.ticker_full_info()
+        time.sleep(0.1)
+        for key in full_info.keys():
             
-            temp2 = pd.read_csv("./data/watchlist/"+ticker+".csv")
+            # Ticker Fundament
+            if key == 'fundament':
+                path = "{base_path}{ticker}_fundament.json".format(base_path=base_path, ticker=ticker)
+                if not os.path.exists(path):
+                    fundament = full_info['fundament']
+                    with open(path, 'w') as f:
+                        json.dump(fundament,f,indent=4)
+
+            # Ticker Ratting
+            if key == 'ratings_outer':
+                path = "{base_path}{ticker}_ratting.csv".format(base_path=base_path, ticker=ticker)
+                ratings_outer = full_info['ratings_outer']
+                _transform_save_rating(ratings_outer,path=path)
             
-            df = pd.concat([temp2, temp], axis=0, ignore_index=False)
-            df.drop_duplicates(subset=['Date'], inplace=True)
-            df.reset_index()
-            df.to_csv("./data/watchlist/"+ticker+".csv", index = False)
+            # Ticker News
+            if key == 'news':
+                path = "{base_path}{ticker}_news.csv".format(base_path=base_path, ticker=ticker)
+                news = full_info['news']
+                _transform_save_news(df=news,path=path)
+
+            # Inside Trade
+            if key == 'inside trader':
+                path = "{base_path}{ticker}_inside_trade.csv".format(base_path=base_path, ticker=ticker)
+                inside_trade = full_info['inside trader']
+                _transform_save_inside_trade(df=inside_trade,path=path)
+            
+    except AttributeError:
+        fundament = tick.ticker_fundament()
+        time.sleep(0.1)
+        path = "{base_path}{ticker}_fundament.json".format(base_path=base_path, ticker=ticker)
+        if not os.path.exists(path):
+            with open(path, 'w') as f:
+                json.dump(fundament,f,indent=4)
+
+        ratings_outer = tick.ticker_outer_ratings()
+        time.sleep(0.1)
+        path = "{base_path}{ticker}_ratting.csv".format(base_path=base_path, ticker=ticker)
+        _transform_save_rating(ratings_outer,path=path)
+
+        news = tick.ticker_news()
+        path = "{base_path}{ticker}_news.csv".format(base_path=base_path, ticker=ticker)
+        _transform_save_news(df=news,path=path)
+

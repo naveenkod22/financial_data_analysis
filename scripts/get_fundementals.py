@@ -5,28 +5,12 @@ import time
 import requests
 import pandas as pd
 
-# Alpha vintage documentation:
-# https://www.alphavantage.co/documentation/#fundamentals
-
 # Assigning Api Key 
 api_key = 'OWBLXVL83U05HM1N'
-
-# Update_exesti  data
-tech = ["AAPL", "MSFT", "GOOG", "AMZN", "META","BABA", "ASML", "AVGO", "ORCL", "ADBE", "TXN"]
-semi_conductor = ["NVDA", "TSM", "ASML", "QCOM", "INTC", "AMD", "MU"]
-Automakers = ["TSLA", "F", "GM", "LCID", "RIVN"]
-
-watch_list = {"tech": tech,"semi_conductor": semi_conductor, "Automakers": Automakers}
-
-ibm = ["IBM"]
-watch_list = {"ibm": ibm}
-api_key = 'DEMO'
 
 # Setting default working directory for this script
 os.chdir("C:\\Users\\navee\\Desktop\\Stock_prediction")
 
-
-# Creating watch list with sectors
 with open('./data/watch_list.json', 'r') as f:
     watch_list = json.load(f)
 

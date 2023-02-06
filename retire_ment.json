@@ -1,0 +1,12 @@
+{
+    "banking": [
+        "JPM",
+        "BAC",
+        "WFC"
+    ],
+    "utility": [
+        "NEE",
+        "DUK",
+        "SO"
+    ]
+}

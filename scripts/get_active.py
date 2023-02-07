@@ -34,6 +34,6 @@ def get_active(count = 200):
     df = si.get_day_losers(count = count)
     transform_and_save(df = df, path=path)
 
-    path = "./data/gainers/gainers_{time}.csv".format(time=time)
+    path = "./data/active/gainers_{time}.csv".format(time=time)
     df = si.get_day_gainers(count = count)
     transform_and_save(df = df, path=path)

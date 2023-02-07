@@ -1,44 +1,4 @@
 Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
-2023-01-25 00:00:00,Downgrade,BMO Capital Markets,Outperform,Market Perform,267,265
-2023-01-17 00:00:00,Downgrade,Guggenheim,Neutral,Sell,212,212
-2023-01-05 00:00:00,Initiated,DA Davidson,Buy,Buy,270,270
-2023-01-04 00:00:00,Downgrade,UBS,Buy,Neutral,300,250
-2022-11-02 00:00:00,Initiated,Macquarie,Neutral,Neutral,234,234
-2022-10-14 00:00:00,Reiterated,Morgan Stanley,Overweight,Overweight,354,325
-2022-09-30 00:00:00,Resumed,Raymond James,Outperform,Outperform,300,300
-2022-09-22 00:00:00,Initiated,MoffettNathanson,Hold,Hold,285,285
-2022-08-12 00:00:00,Initiated,Guggenheim,Neutral,Neutral,292,292
-2022-07-27 00:00:00,Reiterated,Wedbush,Outperform,Outperform,340,320
-2022-07-27 00:00:00,Reiterated,Stifel,Buy,Buy,320,300
-2022-07-27 00:00:00,Reiterated,Deutsche Bank,Buy,Buy,350,330
-2022-07-27 00:00:00,Reiterated,Cowen,Outperform,Outperform,330,320
-2022-07-27 00:00:00,Reiterated,Citigroup,Buy,Buy,330,300
-2022-07-27 00:00:00,Reiterated,BMO Capital Markets,Outperform,Outperform,305,320
-2022-07-26 00:00:00,Initiated,Itau BBA,Outperform,Outperform,287,287
-2022-07-19 00:00:00,Reiterated,Citigroup,Buy,Buy,364,330
-2022-06-29 00:00:00,Initiated,Redburn,Buy,Buy,370,370
-2022-04-27 00:00:00,Reiterated,Wolfe Research,Outperform,Outperform,330,350
-2022-04-27 00:00:00,Reiterated,Wedbush,Outperform,Outperform,375,340
-2023-01-25 00:00:00,Downgrade,BMO Capital Markets,Outperform,Market Perform,267,265
-2023-01-17 00:00:00,Downgrade,Guggenheim,Neutral,Sell,212,212
-2023-01-05 00:00:00,Initiated,DA Davidson,Buy,Buy,270,270
-2023-01-04 00:00:00,Downgrade,UBS,Buy,Neutral,300,250
-2022-11-02 00:00:00,Initiated,Macquarie,Neutral,Neutral,234,234
-2022-10-14 00:00:00,Reiterated,Morgan Stanley,Overweight,Overweight,354,325
-2022-09-30 00:00:00,Resumed,Raymond James,Outperform,Outperform,300,300
-2022-09-22 00:00:00,Initiated,MoffettNathanson,Hold,Hold,285,285
-2022-08-12 00:00:00,Initiated,Guggenheim,Neutral,Neutral,292,292
-2022-07-27 00:00:00,Reiterated,Wedbush,Outperform,Outperform,340,320
-2022-07-27 00:00:00,Reiterated,Stifel,Buy,Buy,320,300
-2022-07-27 00:00:00,Reiterated,Deutsche Bank,Buy,Buy,350,330
-2022-07-27 00:00:00,Reiterated,Cowen,Outperform,Outperform,330,320
-2022-07-27 00:00:00,Reiterated,Citigroup,Buy,Buy,330,300
-2022-07-27 00:00:00,Reiterated,BMO Capital Markets,Outperform,Outperform,305,320
-2022-07-26 00:00:00,Initiated,Itau BBA,Outperform,Outperform,287,287
-2022-07-19 00:00:00,Reiterated,Citigroup,Buy,Buy,364,330
-2022-06-29 00:00:00,Initiated,Redburn,Buy,Buy,370,370
-2022-04-27 00:00:00,Reiterated,Wolfe Research,Outperform,Outperform,330,350
-2022-04-27 00:00:00,Reiterated,Wedbush,Outperform,Outperform,375,340
 2023-01-25,Downgrade,BMO Capital Markets,Outperform,Market Perform,267,265
 2023-01-17,Downgrade,Guggenheim,Neutral,Sell,212,212
 2023-01-05,Initiated,DA Davidson,Buy,Buy,270,270

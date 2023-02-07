@@ -28,7 +28,10 @@ def _transform_save_rating(df,path):
     df.drop(columns=['Rating', 'Price'], inplace=True)
     if os.path.exists(path):
         ratings = pd.read_csv(path)
-        ratings = pd.concat( [df,ratings],ignore_index=True).drop_duplicates()
+        ratings['Date'] = pd.to_datetime(ratings['Date'], format='%Y-%m-%d')
+        df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d')
+        ratings = pd.concat( [df,ratings],ignore_index=True)
+        ratings.drop_duplicates(subset = ['Date','Status','Outer'],inplace=True)
         ratings.reset_index(inplace=True,drop=True)
         ratings.to_csv(path, index = False)
     else:
@@ -55,14 +58,14 @@ def _transform_save_inside_trade(df,path):
     else:
         df.to_csv(path, index = False)
 
-def _rename_chart(path,ticker):
-    date = str(datetime.datetime.now())[0:10].replace("-", "")
-    to_file_name = "{path}{ticker}_{date}.jpg".format(path=path, ticker=ticker,date=date)
-    if not os.path.exists(to_file_name):
-        from_file_name = "{path}{ticker}.jpg".format(path=path, ticker=ticker)
-        os.rename(from_file_name, to_file_name)
-        if os.path.exists(from_file_name):
-            os.remove(from_file_name)
+# def _rename_chart(path,ticker):
+#     date = str(datetime.datetime.now())[0:10].replace("-", "")
+#     to_file_name = "{path}{ticker}_{date}.jpg".format(path=path, ticker=ticker,date=date)
+#     if not os.path.exists(to_file_name):
+#         from_file_name = "{path}{ticker}.jpg".format(path=path, ticker=ticker)
+#         os.replace(from_file_name, to_file_name)
+#         if os.path.exists(from_file_name):
+#             os.remove(from_file_name)
 
     
 
@@ -87,7 +90,10 @@ def get_data(watch_list, sector, ticker):
     os.makedirs(path, exist_ok=True)
     tick.ticker_charts(out_dir=path)
     time.sleep(0.1)
-    _rename_chart(path,ticker=ticker)
+    date = str(datetime.datetime.now())[0:10].replace("-", "")
+    src = "{path}{ticker}.jpg".format(path = path, ticker=ticker)
+    dst = "{path}{ticker}_{date}.jpg".format(path = path, ticker=ticker, date=date)
+    os.replace(src,dst)
 
     try:
 # Ticker Full Info.

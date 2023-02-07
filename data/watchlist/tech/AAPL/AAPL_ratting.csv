@@ -1,44 +1,4 @@
 Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
-2023-01-27 00:00:00,Reiterated,BofA Securities,Neutral,Neutral,154,153
-2023-01-23 00:00:00,Reiterated,Deutsche Bank,Buy,Buy,170,160
-2023-01-18 00:00:00,Reiterated,Canaccord Genuity,Buy,Buy,200,170
-2023-01-03 00:00:00,Downgrade,Exane BNP Paribas,Outperform,Neutral,140,140
-2022-12-20 00:00:00,Reiterated,JP Morgan,Overweight,Overweight,200,190
-2022-12-12 00:00:00,Reiterated,Oppenheimer,Outperform,Outperform,190,170
-2022-10-28 00:00:00,Reiterated,Wedbush,Outperform,Outperform,220,200
-2022-10-28 00:00:00,Reiterated,Robert W. Baird,Outperform,Outperform,185,170
-2022-10-28 00:00:00,Reiterated,KeyBanc Capital Markets,Overweight,Overweight,185,177
-2022-10-28 00:00:00,Reiterated,Deutsche Bank,Buy,Buy,175,170
-2022-10-28 00:00:00,Reiterated,DA Davidson,Buy,Buy,185,167
-2022-10-28 00:00:00,Reiterated,Credit Suisse,Outperform,Outperform,190,184
-2022-10-28 00:00:00,Reiterated,Citigroup,Buy,Buy,185,175
-2022-10-28 00:00:00,Reiterated,Barclays,Equal Weight,Equal Weight,155,156
-2022-10-17 00:00:00,Reiterated,Morgan Stanley,Overweight,Overweight,180,177
-2022-10-13 00:00:00,Reiterated,Credit Suisse,Outperform,Outperform,201,190
-2022-10-11 00:00:00,Reiterated,Barclays,Equal Weight,Equal Weight,169,155
-2022-09-29 00:00:00,Upgrade,Rosenblatt,Neutral,Buy,160,189
-2022-09-29 00:00:00,Downgrade,BofA Securities,Buy,Neutral,185,160
-2022-08-17 00:00:00,Upgrade,Credit Suisse,Neutral,Outperform,201,201
-2023-01-27 00:00:00,Reiterated,BofA Securities,Neutral,Neutral,154,153
-2023-01-23 00:00:00,Reiterated,Deutsche Bank,Buy,Buy,170,160
-2023-01-18 00:00:00,Reiterated,Canaccord Genuity,Buy,Buy,200,170
-2023-01-03 00:00:00,Downgrade,Exane BNP Paribas,Outperform,Neutral,140,140
-2022-12-20 00:00:00,Reiterated,JP Morgan,Overweight,Overweight,200,190
-2022-12-12 00:00:00,Reiterated,Oppenheimer,Outperform,Outperform,190,170
-2022-10-28 00:00:00,Reiterated,Wedbush,Outperform,Outperform,220,200
-2022-10-28 00:00:00,Reiterated,Robert W. Baird,Outperform,Outperform,185,170
-2022-10-28 00:00:00,Reiterated,KeyBanc Capital Markets,Overweight,Overweight,185,177
-2022-10-28 00:00:00,Reiterated,Deutsche Bank,Buy,Buy,175,170
-2022-10-28 00:00:00,Reiterated,DA Davidson,Buy,Buy,185,167
-2022-10-28 00:00:00,Reiterated,Credit Suisse,Outperform,Outperform,190,184
-2022-10-28 00:00:00,Reiterated,Citigroup,Buy,Buy,185,175
-2022-10-28 00:00:00,Reiterated,Barclays,Equal Weight,Equal Weight,155,156
-2022-10-17 00:00:00,Reiterated,Morgan Stanley,Overweight,Overweight,180,177
-2022-10-13 00:00:00,Reiterated,Credit Suisse,Outperform,Outperform,201,190
-2022-10-11 00:00:00,Reiterated,Barclays,Equal Weight,Equal Weight,169,155
-2022-09-29 00:00:00,Upgrade,Rosenblatt,Neutral,Buy,160,189
-2022-09-29 00:00:00,Downgrade,BofA Securities,Buy,Neutral,185,160
-2022-08-17 00:00:00,Upgrade,Credit Suisse,Neutral,Outperform,201,201
 2023-01-27,Reiterated,BofA Securities,Neutral,Neutral,154,153
 2023-01-23,Reiterated,Deutsche Bank,Buy,Buy,170,160
 2023-01-18,Reiterated,Canaccord Genuity,Buy,Buy,200,170

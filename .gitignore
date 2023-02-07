@@ -7,3 +7,4 @@
 /scripts/*.sql
 /temp/
 __pycache__/
+/ToDo.txt

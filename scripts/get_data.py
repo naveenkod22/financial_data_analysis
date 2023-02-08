@@ -57,20 +57,10 @@ def _transform_save_inside_trade(df,path):
         inside_trade.to_csv(path, index = False)
     else:
         df.to_csv(path, index = False)
+ 
 
-# def _rename_chart(path,ticker):
-#     date = str(datetime.datetime.now())[0:10].replace("-", "")
-#     to_file_name = "{path}{ticker}_{date}.jpg".format(path=path, ticker=ticker,date=date)
-#     if not os.path.exists(to_file_name):
-#         from_file_name = "{path}{ticker}.jpg".format(path=path, ticker=ticker)
-#         os.replace(from_file_name, to_file_name)
-#         if os.path.exists(from_file_name):
-#             os.remove(from_file_name)
-
-    
-
-# This function gets Ticker description, Daily chart, Fundamentals, Ticker Rating, Ticker News, Inside Trade
-def get_data(watch_list, sector, ticker):
+# This function gets Ticker description, Inside Trade,  Fundamentals, Daily chart, Ticker Rating, Ticker News
+def _get_data(watch_list, sector, ticker):
     base_path = "./data/{watch_list}/{sector}/{ticker}/".format(watch_list = watch_list,sector=sector,ticker=ticker)
     os.makedirs(os.path.dirname(base_path), exist_ok=True)
 
@@ -144,3 +134,9 @@ def get_data(watch_list, sector, ticker):
         path = "{base_path}{ticker}_news.csv".format(base_path=base_path, ticker=ticker)
         _transform_save_news(df=news,path=path)
 
+def get_data(watch_list, sector, ticker):
+    try:
+        _get_data(watch_list, sector, ticker)
+    except ConnectionError:
+        print('Connection Error Occurred for Get Data')
+        _get_data(watch_list, sector, ticker)

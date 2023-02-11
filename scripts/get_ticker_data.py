@@ -40,11 +40,11 @@ def _transform_save_rating(df,path):
 def _transform_save_news(df,path):
     df['Source'] = df['Link'].str.extract(r'//(.*?).com/')
     if os.path.exists(path):
-        news = pd.read_csv(path,parse_dates=['Date'])
-        mask = df['Date']>df['Date'][0]
-        df = df[mask]
+        news = pd.read_csv(path)
         news = pd.concat([df,news], ignore_index=True)
+        news = news.drop_duplicates(subset=['Title'])
         news.reset_index(inplace=True, drop=True)
+        news.to_csv(path, index = False)
     else:
         df.to_csv(path, index = False)
 
@@ -61,7 +61,7 @@ def _transform_save_inside_trade(df,path):
  
 
 # This function gets Ticker description, Inside Trade,  Fundamentals, Daily chart, Ticker Rating, Ticker News
-def _get_data(watch_list, sector, ticker):
+def _get_ticker_data(watch_list, sector, ticker):
     base_path = "./data/{watch_list}/{sector}/{ticker}/".format(watch_list = watch_list,sector=sector,ticker=ticker)
     os.makedirs(os.path.dirname(base_path), exist_ok=True)
 
@@ -135,9 +135,9 @@ def _get_data(watch_list, sector, ticker):
         path = "{base_path}{ticker}_news.csv".format(base_path=base_path, ticker=ticker)
         _transform_save_news(df=news,path=path)
 
-def get_data(watch_list, sector, ticker):
+def get_ticker_data(watch_list, sector, ticker):
     try:
-        _get_data(watch_list, sector, ticker)
+        _get_ticker_data(watch_list, sector, ticker)
     except ConnectionError:
         print('Connection Error Occurred for Get Data')
-        _get_data(watch_list, sector, ticker)
+        _get_ticker_data(watch_list, sector, ticker)

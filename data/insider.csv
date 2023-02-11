@@ -1,4 +1,13 @@
 Ticker,SEC Form 4 Link,Owner,Relationship,Date,Transaction,Cost,#Shares,Value ($),#Shares Total,SEC Form 4
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002794/xslF345X03/form4.xml,GRETHLEIN ANDREW J,"EVP, Chief Operating Officer",2023-02-09 00:00:00,Option Exercise,1.51,150000.0,226500.0,384719.0,Feb 10 09:49 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002794/xslF345X03/form4.xml,GRETHLEIN ANDREW J,"EVP, Chief Operating Officer",2023-02-09 00:00:00,Sale,3.03,384719.0,1165699.0,0.0,Feb 10 09:49 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002792/xslF345X03/form4.xml,Bloom Olivia Kyusuk,"EVP, Chief Financial Officer",2023-02-08 00:00:00,Option Exercise,1.51,400000.0,604000.0,474588.0,Feb 10 09:48 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002792/xslF345X03/form4.xml,Bloom Olivia Kyusuk,"EVP, Chief Financial Officer",2023-02-08 00:00:00,Sale,3.08,400000.0,1232000.0,74588.0,Feb 10 09:48 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002790/xslF345X03/form4.xml,SCARLETT JOHN A,"Chairman, President and CEO",2023-02-10 00:00:00,Option Exercise,1.5,446668.0,670002.0,446668.0,Feb 10 09:47 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002790/xslF345X03/form4.xml,SCARLETT JOHN A,"Chairman, President and CEO",2023-02-08 00:00:00,Option Exercise,1.5,446666.0,669999.0,446666.0,Feb 10 09:47 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002790/xslF345X03/form4.xml,SCARLETT JOHN A,"Chairman, President and CEO",2023-02-09 00:00:00,Sale,3.03,446666.0,1353398.0,0.0,Feb 10 09:47 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002790/xslF345X03/form4.xml,SCARLETT JOHN A,"Chairman, President and CEO",2023-02-08 00:00:00,Sale,3.08,446666.0,1375731.0,0.0,Feb 10 09:47 PM
+GERN,http://www.sec.gov/Archives/edgar/data/886744/000106299323002790/xslF345X03/form4.xml,SCARLETT JOHN A,"Chairman, President and CEO",2023-02-10 00:00:00,Sale,3.0,446668.0,1340004.0,0.0,Feb 10 09:47 PM
 UTRS,http://www.sec.gov/Archives/edgar/data/1235112/000120919123008574/xslF345X03/doc4.xml,NEW ENTERPRISE ASSOCIATES 13 L,10% Owner,2023-02-09 00:00:00,Buy,0.2,24437927.0,5000000.0,34437052.0,Feb 10 09:25 PM
 PLPC,http://www.sec.gov/Archives/edgar/data/80035/000120919123008571/xslF345X03/doc4.xml,David C Sunkle,Director,2023-02-08 00:00:00,Option Exercise,0.0,1612.0,0.0,11837.0,Feb 10 08:22 PM
 MGM,http://www.sec.gov/Archives/edgar/data/789570/000112760223004586/xslF345X03/form4.xml,HORNBUCKLE WILLIAM,CEO AND PRESIDENT,2023-02-09 00:00:00,Sale,44.86,110000.0,4934699.0,172781.0,Feb 10 08:17 PM

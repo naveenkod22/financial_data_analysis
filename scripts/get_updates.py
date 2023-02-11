@@ -26,6 +26,14 @@ def _add_year_to_date(df):
                                       else x.replace(year=datetime.datetime.now().year))
     return df
 
+def _format_date(df):
+    df['Date'] = df['Date'].str.extract('(\d\d\:\d\d\w{2})', expand=False)
+    df.dropna(subset=['Date'],inplace=True)
+    today = datetime.datetime.now().date().strftime('%Y-%m-%d')
+    df['Date'] =  today + '-' + df['Date']
+    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d-%I:%M%p', errors='coerce')
+    return df
+
 def update_calendar():
     path = "{base_path}calendar.csv".format(base_path=base_path)
     calendar = Calendar().calendar()
@@ -39,24 +47,27 @@ def update_calendar():
         calendar.to_csv(path, index=False)
     print('Calendar updated')
 
-def update_news():
-    path = "{base_path}news.csv".format(base_path=base_path)
-    news_blogs = News().get_news()
-    time.sleep(0.1)
-    news = news_blogs['news']
-    news['News_type'] = 'News'
-    blogs = news_blogs['blogs']
-    blogs['News_type'] = 'Blogs'
-    news = pd.concat([news, blogs], ignore_index=True)
-    if not os.path.exists(path):
-        news.to_csv(path,index=False)
-    else:
-        df = pd.read_csv(path)
-        news = pd.concat([news,df], ignore_index=True)
-        news = news.drop_duplicates(subset=['Date', 'Title'], keep='first')
-        news.to_csv(path, index=False)
-    print('News updated')
 
+news_path = "{base_path}news.csv".format(base_path=base_path)
+blogs_path = "{base_path}blogs.csv".format(base_path=base_path)
+news_blogs = News().get_news()
+time.sleep(0.1)
+
+def update_news_blogs(df=news_blogs, news_path = news_path, blogs_path = blogs_path):
+    paths = {'news': news_path, 'blogs':blogs_path}
+    for key, path in paths.items():
+        df_temp = df[key]
+        df_temp = _format_date(df_temp)
+        if not os.path.exists(path):
+            df_temp.to_csv(path,index=False)
+        else:
+            df_old = pd.read_csv(path)
+            df_temp = df[key]
+            df_temp = pd.concat([df_temp,df_old], ignore_index=True)
+            df_temp = df_temp.drop_duplicates(subset=['Title'], keep='first')
+            df_temp.to_csv(path, index=False)
+    print('News and Blogs updated')
+    
 
 def update_insider():
     path = "{base_path}insider.csv".format(base_path=base_path)
@@ -71,5 +82,3 @@ def update_insider():
         insider = insider.drop_duplicates(subset= ['Ticker','Owner','Relationship','Transaction','Cost','#Shares','Value ($)'], keep='first')
         insider.to_csv(path, index=False)
     print('Insider updated')
-    
-

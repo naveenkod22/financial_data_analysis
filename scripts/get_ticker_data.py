@@ -52,7 +52,8 @@ def _transform_save_inside_trade(df,path):
     df.to_csv(path, index=False)
     if os.path.exists(path):
         inside_trade = pd.read_csv(path)
-        inside_trade = pd.concat( [df,inside_trade],ignore_index=True).drop_duplicates()
+        inside_trade = pd.concat( [df,inside_trade],ignore_index=True)
+        inside_trade = inside_trade.drop_duplicates()
         inside_trade.reset_index(inplace=True,drop=True)
         inside_trade.to_csv(path, index = False)
     else:

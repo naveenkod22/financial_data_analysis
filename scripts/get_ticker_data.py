@@ -49,13 +49,27 @@ def _transform_save_news(df,path):
         df.to_csv(path, index = False)
 
 def _transform_save_inside_trade(df,path):
-    df.to_csv(path, index=False)
     if os.path.exists(path):
         inside_trade = pd.read_csv(path)
         inside_trade = pd.concat( [df,inside_trade],ignore_index=True)
-        inside_trade = inside_trade.drop_duplicates()
+        inside_trade = inside_trade.drop_duplicates(subset=['Insider Trading','Relationship','Date','Transaction','Cost','#Shares','Value ($)'])
         inside_trade.reset_index(inplace=True,drop=True)
         inside_trade.to_csv(path, index = False)
+    else:
+        df.to_csv(path, index = False)
+
+def _transform_save_fundament(dct,path):
+    series = pd.Series(dct)
+    today = pd.to_datetime('today').strftime('%Y-%m-%d')
+    series.name = today
+    df = series.to_frame().transpose(copy=True)
+    df.reset_index(drop=False, inplace=True)
+    df.rename(columns={'index':'Date'}, inplace=True)
+    if os.path.exists(path):
+        fundament = pd.read_csv(path)
+        fundament = pd.concat( [fundament,df],ignore_index=True)
+        fundament.drop_duplicates(subset=['Date'], keep='first', inplace=True)
+        fundament.to_csv(path, index = False)
     else:
         df.to_csv(path, index = False)
  
@@ -94,11 +108,10 @@ def _get_ticker_data(watch_list, sector, ticker):
             
             # Ticker Fundament
             if key == 'fundament':
-                path = "{base_path}{ticker}_fundament.json".format(base_path=base_path, ticker=ticker)
-                if not os.path.exists(path):
-                    fundament = full_info['fundament']
-                    with open(path, 'w') as f:
-                        json.dump(fundament,f,indent=4)
+                path = "{base_path}{ticker}_fundament.csv".format(base_path=base_path, ticker=ticker)
+                dct = full_info['fundament']
+                _transform_save_fundament(dct=dct,path=path)
+
 
             # Ticker Ratting
             if key == 'ratings_outer':
@@ -119,12 +132,10 @@ def _get_ticker_data(watch_list, sector, ticker):
                 _transform_save_inside_trade(df=inside_trade,path=path)
             
     except AttributeError:
-        fundament = tick.ticker_fundament()
+        dct = tick.ticker_fundament()
         time.sleep(0.1)
-        path = "{base_path}{ticker}_fundament.json".format(base_path=base_path, ticker=ticker)
-        if not os.path.exists(path):
-            with open(path, 'w') as f:
-                json.dump(fundament,f,indent=4)
+        path = "{base_path}{ticker}_fundament.csv".format(base_path=base_path, ticker=ticker)
+        _transform_save_fundament(dct=dct,path=path)
 
         ratings_outer = tick.ticker_outer_ratings()
         time.sleep(0.1)

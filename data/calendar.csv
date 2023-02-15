@@ -1,6 +1,7 @@
 Datetime,Release,Impact,For,Actual,Expected,Prior
-"Tue Feb 14, 8:30 AM",CPI,3,Jan,-,0.5%,-0.1%
-"Tue Feb 14, 8:30 AM",Core CPI,3,Jan,-,0.4%,0.3%
+"Tue Feb 14, 6:00 AM",NFIB Small Business Optimism,1,Jan,90.3,NA,89.8
+"Tue Feb 14, 8:30 AM",CPI,3,Jan,0.5%,0.5%,0.1%
+"Tue Feb 14, 8:30 AM",Core CPI,3,Jan,0.4%,0.4%,0.4%
 "Wed Feb 15, 7:00 AM",MBA Mortgage Applications Index,1,02/11,-,NA,7.4%
 "Wed Feb 15, 8:30 AM",Retail Sales,2,Jan,-,1.7%,-1.1%
 "Wed Feb 15, 8:30 AM",Retail Sales ex-auto,3,Jan,-,0.8%,-1.1%

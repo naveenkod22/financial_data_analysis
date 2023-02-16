@@ -2,16 +2,16 @@ Datetime,Release,Impact,For,Actual,Expected,Prior
 "Tue Feb 14, 6:00 AM",NFIB Small Business Optimism,1,Jan,90.3,NA,89.8
 "Tue Feb 14, 8:30 AM",CPI,3,Jan,0.5%,0.5%,0.1%
 "Tue Feb 14, 8:30 AM",Core CPI,3,Jan,0.4%,0.4%,0.4%
-"Wed Feb 15, 7:00 AM",MBA Mortgage Applications Index,1,02/11,-,NA,7.4%
-"Wed Feb 15, 8:30 AM",Retail Sales,2,Jan,-,1.7%,-1.1%
-"Wed Feb 15, 8:30 AM",Retail Sales ex-auto,3,Jan,-,0.8%,-1.1%
-"Wed Feb 15, 8:30 AM",Empire State Manufacturing,1,Feb,-,-19.0,-32.9
-"Wed Feb 15, 9:15 AM",Industrial Production,2,Jan,-,0.5%,-0.7%
-"Wed Feb 15, 9:15 AM",Capacity Utilization,2,Jan,-,79.1%,78.8%
-"Wed Feb 15, 10:00 AM",Business Inventories,2,Dec,-,0.3%,0.4%
-"Wed Feb 15, 10:00 AM",NAHB Housing Market Index,1,Feb,-,37,35
-"Wed Feb 15, 10:30 AM",EIA Crude Oil Inventories,3,02/11,-,NA,2.42M
-"Wed Feb 15, 4:00 PM",Net Long-Term TIC Flows,1,Dec,-,NA,$171.5B
+"Wed Feb 15, 7:00 AM",MBA Mortgage Applications Index,1,02/11,-7.7%,NA,7.4%
+"Wed Feb 15, 8:30 AM",Retail Sales,2,Jan,3.0%,1.7%,-1.1%
+"Wed Feb 15, 8:30 AM",Retail Sales ex-auto,3,Jan,2.3%,0.8%,-0.9%
+"Wed Feb 15, 8:30 AM",Empire State Manufacturing,1,Feb,-5.8,-19.0,-32.9
+"Wed Feb 15, 9:15 AM",Industrial Production,2,Jan,0.0%,0.5%,-1.0%
+"Wed Feb 15, 9:15 AM",Capacity Utilization,2,Jan,78.3%,79.1%,78.4%
+"Wed Feb 15, 10:00 AM",Business Inventories,2,Dec,0.3%,0.3%,0.3%
+"Wed Feb 15, 10:00 AM",NAHB Housing Market Index,1,Feb,42,37,35
+"Wed Feb 15, 10:30 AM",EIA Crude Oil Inventories,3,02/11,16.28M,NA,2.42M
+"Wed Feb 15, 4:00 PM",Net Long-Term TIC Flows,1,Dec,$152.8B,NA,$171.5B
 "Thu Feb 16, 8:30 AM",Housing Starts,2,Jan,-,1355K,1382K
 "Thu Feb 16, 8:30 AM",Building Permits,2,Jan,-,1350K,1330K
 "Thu Feb 16, 8:30 AM",PPI,3,Jan,-,0.4%,-0.5%

@@ -1,4 +1,5 @@
 Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
+2023-02-15,Initiated,Barclays,Overweight,Overweight,28,28
 2023-01-04,Reiterated,Truist,Buy,Buy,65,50
 2022-12-20,Initiated,Cantor Fitzgerald,Overweight,Overweight,22,22
 2022-11-30,Initiated,Evercore ISI,In-line,In-line,35,35
@@ -18,4 +19,4 @@ Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
 2021-12-06,Initiated,Wedbush,Outperform,Outperform,130,130
 2021-12-06,Initiated,Robert W. Baird,Outperform,Outperform,150,150
 2021-12-06,Initiated,RBC Capital Mkts,Outperform,Outperform,165,165
-2021-12-06,Initiated,Piper Sandler,Overweight,Overweight,148,148
+2021-12-06,Initiated,Piper Sandler,Overweight,Overweight,148.0,148.0

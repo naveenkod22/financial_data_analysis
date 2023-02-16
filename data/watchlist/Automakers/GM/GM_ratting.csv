@@ -1,4 +1,5 @@
 Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
+2023-02-15,Initiated,Barclays,Equal Weight,Equal Weight,46,46
 2023-01-30,Downgrade,Berenberg,Buy,Hold,45,41
 2022-11-10,Downgrade,Wolfe Research,Outperform,Peer Perform,,
 2022-10-10,Downgrade,UBS,Buy,Neutral,56,38
@@ -18,4 +19,4 @@ Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
 2021-07-09,Initiated,Wedbush,Outperform,Outperform,85,85
 2021-06-22,Reiterated,Barclays,Overweight,Overweight,70,74
 2021-05-19,Initiated,Tudor Pickering,Buy,Buy,76,76
-2021-04-05,Initiated,Wells Fargo,Overweight,Overweight,67,67
+2021-04-05,Initiated,Wells Fargo,Overweight,Overweight,67.0,67.0

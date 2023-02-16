@@ -1,4 +1,5 @@
 Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
+2023-02-15,Initiated,Barclays,Overweight,Overweight,275,275
 2023-01-30,Upgrade,Berenberg,Hold,Buy,255,200
 2023-01-27,Reiterated,Argus,Buy,Buy,374,257
 2023-01-23,Reiterated,Truist,Buy,Buy,299,245
@@ -18,4 +19,4 @@ Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
 2022-10-20,Reiterated,Wedbush,Outperform,Outperform,360,300
 2022-10-20,Reiterated,ROTH Capital,Neutral,Neutral,83.33,85
 2022-10-20,Reiterated,RBC Capital Mkts,Outperform,Outperform,340,325
-2022-10-20,Reiterated,Mizuho,Buy,Buy,370,330
+2022-10-20,Reiterated,Mizuho,Buy,Buy,370.0,330.0

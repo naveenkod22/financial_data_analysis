@@ -18,15 +18,15 @@ update_insider()
 update_calendar()
 update_news_blogs()
 
-# with open(file_path) as f:
-#     watch_list = json.load(f)
+with open(file_path) as f:
+    watch_list = json.load(f)
 
-# if datetime.datetime.today().weekday() in [0, 1, 2, 3, 4]:
-# # Scanners:
-#     get_allSignalScreener()
+if datetime.datetime.today().weekday() in [0, 1, 2, 3, 4]:
+# Scanners:
+    # get_allSignalScreener()
     
-# # Quotes and Related data for Tickers in given Json File.
-#     for sector, value in watch_list.items():
-#         for ticker in value:
-#             get_quotes(watch_list=watch_list_name, sector=sector, ticker=ticker)
-#             get_ticker_data(watch_list=watch_list_name, sector=sector,ticker=ticker)
+# Quotes and Related data for Tickers in given Json File.
+    for sector, value in watch_list.items():
+        for ticker in value:
+            # get_quotes(watch_list=watch_list_name, sector=sector, ticker=ticker)
+            get_ticker_data(watch_list=watch_list_name, sector=sector,ticker=ticker)

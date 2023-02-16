@@ -5,7 +5,7 @@ import datetime
 import pandas as pd
 from finvizfinance import quote
 
-os.chdir('C://Users//navee//Documents//code//financial_data_analysis/')
+os.chdir('/home/naveen/code/financial_data_analysis/')
 global base_path
 
 def _transform_save_rating(df,path):

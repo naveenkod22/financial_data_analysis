@@ -12,14 +12,14 @@ Datetime,Release,Impact,For,Actual,Expected,Prior
 "Wed Feb 15, 10:00 AM",NAHB Housing Market Index,1,Feb,42,37,35
 "Wed Feb 15, 10:30 AM",EIA Crude Oil Inventories,3,02/11,16.28M,NA,2.42M
 "Wed Feb 15, 4:00 PM",Net Long-Term TIC Flows,1,Dec,$152.8B,NA,$171.5B
-"Thu Feb 16, 8:30 AM",Housing Starts,2,Jan,-,1355K,1382K
-"Thu Feb 16, 8:30 AM",Building Permits,2,Jan,-,1350K,1330K
-"Thu Feb 16, 8:30 AM",PPI,3,Jan,-,0.4%,-0.5%
-"Thu Feb 16, 8:30 AM",Core PPI,3,Jan,-,0.3%,0.1%
-"Thu Feb 16, 8:30 AM",Initial Claims,2,02/11,-,203K,196K
-"Thu Feb 16, 8:30 AM",Continuing Claims,2,02/04,-,NA,1688K
-"Thu Feb 16, 8:30 AM",Philadelphia Fed Index,1,Feb,-,-8.0,-8.9
-"Thu Feb 16, 10:30 AM",EIA Natural Gas Inventories,1,02/10,-,NA,-217 bcf
+"Thu Feb 16, 8:30 AM",Housing Starts,2,Jan,1309K,1355K,1371K
+"Thu Feb 16, 8:30 AM",Building Permits,2,Jan,1339K,1350K,1337K
+"Thu Feb 16, 8:30 AM",PPI,3,Jan,0.7%,0.4%,-0.2%
+"Thu Feb 16, 8:30 AM",Core PPI,3,Jan,0.5%,0.3%,0.3%
+"Thu Feb 16, 8:30 AM",Initial Claims,2,02/11,194K,203K,195K
+"Thu Feb 16, 8:30 AM",Continuing Claims,2,02/04,1696K,NA,1680K
+"Thu Feb 16, 8:30 AM",Philadelphia Fed Index,1,Feb,-24.3,-8.0,-8.9
+"Thu Feb 16, 10:30 AM",EIA Natural Gas Inventories,1,02/10,-100 bcf,NA,-217 bcf
 "Fri Feb 17, 8:30 AM",Import Prices,1,Jan,-,NA,0.4%
 "Fri Feb 17, 8:30 AM",Import Prices ex-oil,2,Jan,-,NA,0.4%
 "Fri Feb 17, 8:30 AM",Export Prices,1,Jan,-,NA,-2.6%

@@ -3,7 +3,7 @@ import time
 import pandas as pd
 from finvizfinance.quote import Statements
 
-os.chdir('C://Users//navee//Documents//code//financial_data_analysis/') 
+os.chdir('/home/naveen/code/financial_data_analysis/') 
 
 
 def get_statements_df(watch_list, sector, ticker):

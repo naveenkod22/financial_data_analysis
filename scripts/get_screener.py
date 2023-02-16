@@ -11,7 +11,7 @@ from finvizfinance.screener.overview import Overview
 
 start = time.time()
 warnings.filterwarnings('ignore')
-os.chdir('C://Users//navee//Documents//code//financial_data_analysis/')
+os.chdir('/home/naveen/code/financial_data_analysis/')
 
 def _get_signals_df():
     print('Getting Signals Dataframe')

@@ -9,7 +9,7 @@ import pandas as pd
 api_key = 'OWBLXVL83U05HM1N'
 
 # Setting default working directory for this script
-os.chdir("C:\\Users\\navee\\Desktop\\Stock_prediction")
+os.chdir('/home/naveen/code/financial_data_analysis/')
 
 with open('./data/watch_list.json', 'r') as f:
     watch_list = json.load(f)

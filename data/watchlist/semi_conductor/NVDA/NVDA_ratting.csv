@@ -1,4 +1,5 @@
 Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
+2023-02-16,Downgrade,DZ Bank,Buy,Sell,195,195
 2023-01-23,Reiterated,Truist,Buy,Buy,198,238
 2022-12-19,Reiterated,Needham,Buy,Buy,200,230
 2022-12-15,Initiated,HSBC Securities,Reduce,Reduce,136,136
@@ -18,4 +19,4 @@ Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
 2021-11-18,Reiterated,Truist,Buy,Buy,360,389
 2021-11-18,Reiterated,Raymond James,Strong Buy,Strong Buy,225,365
 2021-11-18,Reiterated,Piper Sandler,Overweight,Overweight,260,350
-2021-11-18,Reiterated,Needham,Buy,Buy,245,400
+2021-11-18,Reiterated,Needham,Buy,Buy,245.0,400.0

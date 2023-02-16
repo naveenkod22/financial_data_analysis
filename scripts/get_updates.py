@@ -7,7 +7,7 @@ from finvizfinance.insider import Insider
 from finvizfinance.calendar import Calendar
 
 
-os.chdir('C://Users//navee//Documents//code//financial_data_analysis/')
+os.chdir('/home/naveen/code/financial_data_analysis/')
 
 base_path = "./data/"
 

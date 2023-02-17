@@ -1,5 +1,6 @@
 import os
 import time
+import logging
 import datetime
 import pandas as pd
 from finvizfinance.news import News
@@ -82,3 +83,17 @@ def update_insider():
         insider = insider.drop_duplicates(subset= ['Ticker','Owner','Relationship','Transaction','Cost','#Shares','Value ($)'], keep='first')
         insider.to_csv(path, index=False)
     print('Insider updated')
+
+if __name__ == "__main__":
+    try:    
+        update_insider()
+        update_calendar()
+        update_news_blogs()
+    except ConnectionError:
+        update_insider()
+        update_calendar()
+        update_news_blogs()
+        
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    logging.basicConfig(filename='logs.log', level=logging.INFO)
+    logging.info("News, Blogs, Insider, Calender Data;  Updated at: {timestamp}".format(timestamp=timestamp))

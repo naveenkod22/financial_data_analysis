@@ -20,11 +20,11 @@ Datetime,Release,Impact,For,Actual,Expected,Prior
 "Thu Feb 16, 8:30 AM",Continuing Claims,2,02/04,1696K,NA,1680K
 "Thu Feb 16, 8:30 AM",Philadelphia Fed Index,1,Feb,-24.3,-8.0,-8.9
 "Thu Feb 16, 10:30 AM",EIA Natural Gas Inventories,1,02/10,-100 bcf,NA,-217 bcf
-"Fri Feb 17, 8:30 AM",Import Prices,1,Jan,-,NA,0.4%
-"Fri Feb 17, 8:30 AM",Import Prices ex-oil,2,Jan,-,NA,0.4%
-"Fri Feb 17, 8:30 AM",Export Prices,1,Jan,-,NA,-2.6%
-"Fri Feb 17, 8:30 AM",Export Prices ex-ag.,2,Jan,-,NA,-2.7%
-"Fri Feb 17, 10:00 AM",Leading Indicators,1,Jan,-,-0.3%,-1.0%
+"Fri Feb 17, 8:30 AM",Import Prices,1,Jan,-0.2%,NA,-0.1%
+"Fri Feb 17, 8:30 AM",Import Prices ex-oil,2,Jan,0.3%,NA,0.4%
+"Fri Feb 17, 8:30 AM",Export Prices,1,Jan,0.8%,NA,-3.2%
+"Fri Feb 17, 8:30 AM",Export Prices ex-ag.,2,Jan,0.8%,NA,-3.3%
+"Fri Feb 17, 10:00 AM",Leading Indicators,1,Jan,-0.3%,-0.3%,-0.8%
 "Tue Feb 07, 8:30 AM",Trade Balance,2,Dec,-$67.4B,-$68.5B,-$61.0B
 "Tue Feb 07, 3:00 PM",Consumer Credit,1,Dec,$11.6B,$24.5B,$33.1B
 "Wed Feb 08, 7:00 AM",MBA Mortgage Applications Index,1,02/04,7.4%,,-9.0%

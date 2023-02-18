@@ -3,13 +3,13 @@ import time
 import csv
 import datetime
 import warnings
+import logging
 import numpy as np
 import pandas as pd
 from finvizfinance import quote
 from finvizfinance.quote import finvizfinance
 from finvizfinance.screener.overview import Overview
 
-start = time.time()
 warnings.filterwarnings('ignore')
 os.chdir('/home/naveen/code/financial_data_analysis/')
 
@@ -179,7 +179,7 @@ def _get_allSignalScreener():
     fundamentals = _add_fundamentals(signals_df)
     ticker_info_path = './data/screeners/ticker_info.csv'
     _update_ticker_info(df = fundamentals, ticker_info_path= ticker_info_path)
-    date = str(datetime.datetime.now())[0:10].replace("-", "")
+    date = datetime.datetime.now().strftime("%Y%m%d_%H%M")
     path = './data/screeners/allSignalScreener{date}.csv'.format(date= date)
     _transform_load_data(fundamentals, path=path)
 
@@ -190,5 +190,8 @@ def get_allSignalScreener():
         print('Connection Error Occurred for all Signal Scanner')
         _get_allSignalScreener()
 
-    end = time.time()-start
-    print('Time taken to run allSignalScreener: ', end)
+if __name__ == '__main__':
+    get_allSignalScreener()
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    logging.basicConfig(filename='logs.log', level=logging.INFO)
+    logging.info("; All Signal Screener Data ; {timestamp}".format(timestamp=timestamp))

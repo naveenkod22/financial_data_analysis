@@ -93,7 +93,7 @@ if __name__ == "__main__":
         update_insider()
         update_calendar()
         update_news_blogs()
-        
+
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     logging.basicConfig(filename='logs.log', level=logging.INFO)
-    logging.info("News, Blogs, Insider, Calender Data;  Updated at: {timestamp}".format(timestamp=timestamp))
+    logging.info("; News, Blogs, Insider, Calender Data ; {timestamp}".format(timestamp=timestamp))

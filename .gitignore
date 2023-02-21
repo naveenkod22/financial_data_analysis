@@ -10,5 +10,4 @@ __pycache__/
 /ToDo.txt
 /test/
 /scripts/config.ini
-
-
+/scripts/test.py

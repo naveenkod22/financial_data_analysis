@@ -1,9 +1,16 @@
 import os
 import json
-import logging
 import datetime
+import pandas as pd
+from utils import log
+from utils import database_connection
 from get_quotes import get_quotes
 from get_ticker_data import get_ticker_data
+
+# create a connection to the PostgreSQL database
+conn = database_connection()
+business_dates = pd.read_sql('market_callender', conn)['Date']
+conn.commit()
 
 os.chdir('/home/naveen/code/financial_data_analysis/')
 # file_path = sys.argv[1]
@@ -15,13 +22,13 @@ watch_list_name = os.path.basename(file_path).split('.')[0]
 
 with open(file_path) as f:
     watch_list = json.load(f)
-    
-# Quotes and Related data for Tickers in given Json File.
-for sector, value in watch_list.items():
-    for ticker in value:
-        get_quotes(watch_list=watch_list_name, sector=sector, ticker=ticker)
-        get_ticker_data(watch_list=watch_list_name, sector=sector,ticker=ticker)
 
-timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-logging.basicConfig(filename='logs.log', level=logging.INFO)
-logging.info("; Quotes & Ticker Data ; {timestamp}".format(timestamp=timestamp))
+if datetime.date.today() in business_dates:
+    # Quotes and Related data for Tickers in given Json File.
+    for sector, value in watch_list.items():
+        for ticker in value:
+            get_quotes(watch_list=watch_list_name, sector=sector, ticker=ticker)
+            get_ticker_data(watch_list=watch_list_name, sector=sector,ticker=ticker)
+
+    log(message='Quotes & Ticker Data')
+    

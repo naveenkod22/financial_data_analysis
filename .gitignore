@@ -8,5 +8,7 @@
 /temp/
 __pycache__/
 /ToDo.txt
-/*.ipynb
-/retire_ment.json
+/test/
+/scripts/config.ini
+
+

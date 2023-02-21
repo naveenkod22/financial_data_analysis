@@ -3,6 +3,7 @@ import time
 import logging
 import datetime
 import pandas as pd
+from utils import log
 from finvizfinance.news import News
 from finvizfinance.insider import Insider
 from finvizfinance.calendar import Calendar
@@ -94,6 +95,4 @@ if __name__ == "__main__":
         update_calendar()
         update_news_blogs()
 
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    logging.basicConfig(filename='logs.log', level=logging.INFO)
-    logging.info("; News, Blogs, Insider, Calender Data ; {timestamp}".format(timestamp=timestamp))
+    log(message="News, Blogs, Insider, Calender Data")

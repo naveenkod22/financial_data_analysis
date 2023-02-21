@@ -1,14 +1,18 @@
 import os
 import time
-import csv
 import datetime
 import warnings
-import logging
 import numpy as np
 import pandas as pd
+from utils import log
 from finvizfinance import quote
+from utils import database_connection
 from finvizfinance.quote import finvizfinance
 from finvizfinance.screener.overview import Overview
+
+# create a connection to the PostgreSQL database
+conn = database_connection()
+business_dates = pd.read_sql('market_callender', conn)['Date']
 
 warnings.filterwarnings('ignore')
 os.chdir('/home/naveen/code/financial_data_analysis/')
@@ -47,7 +51,6 @@ def _transform_signals_df(signals_df):
     return signals_df
 
 def _add_fundamentals(df):
-    print('Adding Fundamentals')
     for_columns = quote.finvizfinance(ticker='AAPL').ticker_fundament()
     fundamentals_df = pd.DataFrame(index=for_columns.keys())
 
@@ -69,14 +72,9 @@ def _add_fundamentals(df):
     df = pd.merge(df, fundamentals_df, on='Ticker')
     return df
 
-def _update_ticker_info(df, ticker_info_path):
-    if not os.path.exists(ticker_info_path):
-        header = ['Ticker', 'Company','Sector','Industry','Country', 'Description']
-        with open(ticker_info_path, 'w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(header)
-    print('Updating Ticker Info')
-    ticker_info = pd.read_csv(ticker_info_path)
+def _update_ticker_info(df):
+    
+    ticker_info = pd.read_sql('ticker_info', conn)
     new_ticker_info = df[['Ticker', 'Company','Sector','Industry','Country']]
     tickers = new_ticker_info['Ticker'][~new_ticker_info['Ticker'].isin(ticker_info['Ticker'])]
     
@@ -90,10 +88,8 @@ def _update_ticker_info(df, ticker_info_path):
             print('An Exception occurred while adding description')
     
     new_ticker_info['Description'] = new_ticker_info['Ticker'].map(description)
-
-    all_ticker_info = pd.concat([ticker_info, new_ticker_info], ignore_index=True)
-    all_ticker_info.dropna(inplace=True)
-    all_ticker_info.to_csv(ticker_info_path, index=False)
+    new_ticker_info.dropna(inplace=True)
+    new_ticker_info.to_sql('ticker_info', conn, if_exists='append', index=False)
     
 
 def _convert_to_number(value):
@@ -125,9 +121,9 @@ def _format_earnings(df):
     df.drop(columns=['Earnings'], inplace=True)
     return df
     
-def _transform_load_data(df, path):
-    df['Date'] = pd.Timestamp.today().date()
-    df['Date'] = pd.to_datetime(df['Date'])
+def _transform_load_data(df):
+    df['Date'] = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+    df['Date'] = pd.to_datetime(df['Date'], format='%Y%m%d_%H%M')
 
     df['Short Float / Ratio'].replace('-', np.nan, inplace=True)
     df[['Short Float Percentage', 'Short Float Ratio']] = df['Short Float / Ratio'].str.split(" / ", expand=True)
@@ -170,18 +166,15 @@ def _transform_load_data(df, path):
     
     df.columns = df.columns.str.replace(' ', '_').str.replace('/', '_')
     df.rename(columns={'Dividend_%_percentage': 'Dividend_percentage'}, inplace=True)
-    df.to_csv(path, index=False)
+    df.to_sql('all_signal_screener',conn , if_exists = 'append' ,index=False)
+    conn.commit()
 
 def _get_allSignalScreener():
-    print('Transforming and Saving all Signal Screener')
     signals_df = _get_signals_df()
     signals_df = _transform_signals_df(signals_df)
     fundamentals = _add_fundamentals(signals_df)
-    ticker_info_path = './data/screeners/ticker_info.csv'
-    _update_ticker_info(df = fundamentals, ticker_info_path= ticker_info_path)
-    date = datetime.datetime.now().strftime("%Y%m%d_%H%M")
-    path = './data/screeners/allSignalScreener{date}.csv'.format(date= date)
-    _transform_load_data(fundamentals, path=path)
+    _update_ticker_info(df = fundamentals) # update this
+    _transform_load_data(fundamentals) # update this
 
 def get_allSignalScreener():
     try:
@@ -191,7 +184,7 @@ def get_allSignalScreener():
         _get_allSignalScreener()
 
 if __name__ == '__main__':
+    # if datetime.date.today() in business_dates:
     get_allSignalScreener()
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    logging.basicConfig(filename='logs.log', level=logging.INFO)
-    logging.info("; All Signal Screener Data ; {timestamp}".format(timestamp=timestamp))
+    log(message='All Signal Screener Data')
+        

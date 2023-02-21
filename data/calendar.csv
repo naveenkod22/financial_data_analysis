@@ -1,8 +1,25 @@
 Datetime,Release,Impact,For,Actual,Expected,Prior
-"Tue Feb 14, 6:00 AM",NFIB Small Business Optimism,1,Jan,90.3,NA,89.8
+"Tue Feb 21, 9:45 AM",IHS Markit Manufacturing PMI - Prelim,1,Feb,-,NA,46.9
+"Tue Feb 21, 9:45 AM",IHS Markit Services PMI - Prelim,1,Feb,-,NA,46.8
+"Tue Feb 21, 10:00 AM",Existing Home Sales,2,Jan,-,4.12M,4.02M
+"Wed Feb 22, 7:00 AM",MBA Mortgage Applications Index,1,02/18,-,NA,-7.7%
+"Wed Feb 22, 10:30 AM",EIA Crude Oil Inventories,3,02/18,-,NA,16.28M
+"Wed Feb 22, 2:00 PM",FOMC Minutes,3,1/31-2/01,-,NA,
+"Thu Feb 23, 8:30 AM",Initial Claims,2,02/18,-,200K,194K
+"Thu Feb 23, 8:30 AM",Continuing Claims,2,02/11,-,NA,1696K
+"Thu Feb 23, 8:30 AM",GDP - Second Estimate,2,Q4,-,2.9%,2.9%
+"Thu Feb 23, 8:30 AM",GDP Deflator - Second Estimate,1,Q4,-,3.5%,3.5%
+"Thu Feb 23, 10:30 AM",EIA Natural Gas Inventories,1,02/17,-,NA,-100 bcf
+"Fri Feb 24, 8:30 AM",Personal Income,1,Jan,-,0.9%,0.2%
+"Fri Feb 24, 8:30 AM",Personal Spending,2,Jan,-,1.3%,-0.2%
+"Fri Feb 24, 8:30 AM",PCE Prices,2,Jan,-,0.4%,0.1%
+"Fri Feb 24, 8:30 AM",PCE Prices - Core,2,Jan,-,0.4%,0.3%
+"Fri Feb 24, 10:00 AM",New Home Sales,2,Jan,-,620K,616K
+"Fri Feb 24, 10:00 AM",Univ. of Michigan Consumer Sentiment - Final,1,Feb,-,66.6,66.4
+"Tue Feb 14, 6:00 AM",NFIB Small Business Optimism,1,Jan,90.3,,89.8
 "Tue Feb 14, 8:30 AM",CPI,3,Jan,0.5%,0.5%,0.1%
 "Tue Feb 14, 8:30 AM",Core CPI,3,Jan,0.4%,0.4%,0.4%
-"Wed Feb 15, 7:00 AM",MBA Mortgage Applications Index,1,02/11,-7.7%,NA,7.4%
+"Wed Feb 15, 7:00 AM",MBA Mortgage Applications Index,1,02/11,-7.7%,,7.4%
 "Wed Feb 15, 8:30 AM",Retail Sales,2,Jan,3.0%,1.7%,-1.1%
 "Wed Feb 15, 8:30 AM",Retail Sales ex-auto,3,Jan,2.3%,0.8%,-0.9%
 "Wed Feb 15, 8:30 AM",Empire State Manufacturing,1,Feb,-5.8,-19.0,-32.9
@@ -10,20 +27,20 @@ Datetime,Release,Impact,For,Actual,Expected,Prior
 "Wed Feb 15, 9:15 AM",Capacity Utilization,2,Jan,78.3%,79.1%,78.4%
 "Wed Feb 15, 10:00 AM",Business Inventories,2,Dec,0.3%,0.3%,0.3%
 "Wed Feb 15, 10:00 AM",NAHB Housing Market Index,1,Feb,42,37,35
-"Wed Feb 15, 10:30 AM",EIA Crude Oil Inventories,3,02/11,16.28M,NA,2.42M
-"Wed Feb 15, 4:00 PM",Net Long-Term TIC Flows,1,Dec,$152.8B,NA,$171.5B
+"Wed Feb 15, 10:30 AM",EIA Crude Oil Inventories,3,02/11,16.28M,,2.42M
+"Wed Feb 15, 4:00 PM",Net Long-Term TIC Flows,1,Dec,$152.8B,,$171.5B
 "Thu Feb 16, 8:30 AM",Housing Starts,2,Jan,1309K,1355K,1371K
 "Thu Feb 16, 8:30 AM",Building Permits,2,Jan,1339K,1350K,1337K
 "Thu Feb 16, 8:30 AM",PPI,3,Jan,0.7%,0.4%,-0.2%
 "Thu Feb 16, 8:30 AM",Core PPI,3,Jan,0.5%,0.3%,0.3%
 "Thu Feb 16, 8:30 AM",Initial Claims,2,02/11,194K,203K,195K
-"Thu Feb 16, 8:30 AM",Continuing Claims,2,02/04,1696K,NA,1680K
+"Thu Feb 16, 8:30 AM",Continuing Claims,2,02/04,1696K,,1680K
 "Thu Feb 16, 8:30 AM",Philadelphia Fed Index,1,Feb,-24.3,-8.0,-8.9
-"Thu Feb 16, 10:30 AM",EIA Natural Gas Inventories,1,02/10,-100 bcf,NA,-217 bcf
-"Fri Feb 17, 8:30 AM",Import Prices,1,Jan,-0.2%,NA,-0.1%
-"Fri Feb 17, 8:30 AM",Import Prices ex-oil,2,Jan,0.3%,NA,0.4%
-"Fri Feb 17, 8:30 AM",Export Prices,1,Jan,0.8%,NA,-3.2%
-"Fri Feb 17, 8:30 AM",Export Prices ex-ag.,2,Jan,0.8%,NA,-3.3%
+"Thu Feb 16, 10:30 AM",EIA Natural Gas Inventories,1,02/10,-100 bcf,,-217 bcf
+"Fri Feb 17, 8:30 AM",Import Prices,1,Jan,-0.2%,,-0.1%
+"Fri Feb 17, 8:30 AM",Import Prices ex-oil,2,Jan,0.3%,,0.4%
+"Fri Feb 17, 8:30 AM",Export Prices,1,Jan,0.8%,,-3.2%
+"Fri Feb 17, 8:30 AM",Export Prices ex-ag.,2,Jan,0.8%,,-3.3%
 "Fri Feb 17, 10:00 AM",Leading Indicators,1,Jan,-0.3%,-0.3%,-0.8%
 "Tue Feb 07, 8:30 AM",Trade Balance,2,Dec,-$67.4B,-$68.5B,-$61.0B
 "Tue Feb 07, 3:00 PM",Consumer Credit,1,Dec,$11.6B,$24.5B,$33.1B

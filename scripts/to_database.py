@@ -174,6 +174,7 @@ from sqlalchemy import text
 import pandas as pd
 import glob
 import os
+import numpy as np
 from utils import database_engine
 
 engine = database_engine()
@@ -190,6 +191,7 @@ q_earn_df.columns
 q_earn_df.rename(columns={'ticker':'ticker', 'fiscalDateEnding':'fiscal_date_ending', 'reportedEPS':'reported_eps',
                         'reportedDate':'reported_date', 'estimatedEPS':'estimated_eps',
                         'surprise':'surprise', 'surprisePercentage':'surprise_percentage'}, inplace=True)
+q_earn_df.replace('None', np.nan, inplace=True)
 q_earn_df.to_sql('dim_quarterly_earnings', conn, if_exists='append', index=False)
 conn.commit()
 

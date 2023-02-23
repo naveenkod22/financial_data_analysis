@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS dim_balance_sheets (
     report_type VARCHAR(8)
 );
 
-DROP TABLE dim_income_statement;
+DROP TABLE dim_income_statements;
 CREATE TABLE IF NOT EXISTS dim_income_statements (
     income_statement_id SERIAL PRIMARY KEY,
     ticker VARCHAR(8) REFERENCES fact_tickers(ticker),
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS dim_quarterly_earnings (
     surprise FLOAT,
     surprise_percentage FLOAT
 );
-DROP TABLE inside_trade;
+DROP TABLE inside_trades;
 CREATE TABLE IF NOT EXISTS inside_trades (
     inside_trade_id SERIAL PRIMARY KEY,
     ticker VARCHAR(8),

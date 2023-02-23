@@ -1,4 +1,4 @@
-Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
+Date,Status,Outer,Previous_rating,Current_rating,Previous_price,Current_price
 2023-02-03,Upgrade,DZ Bank,Sell,Hold,180,180
 2023-02-03,Downgrade,HSBC Securities,Hold,Reduce,110,110
 2023-02-02,Upgrade,Rosenblatt,Neutral,Buy,104,220

@@ -10,10 +10,10 @@ global base_path
 
 def _transform_save_rating(df,path):
     if df['Rating'].str.contains(" → ").any():
-        df[['Previous_ratting', 'Current_ratting']] = df['Rating'].str.split(" → ", expand=True)
-        df['Current_ratting'].fillna(df['Previous_ratting'], inplace=True)
+        df[['Previous_rating', 'Current_rating']] = df['Rating'].str.split(" → ", expand=True)
+        df['Current_rating'].fillna(df['Previous_rating'], inplace=True)
     else:
-        df['Current_Rating'] = df['Rating']
+        df['Current_rating'] = df['Rating']
         df['Previous_rating'] = df['Rating']
     
     if df['Price'].str.contains(" → ").any():    

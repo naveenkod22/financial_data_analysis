@@ -1,22 +1,22 @@
-Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
-2023-02-15,Initiated,Barclays,Overweight,Overweight,28,28
-2023-01-04,Reiterated,Truist,Buy,Buy,65,50
-2022-12-20,Initiated,Cantor Fitzgerald,Overweight,Overweight,22,22
-2022-11-30,Initiated,Evercore ISI,In-line,In-line,35,35
-2022-09-29,Initiated,Truist,Buy,Buy,65,65
-2022-09-28,Reiterated,RBC Capital Mkts,Outperform,Outperform,75,62
+Date,Status,Outer,Previous_rating,Current_rating,Previous_price,Current_price
+2023-02-15,Initiated,Barclays,Overweight,Overweight,28.0,28.0
+2023-01-04,Reiterated,Truist,Buy,Buy,65.0,50.0
+2022-12-20,Initiated,Cantor Fitzgerald,Overweight,Overweight,22.0,22.0
+2022-11-30,Initiated,Evercore ISI,In-line,In-line,35.0,35.0
+2022-09-29,Initiated,Truist,Buy,Buy,65.0,65.0
+2022-09-28,Reiterated,RBC Capital Mkts,Outperform,Outperform,75.0,62.0
 2022-09-15,Initiated,Needham,Hold,Hold,,
-2022-07-13,Initiated,Canaccord Genuity,Buy,Buy,61,61
-2022-06-02,Initiated,DA Davidson,Underperform,Underperform,24,24
-2022-05-12,Upgrade,Exane BNP Paribas,Underperform,Neutral,26,26
-2022-04-11,Initiated,Exane BNP Paribas,Underperform,Underperform,35,35
-2022-03-04,Reiterated,Robert W. Baird,Outperform,Outperform,150,100
-2022-03-02,Reiterated,RBC Capital Mkts,Outperform,Outperform,165,116
+2022-07-13,Initiated,Canaccord Genuity,Buy,Buy,61.0,61.0
+2022-06-02,Initiated,DA Davidson,Underperform,Underperform,24.0,24.0
+2022-05-12,Upgrade,Exane BNP Paribas,Underperform,Neutral,26.0,26.0
+2022-04-11,Initiated,Exane BNP Paribas,Underperform,Underperform,35.0,35.0
+2022-03-04,Reiterated,Robert W. Baird,Outperform,Outperform,150.0,100.0
+2022-03-02,Reiterated,RBC Capital Mkts,Outperform,Outperform,165.0,116.0
 2022-01-11,Initiated,Redburn,Buy,Buy,,
-2021-12-10,Initiated,Tigress Financial,Buy,Buy,147,147
-2021-12-06,Initiated,Wolfe Research,Outperform,Outperform,130,130
-2021-12-06,Initiated,Wells Fargo,Equal Weight,Equal Weight,110,110
-2021-12-06,Initiated,Wedbush,Outperform,Outperform,130,130
-2021-12-06,Initiated,Robert W. Baird,Outperform,Outperform,150,150
-2021-12-06,Initiated,RBC Capital Mkts,Outperform,Outperform,165,165
+2021-12-10,Initiated,Tigress Financial,Buy,Buy,147.0,147.0
+2021-12-06,Initiated,Wolfe Research,Outperform,Outperform,130.0,130.0
+2021-12-06,Initiated,Wells Fargo,Equal Weight,Equal Weight,110.0,110.0
+2021-12-06,Initiated,Wedbush,Outperform,Outperform,130.0,130.0
+2021-12-06,Initiated,Robert W. Baird,Outperform,Outperform,150.0,150.0
+2021-12-06,Initiated,RBC Capital Mkts,Outperform,Outperform,165.0,165.0
 2021-12-06,Initiated,Piper Sandler,Overweight,Overweight,148.0,148.0

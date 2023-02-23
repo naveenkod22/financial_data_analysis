@@ -6,12 +6,13 @@ import numpy as np
 import pandas as pd
 from utils import log
 from finvizfinance import quote
-from utils import database_connection
+from utils import database_engine
 from finvizfinance.quote import finvizfinance
 from finvizfinance.screener.overview import Overview
 
 # create a connection to the PostgreSQL database
-conn = database_connection()
+engine = database_engine()
+conn = engine.connect()
 business_dates = pd.read_sql('market_callender', conn)['Date']
 
 warnings.filterwarnings('ignore')

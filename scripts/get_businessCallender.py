@@ -1,10 +1,11 @@
 import datetime
-import logging
-from utils import database_connection
+from utils import log
+from utils import database_engine
 import pandas_market_calendars as mcal
 
 # create a connection to the PostgreSQL database
-conn = database_connection()
+engine = database_engine()
+conn = engine.connect()
 
 def get_business_callender():
     """
@@ -25,6 +26,4 @@ def get_business_callender():
 
 if __name__ == '__main__':
     get_business_callender()
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    logging.basicConfig(filename='logs.log', level=logging.INFO)
-    logging.info("; Callender Updated ; {timestamp}".format(timestamp=timestamp))
+    log(message='Business Callender')

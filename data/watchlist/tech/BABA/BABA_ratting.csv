@@ -1,21 +1,21 @@
-Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
-2022-07-20,Upgrade,Bernstein,Mkt Perform,Outperform,115,130
-2022-05-16,Upgrade,JP Morgan,Underweight,Overweight,75,130
-2022-04-11,Resumed,Goldman,Buy,Buy,185,185
-2022-03-14,Downgrade,JP Morgan,Overweight,Underweight,65,65
-2022-02-25,Reiterated,UBS,Buy,Buy,165,150
-2022-02-25,Reiterated,Stifel,Buy,Buy,150,135
-2022-02-25,Reiterated,Morgan Stanley,Overweight,Overweight,165,145
-2022-02-25,Reiterated,Citigroup,Buy,Buy,216,200
-2022-02-25,Reiterated,BofA Securities,Buy,Buy,203,193
-2022-01-14,Reiterated,Needham,Buy,Buy,230,180
-2021-12-21,Downgrade,Atlantic Equities,Overweight,Neutral,185,140
-2021-12-07,Resumed,Macquarie,Outperform,Outperform,162,162
+Date,Status,Outer,Previous_rating,Current_rating,Previous_price,Current_price
+2022-07-20,Upgrade,Bernstein,Mkt Perform,Outperform,115.0,130.0
+2022-05-16,Upgrade,JP Morgan,Underweight,Overweight,75.0,130.0
+2022-04-11,Resumed,Goldman,Buy,Buy,185.0,185.0
+2022-03-14,Downgrade,JP Morgan,Overweight,Underweight,65.0,65.0
+2022-02-25,Reiterated,UBS,Buy,Buy,165.0,150.0
+2022-02-25,Reiterated,Stifel,Buy,Buy,150.0,135.0
+2022-02-25,Reiterated,Morgan Stanley,Overweight,Overweight,165.0,145.0
+2022-02-25,Reiterated,Citigroup,Buy,Buy,216.0,200.0
+2022-02-25,Reiterated,BofA Securities,Buy,Buy,203.0,193.0
+2022-01-14,Reiterated,Needham,Buy,Buy,230.0,180.0
+2021-12-21,Downgrade,Atlantic Equities,Overweight,Neutral,185.0,140.0
+2021-12-07,Resumed,Macquarie,Outperform,Outperform,162.0,162.0
 2021-11-24,Downgrade,Argus,Buy,Hold,,
-2021-11-19,Reiterated,Morgan Stanley,Overweight,Overweight,220,180
-2021-11-19,Reiterated,Credit Suisse,Outperform,Outperform,192,182
-2021-11-19,Reiterated,CLSA,Outperform,Outperform,273,250
-2021-11-19,Reiterated,Citigroup,Buy,Buy,240,234
-2021-11-19,Reiterated,BofA Securities,Buy,Buy,254,209
-2021-11-03,Initiated,Barclays,Overweight,Overweight,275,275
-2021-10-01,Downgrade,Raymond James,Strong Buy,Outperform,300,240
+2021-11-19,Reiterated,Morgan Stanley,Overweight,Overweight,220.0,180.0
+2021-11-19,Reiterated,Credit Suisse,Outperform,Outperform,192.0,182.0
+2021-11-19,Reiterated,CLSA,Outperform,Outperform,273.0,250.0
+2021-11-19,Reiterated,Citigroup,Buy,Buy,240.0,234.0
+2021-11-19,Reiterated,BofA Securities,Buy,Buy,254.0,209.0
+2021-11-03,Initiated,Barclays,Overweight,Overweight,275.0,275.0
+2021-10-01,Downgrade,Raymond James,Strong Buy,Outperform,300.0,240.0

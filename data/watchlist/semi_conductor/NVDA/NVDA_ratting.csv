@@ -1,22 +1,22 @@
-Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
-2023-02-16,Downgrade,DZ Bank,Buy,Sell,195,195
-2023-01-23,Reiterated,Truist,Buy,Buy,198,238
-2022-12-19,Reiterated,Needham,Buy,Buy,200,230
-2022-12-15,Initiated,HSBC Securities,Reduce,Reduce,136,136
+Date,Status,Outer,Previous_rating,Current_rating,Previous_price,Current_price
+2023-02-16,Downgrade,DZ Bank,Buy,Sell,195.0,195.0
+2023-01-23,Reiterated,Truist,Buy,Buy,198.0,238.0
+2022-12-19,Reiterated,Needham,Buy,Buy,200.0,230.0
+2022-12-15,Initiated,HSBC Securities,Reduce,Reduce,136.0,136.0
 2022-11-17,Upgrade,Summit Insights,Hold,Buy,,
-2022-11-16,Resumed,Credit Suisse,Outperform,Outperform,205,210
-2022-09-08,Initiated,Stifel,Hold,Hold,165,165
-2022-09-02,Downgrade,Daiwa Securities,Outperform,Neutral,215,133
-2022-08-08,Downgrade,Craig Hallum,Buy,Hold,210,180
-2022-07-13,Reiterated,Susquehanna,Positive,Positive,260,220
-2022-05-26,Resumed,The Benchmark Company,Buy,Buy,365,228
-2022-05-03,Resumed,Morgan Stanley,Equal-Weight,Equal-Weight,217,217
-2022-04-13,Upgrade,New Street,Neutral,Buy,280,280
-2022-04-11,Downgrade,Robert W. Baird,Outperform,Neutral,360,225
-2022-03-15,Reiterated,Cowen,Outperform,Outperform,350,350
-2022-03-07,Resumed,Goldman,Neutral,Neutral,245,245
+2022-11-16,Resumed,Credit Suisse,Outperform,Outperform,205.0,210.0
+2022-09-08,Initiated,Stifel,Hold,Hold,165.0,165.0
+2022-09-02,Downgrade,Daiwa Securities,Outperform,Neutral,215.0,133.0
+2022-08-08,Downgrade,Craig Hallum,Buy,Hold,210.0,180.0
+2022-07-13,Reiterated,Susquehanna,Positive,Positive,260.0,220.0
+2022-05-26,Resumed,The Benchmark Company,Buy,Buy,365.0,228.0
+2022-05-03,Resumed,Morgan Stanley,Equal-Weight,Equal-Weight,217.0,217.0
+2022-04-13,Upgrade,New Street,Neutral,Buy,280.0,280.0
+2022-04-11,Downgrade,Robert W. Baird,Outperform,Neutral,360.0,225.0
+2022-03-15,Reiterated,Cowen,Outperform,Outperform,350.0,350.0
+2022-03-07,Resumed,Goldman,Neutral,Neutral,245.0,245.0
 2022-02-17,Downgrade,Summit Insights,Buy,Hold,,
-2021-11-18,Reiterated,Truist,Buy,Buy,360,389
-2021-11-18,Reiterated,Raymond James,Strong Buy,Strong Buy,225,365
-2021-11-18,Reiterated,Piper Sandler,Overweight,Overweight,260,350
+2021-11-18,Reiterated,Truist,Buy,Buy,360.0,389.0
+2021-11-18,Reiterated,Raymond James,Strong Buy,Strong Buy,225.0,365.0
+2021-11-18,Reiterated,Piper Sandler,Overweight,Overweight,260.0,350.0
 2021-11-18,Reiterated,Needham,Buy,Buy,245.0,400.0

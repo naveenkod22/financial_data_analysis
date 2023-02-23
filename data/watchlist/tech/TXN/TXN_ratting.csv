@@ -1,21 +1,21 @@
-Date,Status,Outer,Previous_ratting,Current_ratting,Previous_price,Current_price
-2023-01-23,Reiterated,Truist,Hold,Hold,158,177
-2022-11-16,Downgrade,Credit Suisse,Outperform,Neutral,185,205
-2022-10-24,Upgrade,Barclays,Underweight,Equal Weight,150,150
-2022-10-11,Initiated,Cowen,Market Perform,Market Perform,170,170
-2022-07-05,Downgrade,DZ Bank,Buy,Hold,150,150
-2022-06-30,Initiated,The Benchmark Company,Buy,Buy,205,205
-2022-06-29,Downgrade,BofA Securities,Buy,Neutral,175,175
-2022-04-27,Reiterated,UBS,Neutral,Neutral,180,175
-2022-04-27,Reiterated,Susquehanna,Positive,Positive,230,215
-2022-04-27,Reiterated,Stifel,Hold,Hold,180,170
-2022-04-27,Reiterated,Mizuho,Neutral,Neutral,190,175
-2022-04-27,Reiterated,KeyBanc Capital Markets,Overweight,Overweight,240,220
-2022-04-27,Reiterated,Jefferies,Buy,Buy,220,203
-2022-04-27,Reiterated,BofA Securities,Buy,Buy,200,190
-2022-04-27,Reiterated,Barclays,Underweight,Underweight,170,150
+Date,Status,Outer,Previous_rating,Current_rating,Previous_price,Current_price
+2023-01-23,Reiterated,Truist,Hold,Hold,158.0,177.0
+2022-11-16,Downgrade,Credit Suisse,Outperform,Neutral,185.0,205.0
+2022-10-24,Upgrade,Barclays,Underweight,Equal Weight,150.0,150.0
+2022-10-11,Initiated,Cowen,Market Perform,Market Perform,170.0,170.0
+2022-07-05,Downgrade,DZ Bank,Buy,Hold,150.0,150.0
+2022-06-30,Initiated,The Benchmark Company,Buy,Buy,205.0,205.0
+2022-06-29,Downgrade,BofA Securities,Buy,Neutral,175.0,175.0
+2022-04-27,Reiterated,UBS,Neutral,Neutral,180.0,175.0
+2022-04-27,Reiterated,Susquehanna,Positive,Positive,230.0,215.0
+2022-04-27,Reiterated,Stifel,Hold,Hold,180.0,170.0
+2022-04-27,Reiterated,Mizuho,Neutral,Neutral,190.0,175.0
+2022-04-27,Reiterated,KeyBanc Capital Markets,Overweight,Overweight,240.0,220.0
+2022-04-27,Reiterated,Jefferies,Buy,Buy,220.0,203.0
+2022-04-27,Reiterated,BofA Securities,Buy,Buy,200.0,190.0
+2022-04-27,Reiterated,Barclays,Underweight,Underweight,170.0,150.0
 2022-02-14,Downgrade,Raymond James,Outperform,Mkt Perform,,
 2022-02-11,Downgrade,Edward Jones,Buy,Hold,,
-2022-01-26,Reiterated,UBS,Neutral,Neutral,195,180
-2022-01-26,Reiterated,Truist,Hold,Hold,208,206
-2022-01-26,Reiterated,Morgan Stanley,Underweight,Underweight,195,198
+2022-01-26,Reiterated,UBS,Neutral,Neutral,195.0,180.0
+2022-01-26,Reiterated,Truist,Hold,Hold,208.0,206.0
+2022-01-26,Reiterated,Morgan Stanley,Underweight,Underweight,195.0,198.0

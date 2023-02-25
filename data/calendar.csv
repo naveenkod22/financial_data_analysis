@@ -4,18 +4,18 @@ Datetime,Release,Impact,For,Actual,Expected,Prior
 "Tue Feb 21, 10:00 AM",Existing Home Sales,2,Jan,4.00M,4.12M,4.03M
 "Wed Feb 22, 7:00 AM",MBA Mortgage Applications Index,1,02/18,-13.3%,NA,-7.7%
 "Wed Feb 22, 2:00 PM",FOMC Minutes,3,1/31-2/01,-,NA,
-"Thu Feb 23, 8:30 AM",Initial Claims,2,02/18,-,200K,194K
-"Thu Feb 23, 8:30 AM",Continuing Claims,2,02/11,-,NA,1696K
-"Thu Feb 23, 8:30 AM",GDP - Second Estimate,2,Q4,-,2.9%,2.9%
-"Thu Feb 23, 8:30 AM",GDP Deflator - Second Estimate,1,Q4,-,3.5%,3.5%
-"Thu Feb 23, 10:30 AM",EIA Natural Gas Inventories,1,02/17,-,NA,-100 bcf
-"Thu Feb 23, 11:00 AM",EIA Crude Oil Inventories,3,02/18,-,NA,16.28M
-"Fri Feb 24, 8:30 AM",Personal Income,1,Jan,-,0.9%,0.2%
-"Fri Feb 24, 8:30 AM",Personal Spending,2,Jan,-,1.3%,-0.2%
-"Fri Feb 24, 8:30 AM",PCE Prices,2,Jan,-,0.4%,0.1%
-"Fri Feb 24, 8:30 AM",PCE Prices - Core,2,Jan,-,0.4%,0.3%
-"Fri Feb 24, 10:00 AM",New Home Sales,2,Jan,-,620K,616K
-"Fri Feb 24, 10:00 AM",Univ. of Michigan Consumer Sentiment - Final,1,Feb,-,66.6,66.4
+"Thu Feb 23, 8:30 AM",Initial Claims,2,02/18,192K,200K,195K
+"Thu Feb 23, 8:30 AM",Continuing Claims,2,02/11,1654K,NA,1691K
+"Thu Feb 23, 8:30 AM",GDP - Second Estimate,2,Q4,2.7%,2.9%,2.9%
+"Thu Feb 23, 8:30 AM",GDP Deflator - Second Estimate,1,Q4,3.9%,3.5%,3.5%
+"Thu Feb 23, 10:30 AM",EIA Natural Gas Inventories,1,02/17,-71 bcf,NA,-100 bcf
+"Thu Feb 23, 11:00 AM",EIA Crude Oil Inventories,3,02/18,7.65M,NA,16.28M
+"Fri Feb 24, 8:30 AM",Personal Income,1,Jan,0.6%,0.9%,0.3%
+"Fri Feb 24, 8:30 AM",Personal Spending,2,Jan,1.8%,1.3%,-0.1%
+"Fri Feb 24, 8:30 AM",PCE Prices,2,Jan,0.6%,0.4%,0.2%
+"Fri Feb 24, 8:30 AM",PCE Prices - Core,2,Jan,0.6%,0.4%,0.4%
+"Fri Feb 24, 10:00 AM",New Home Sales,2,Jan,670K,620K,625K
+"Fri Feb 24, 10:00 AM",Univ. of Michigan Consumer Sentiment - Final,1,Feb,67.0,66.6,66.4
 "Wed Feb 22, 10:30 AM",EIA Crude Oil Inventories,3,02/18,-,,16.28M
 "Tue Feb 14, 6:00 AM",NFIB Small Business Optimism,1,Jan,90.3,,89.8
 "Tue Feb 14, 8:30 AM",CPI,3,Jan,0.5%,0.5%,0.1%

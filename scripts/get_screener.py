@@ -13,7 +13,7 @@ from finvizfinance.screener.overview import Overview
 # create a connection to the PostgreSQL database
 engine = database_engine()
 conn = engine.connect()
-business_dates = pd.read_sql('market_callender', conn)['Date']
+business_dates = pd.read_sql('market_calender', conn)['Date']
 
 warnings.filterwarnings('ignore')
 os.chdir('/home/naveen/code/financial_data_analysis/')

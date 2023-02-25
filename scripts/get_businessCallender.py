@@ -4,13 +4,12 @@ from utils import database_engine
 import pandas_market_calendars as mcal
 
 # create a connection to the PostgreSQL database
-engine = database_engine()
-conn = engine.connect()
-
-def get_business_callender():
+def get_business_calender():
     """
-    Creates a table called market_callender in the database which contains the Trading business dates for the next 60 days.
+    Creates a table called market_calender in the database which contains the Trading business dates for the next 60 days.
     """
+    engine = database_engine()
+    conn = engine.connect()
     nyse = mcal.get_calendar('NYSE')
 
     start_date = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -20,10 +19,9 @@ def get_business_callender():
     schedule = schedule.reset_index(drop = False)
     schedule.drop(columns=['market_open', 'market_close'], inplace=True)
     schedule = schedule.rename(columns={'index': 'Date'})
-
-    schedule.to_sql('Market_Callender', conn, if_exists='replace', index=False)
+    schedule.to_sql('market_calender', conn, if_exists='replace', index=False)
     conn.commit()
 
 if __name__ == '__main__':
-    get_business_callender()
-    log(message='Business Callender')
+    get_business_calender()
+    log(message='Business Calender')

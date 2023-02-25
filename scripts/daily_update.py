@@ -10,7 +10,7 @@ from get_ticker_data import get_ticker_data
 # create a connection to the PostgreSQL database
 engine = database_engine()
 conn = engine.connect()
-business_dates = pd.read_sql('market_callender', conn)['Date']
+business_dates = pd.read_sql('market_calender', conn)['Date']
 conn.commit()
 
 os.chdir('/home/naveen/code/financial_data_analysis/')

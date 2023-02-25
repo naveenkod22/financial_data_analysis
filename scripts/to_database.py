@@ -1,9 +1,14 @@
-from sqlalchemy import text
-import pandas as pd
-import glob
 import os
+import re
+import json
+import glob
+import time
+import numpy as np
+import pandas as pd
+from sqlalchemy import text
 from utils import database_engine
-
+from utils import format_fundamentals
+start = time.time()
 engine = database_engine()
 conn = engine.connect()
 
@@ -42,12 +47,7 @@ fact_ticker_df.to_sql('fact_tickers', conn, if_exists='append', index=False)
 conn.commit()
 
 # TO QUOTES TABLE
-from utils import database_engine
-from sqlalchemy import text
-import pandas as pd
-import glob
-import os
-import json
+
 
 file_path = '/home/naveen/code/financial_data_analysis/watchlist.json'
 with open(file_path) as f:
@@ -73,12 +73,6 @@ quotes.to_sql('dim_quotes', conn, if_exists='replace', index=False)
 conn.commit()
 
 # TO NEWS TABLE
-from sqlalchemy import text
-import pandas as pd
-import glob
-import os
-from utils import database_engine
-
 engine = database_engine()
 conn = engine.connect()
 
@@ -98,12 +92,6 @@ news_df.to_sql('dim_news', conn, if_exists='replace', index=False)
 conn.commit()
 
 # TO DIM_RATING TABLE
-from sqlalchemy import text
-import pandas as pd
-import glob
-import os
-from utils import database_engine
-
 engine = database_engine()
 conn = engine.connect()
 
@@ -123,11 +111,6 @@ rating_df.to_sql('dim_ratings', conn, if_exists='replace', index=False)
 conn.commit()
 
 # TO INSIDE TRADING TABLE
-from sqlalchemy import text
-import pandas as pd
-import glob
-import os
-from utils import database_engine
 
 engine = database_engine()
 conn = engine.connect()
@@ -149,11 +132,6 @@ inside_df.to_sql('dim_inside_trades', conn, if_exists='replace', index=False)
 conn.commit()
 
 # TO ANNUAL EARNINGS TABLE
-from sqlalchemy import text
-import pandas as pd
-import glob
-import os
-from utils import database_engine
 
 engine = database_engine()
 conn = engine.connect()
@@ -170,12 +148,6 @@ earn_df.to_sql('dim_annual_earnings', conn, if_exists='append', index=False)
 conn.commit()
 
 # TO QUARTERLY EARNINGS TABLE
-from sqlalchemy import text
-import pandas as pd
-import glob
-import os
-import numpy as np
-from utils import database_engine
 
 engine = database_engine()
 conn = engine.connect()
@@ -197,3 +169,97 @@ conn.commit()
 
 # TO BALANCE SHEET TABLE
 
+engine = database_engine()
+conn = engine.connect()
+
+files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*balance_sheet*.csv', recursive=True)
+balance_sheetdf = pd.DataFrame()
+for file in files:
+    df = pd.read_csv(file)
+    df['ticker'] = os.path.basename(file).split('_')[0]
+    balance_sheetdf = pd.concat([balance_sheetdf, df], ignore_index=True)
+
+def to_lowercase(match):
+    return match.group(0).title()
+
+# Apply the conversion to all column names
+columns = balance_sheetdf.columns.str.replace(r'([A-Z]{2,})', to_lowercase ,regex= True)
+regex = re.compile(r'([A-Z])')
+balance_sheetdf.columns = [regex.sub(r'_\1', col).lower() for col in columns]
+
+non_numeric_columns = ['ticker', 'report_type','reported_currency', 'fiscal_date_ending']
+balance_sheetdf = balance_sheetdf.apply(lambda x: pd.to_numeric(x, errors='coerce') if x.name not in non_numeric_columns else x)
+
+balance_sheetdf.to_sql('dim_balance_sheets', conn, if_exists='append', index=False)
+conn.commit()
+
+# TO CASH FLOW TABLE
+
+engine = database_engine()
+conn = engine.connect()
+
+files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*cash_flow*.csv', recursive=True)
+cash_flowdf = pd.DataFrame()
+for file in files:
+    df = pd.read_csv(file)
+    df['ticker'] = os.path.basename(file).split('_')[0]
+    cash_flowdf = pd.concat([cash_flowdf, df], ignore_index=True)
+
+def to_lowercase(match):
+    return match.group(0).title()
+
+# Apply the conversion to all column names
+columns = cash_flowdf.columns.str.replace(r'([A-Z]{2,})', to_lowercase ,regex= True)
+regex = re.compile(r'([A-Z])')
+cash_flowdf.columns = [regex.sub(r'_\1', col).lower() for col in columns]
+
+non_numeric_columns = ['ticker', 'report_type','reported_currency', 'fiscal_date_ending']
+cash_flowdf = cash_flowdf.apply(lambda x: pd.to_numeric(x, errors='coerce') if x.name not in non_numeric_columns else x)
+
+cash_flowdf.to_sql('dim_cash_flows', conn, if_exists='append', index=False)
+conn.commit()
+
+# TO INCOME STATEMENT TABLE
+
+engine = database_engine()
+conn = engine.connect()
+
+files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*income_statement*.csv', recursive=True)
+income_statement_df = pd.DataFrame()
+for file in files:
+    df = pd.read_csv(file)
+    df['ticker'] = os.path.basename(file).split('_')[0]
+    income_statement_df = pd.concat([income_statement_df, df], ignore_index=True)
+
+def to_lowercase(match):
+    return match.group(0).title()
+
+# Apply the conversion to all column names
+columns = income_statement_df.columns.str.replace(r'([A-Z]{2,})', to_lowercase ,regex= True)
+regex = re.compile(r'([A-Z])')
+income_statement_df.columns = [regex.sub(r'_\1', col).lower() for col in columns]
+
+non_numeric_columns = ['ticker', 'report_type','reported_currency', 'fiscal_date_ending']
+income_statement_df = income_statement_df.apply(lambda x: pd.to_numeric(x, errors='coerce') if x.name not in non_numeric_columns else x)
+
+income_statement_df.to_sql('dim_income_statements', conn, if_exists='append', index=False)
+conn.commit()
+
+# TO FUNDAMENTALS TABLE
+engine = database_engine()
+conn = engine.connect()
+
+files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*fundament.csv', recursive=True)
+fundament_df = pd.DataFrame()
+for file in files:
+    df = pd.read_csv(file)
+    df['ticker'] = os.path.basename(file).split('_')[0]
+    fundament_df = pd.concat([fundament_df, df], ignore_index=True)
+
+fundament_df = format_fundamentals(fundament_df)
+fundament_df.to_sql('dim_fundamentals', conn, if_exists='append', index=False)
+conn.commit()
+
+end = time.time()
+total_time = end - start
+print('Total time taken to load data into database: ', total_time)

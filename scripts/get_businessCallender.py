@@ -1,6 +1,7 @@
 import datetime
 from utils import log
-from utils import database_engine
+from utils import conn_url
+from sqlalchemy import create_engine
 import pandas_market_calendars as mcal
 
 # create a connection to the PostgreSQL database
@@ -8,7 +9,7 @@ def get_business_calender():
     """
     Creates a table called market_calender in the database which contains the Trading business dates for the next 60 days.
     """
-    engine = database_engine()
+    engine = create_engine(conn_url())
     conn = engine.connect()
     nyse = mcal.get_calendar('NYSE')
 

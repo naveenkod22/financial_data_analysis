@@ -4,11 +4,10 @@ import datetime
 import configparser
 import numpy as np
 import pandas as pd
-from sqlalchemy import create_engine
 
 os.chdir('/home/naveen/code/financial_data_analysis/')
 
-def database_engine(user = 'naveen', host = 'localhost', database = 'stock_database'):
+def conn_url(user = 'naveen', host = 'localhost', database = 'stock_database'):
     """
     Creates a connection to the PostgreSQL database
     by default it connects to the database with the following credentials:
@@ -25,10 +24,9 @@ def database_engine(user = 'naveen', host = 'localhost', database = 'stock_datab
     user = user
     host = host
     database = database
-    engine = create_engine('postgresql://{user}:{password}@{host}:{port}/{database}'\
-                           .format(user = user, password = password, host = host, port = port, database = database))
-
-    return engine
+    conn_url = "postgresql://{user}:{password}@{host}:{port}/{database}"\
+                           .format(user = user, password = password, host = host, port = port, database = database)
+    return conn_url
 
 def log(message):
     """Logs messages to a file called logs.log"""

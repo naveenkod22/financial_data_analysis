@@ -1,0 +1,36 @@
+## Today
+# setup python environment on wsl ################################################
+# setup casandra on wsl ##########################################################
+# migrate the project to wsl #####################################################
+# git setup on wsl ###############################################################
+# add data to casandra
+
+ 
+## Data
+# Historical Micro economic and macro economic data
+# Add Data to database
+
+
+# Analysis User defined fuctions
+
+
+# Prediction Models
+Watch List DB:
+	Quotes: Daily <- Plain and simple.
+	Description + Smoe part of fundment: Once <- Plain and simple
+	fundement + signal:  Daily
+	indside Trade: daily <- Plain and simple
+	News: daily
+	Ratings: daily
+
+	Statements: Quaterly DAta
+
+
+News DB:
+	Major News
+
+Insider DB:
+	Major Insider
+
+
+Earnings and Earnings Fundementasl

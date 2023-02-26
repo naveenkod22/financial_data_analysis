@@ -3,11 +3,12 @@ import re
 import json
 import glob
 import time
+import datetime
 import numpy as np
 import pandas as pd
-from sqlalchemy import text
 from utils import database_engine
 from utils import format_fundamentals
+
 start = time.time()
 engine = database_engine()
 conn = engine.connect()
@@ -260,6 +261,66 @@ fundament_df = format_fundamentals(fundament_df)
 fundament_df.to_sql('dim_fundamentals', conn, if_exists='append', index=False)
 conn.commit()
 
+# TO NEWS TABLE
+engine = database_engine()
+conn = engine.connect()
+
+
+df = pd.read_csv('/home/naveen/code/financial_data_analysis/data/news.csv')
+df.columns = df.columns.str.lower()
+df = df.add_prefix('news_')
+df.to_sql('news', conn, if_exists='append', index=False)
+conn.commit()
+
+# TO BLOGS TABLE
+engine = database_engine()
+conn = engine.connect()
+
+
+df = pd.read_csv('/home/naveen/code/financial_data_analysis/data/blogs.csv')
+df.columns = df.columns.str.lower()
+df = df.add_prefix('blogs_')
+df.columns
+df.to_sql('blogs', conn, if_exists='append', index=False)
+conn.commit()
+
+
+# TO INSIDER TABLE
+engine = database_engine()
+conn = engine.connect()
+
+
+df = pd.read_csv('/home/naveen/code/financial_data_analysis/data/insider.csv')
+df.columns = df.columns.str.lower().str.replace(' ', '_')
+df.rename(columns={'owner':'traded_by', 'date':'trading_date',
+                'transaction':'transaction_type', 'cost':'share_price', 
+                '#shares':'no_of_shares', 'value_($)':'transaction_value', 
+                '#shares_total':'total_shares'}, inplace=True)
+df.to_sql('inside_trades', conn, if_exists='append', index=False)
+conn.commit()
+
+# TO CALENDAR TABLE
+engine = database_engine()
+conn = engine.connect()
+
+
+df = pd.read_csv('/home/naveen/code/financial_data_analysis/data/calendar.csv')
+df.columns = df.columns.str.lower()
+current_year = datetime.datetime.now().year
+
+# add the current year to the input string
+df['datetime'] = df['datetime'] + ", " + str(current_year)
+df['datetime'] = pd.to_datetime(df['datetime'], format='%a %b %d, %I:%M %p, %Y', errors='coerce')
+
+df.rename(columns={'datetime':'news_date', 'release':'release_title', 
+                   'for':'release_for','prior':'previous'}, inplace=True)
+
+df.to_sql('calendar', conn, if_exists='append', index=False)
+conn.commit()
+
+
+
 end = time.time()
 total_time = end - start
 print('Total time taken to load data into database: ', total_time)
+

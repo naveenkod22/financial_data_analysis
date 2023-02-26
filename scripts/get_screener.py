@@ -5,13 +5,14 @@ import warnings
 import numpy as np
 import pandas as pd
 from utils import log
+from utils import conn_url
 from finvizfinance import quote
-from utils import database_engine
+from sqlalchemy import create_engine
 from finvizfinance.quote import finvizfinance
 from finvizfinance.screener.overview import Overview
 
 # create a connection to the PostgreSQL database
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 business_dates = pd.read_sql('market_calender', conn)['Date']
 

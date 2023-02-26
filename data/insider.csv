@@ -1,4 +1,32 @@
 Ticker,SEC Form 4 Link,Owner,Relationship,Date,Transaction,Cost,#Shares,Value ($),#Shares Total,SEC Form 4
+NICK,http://www.sec.gov/Archives/edgar/data/1000045/000100004523000001/xslF345X03/primary_doc.xml,Royal Jeffrey C,Director,2023-02-23 00:00:00,Buy,6.26,10000.0,62600.0,64572.0,Feb 24 09:59 PM
+IR,http://www.sec.gov/Archives/edgar/data/1699150/000114036123008685/xslF345X03/form4.xml,Reynal Vicente,See Remarks,2023-02-22 00:00:00,Sale,57.5,25000.0,1437550.0,189345.0,Feb 24 09:45 PM
+GEG,http://www.sec.gov/Archives/edgar/data/1458693/000114036123008679/xslF345X03/form4.xml,Drapkin Matthew A,Director,2023-02-22 00:00:00,Buy,2.15,15062.0,32382.0,1823021.0,Feb 24 09:36 PM
+GEG,http://www.sec.gov/Archives/edgar/data/1458693/000114036123008679/xslF345X03/form4.xml,Drapkin Matthew A,Director,2023-02-24 00:00:00,Buy,2.14,13276.0,28424.0,1824897.0,Feb 24 09:36 PM
+KRON,http://www.sec.gov/Archives/edgar/data/1741830/000120919123013017/xslF345X03/doc4.xml,Dinsmore Christopher,Chief Scientific Officer,2023-02-24 00:00:00,Sale,1.74,6291.0,10918.0,285001.0,Feb 24 09:36 PM
+KRON,http://www.sec.gov/Archives/edgar/data/1741830/000120919123013016/xslF345X03/doc4.xml,DiMartino Jorge,Chief Medical Officer & VP,2023-02-24 00:00:00,Sale,1.74,10153.0,17621.0,355440.0,Feb 24 09:35 PM
+KRON,http://www.sec.gov/Archives/edgar/data/1650691/000120919123013015/xslF345X03/doc4.xml,Al-Wakeel Yasir B.,Chief Financial Officer,2023-02-24 00:00:00,Sale,1.74,9026.0,15665.0,355719.0,Feb 24 09:34 PM
+PFE,http://www.sec.gov/Archives/edgar/data/78003/000122520823002832/xslF345X03/doc4.xml,Hwang Angela,"President, Global Biopharmaceu",2023-02-22 00:00:00,Option Exercise,30.17,57032.0,1720655.0,67027.0,Feb 24 09:34 PM
+GEG,http://www.sec.gov/Archives/edgar/data/1475698/000114036123008674/xslF345X03/form4.xml,Hugar James H,Director,2023-02-22 00:00:00,Buy,2.15,15000.0,32249.0,253939.0,Feb 24 09:33 PM
+GEG,http://www.sec.gov/Archives/edgar/data/1475698/000114036123008674/xslF345X03/form4.xml,Hugar James H,Director,2023-02-23 00:00:00,Buy,2.09,800.0,1670.0,254739.0,Feb 24 09:33 PM
+CCLD,http://www.sec.gov/Archives/edgar/data/1582982/000149315223006047/xslF345X03/ownership.xml,SNYDER STEPHEN ANDREW,Director,2023-02-16 00:00:00,Option Exercise,0.0,14000.0,0.0,14000.0,Feb 24 09:30 PM
+CCLD,http://www.sec.gov/Archives/edgar/data/1582982/000149315223006046/xslF345X03/ownership.xml,HAQ MAHMUD UL,Executive Chairman,2023-02-22 00:00:00,Option Exercise,0.0,12000.0,0.0,12000.0,Feb 24 09:30 PM
+CCLD,http://www.sec.gov/Archives/edgar/data/1582982/000149315223006049/xslF345X03/ownership.xml,Chaudhry A Hadi,CEO and President,2023-02-22 00:00:00,Option Exercise,0.0,12000.0,0.0,12000.0,Feb 24 09:30 PM
+CCLD,http://www.sec.gov/Archives/edgar/data/1582982/000149315223006048/xslF345X03/ownership.xml,KORN BILL,Chief Financial Officer,2023-02-22 00:00:00,Option Exercise,0.0,10000.0,0.0,10000.0,Feb 24 09:30 PM
+PFE,http://www.sec.gov/Archives/edgar/data/78003/000122520823002831/xslF345X03/doc4.xml,SUSMAN SALLY,Executive Vice President,2023-02-22 00:00:00,Option Exercise,30.17,76043.0,2294217.0,195493.0,Feb 24 09:17 PM
+BHE,http://www.sec.gov/Archives/edgar/data/863436/000120919123013014/xslF345X03/doc4.xml,Turner Rhonda R,"SVP, Chief HR Officer",2023-02-22 00:00:00,Option Exercise,0.0,15993.0,0.0,49400.0,Feb 24 09:13 PM
+BHE,http://www.sec.gov/Archives/edgar/data/863436/000120919123013013/xslF345X03/doc4.xml,JANICK JAN M,"SVP, Chief Technology Officer",2023-02-22 00:00:00,Option Exercise,0.0,17483.0,0.0,73887.0,Feb 24 09:11 PM
+BHE,http://www.sec.gov/Archives/edgar/data/863436/000120919123013012/xslF345X03/doc4.xml,CRAWFORD ROBERT,"SVP, Chief Revenue Officer",2023-02-22 00:00:00,Option Exercise,0.0,16468.0,0.0,56942.0,Feb 24 09:10 PM
+BHE,http://www.sec.gov/Archives/edgar/data/863436/000120919123013011/xslF345X03/doc4.xml,Buseman Michael D.,"EVP, Chief Operating Officer",2023-02-22 00:00:00,Option Exercise,0.0,22496.0,0.0,82122.0,Feb 24 09:09 PM
+BHE,http://www.sec.gov/Archives/edgar/data/863436/000120919123013010/xslF345X03/doc4.xml,Beaver Stephen J,"SVP, General Counsel and CLO",2023-02-22 00:00:00,Option Exercise,0.0,18259.0,0.0,63797.0,Feb 24 09:08 PM
+BHE,http://www.sec.gov/Archives/edgar/data/863436/000120919123013009/xslF345X03/doc4.xml,Lakkaraju Roop Kalyan,"EVP, Chief Financial Officer",2023-02-22 00:00:00,Option Exercise,0.0,28556.0,0.0,113716.0,Feb 24 09:06 PM
+BLZE,http://www.sec.gov/Archives/edgar/data/1462056/000146205623000094/xslF345X03/wf-form4_167729071516219.xml,Patchel Francis P,Chief Financial Officer,2023-02-22 00:00:00,Sale,5.74,997.0,5723.0,105872.0,Feb 24 09:05 PM
+BLZE,http://www.sec.gov/Archives/edgar/data/1462056/000146205623000094/xslF345X03/wf-form4_167729071516219.xml,Patchel Francis P,Chief Financial Officer,2023-02-23 00:00:00,Sale,5.73,1020.0,5845.0,104852.0,Feb 24 09:05 PM
+BLZE,http://www.sec.gov/Archives/edgar/data/1462056/000146205623000094/xslF345X03/wf-form4_167729071516219.xml,Patchel Francis P,Chief Financial Officer,2023-02-24 00:00:00,Sale,5.54,788.0,4366.0,104064.0,Feb 24 09:05 PM
+BHE,http://www.sec.gov/Archives/edgar/data/863436/000120919123013008/xslF345X03/doc4.xml,Benck Jeff,President and CEO,2023-02-22 00:00:00,Option Exercise,0.0,99943.0,0.0,357905.0,Feb 24 09:05 PM
+PFE,http://www.sec.gov/Archives/edgar/data/78003/000122520823002818/xslF345X03/doc4.xml,SAHNI PAYAL,Executive Vice President,2023-02-22 00:00:00,Option Exercise,30.17,15209.0,458856.0,32671.0,Feb 24 09:03 PM
+BTU,http://www.sec.gov/Archives/edgar/data/1064728/000156761923003799/xslF345X03/doc1.xml,Spurbeck Mark,EVP and CFO,2023-02-24 00:00:00,Sale,25.88,21070.0,545292.0,67108.0,Feb 24 09:01 PM
+BTU,http://www.sec.gov/Archives/edgar/data/1064728/000156761923003797/xslF345X03/doc1.xml,Jarboe Scott T.,CAO and Corporate Secretary,2023-02-24 00:00:00,Sale,25.88,11573.0,299509.0,62930.0,Feb 24 08:58 PM
 PFE,http://www.sec.gov/Archives/edgar/data/78003/000122520823002816/xslF345X03/doc4.xml,McDermott Michael,Executive Vice President,2023-02-22 00:00:00,Option Exercise,30.17,13307.0,401472.0,88957.0,Feb 24 08:52 PM
 ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025508/xslF345X03/tm237855-10_4seq1.xml,Szmagala Taras G. Jr.,See Remarks below.,2023-02-22 00:00:00,Option Exercise,0.0,133.0,0.0,11210.0,Feb 24 08:45 PM
 ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025508/xslF345X03/tm237855-10_4seq1.xml,Szmagala Taras G. Jr.,See Remarks below.,2023-02-23 00:00:00,Option Exercise,0.0,787.0,0.0,11888.0,Feb 24 08:45 PM
@@ -13,10 +41,10 @@ ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025503/xslF345X03
 ETN,http://www.sec.gov/Archives/edgar/data/1454513/000110465923025502/xslF345X03/tm237855-5_4seq1.xml,Hopgood Daniel Roy,See Remarks below.,2023-02-22 00:00:00,Option Exercise,0.0,206.0,0.0,10592.0,Feb 24 08:36 PM
 ETN,http://www.sec.gov/Archives/edgar/data/1454513/000110465923025502/xslF345X03/tm237855-5_4seq1.xml,Hopgood Daniel Roy,See Remarks below.,2023-02-23 00:00:00,Option Exercise,0.0,485.0,0.0,11004.0,Feb 24 08:36 PM
 VIR,http://www.sec.gov/Archives/edgar/data/1706431/000120919123013007/xslF345X03/doc4.xml,Horn Howard,CFO,2023-02-23 00:00:00,Sale,25.97,2248.0,58387.0,230712.0,Feb 24 08:36 PM
-ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025501/xslF345X03/tm237855-4_4seq1.xml,Faria Joao V,See Remarks below.,2023-02-23 00:00:00,Option Exercise,109.48,4536.0,496614.0,81981.0,Feb 24 08:35 PM
 ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025501/xslF345X03/tm237855-4_4seq1.xml,Faria Joao V,See Remarks below.,2023-02-22 00:00:00,Option Exercise,122.14,2890.0,352994.0,79952.0,Feb 24 08:35 PM
-ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025501/xslF345X03/tm237855-4_4seq1.xml,Faria Joao V,See Remarks below.,2023-02-22 00:00:00,Sale,171.23,2326.0,398281.0,77626.0,Feb 24 08:35 PM
+ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025501/xslF345X03/tm237855-4_4seq1.xml,Faria Joao V,See Remarks below.,2023-02-23 00:00:00,Option Exercise,109.48,4536.0,496614.0,81981.0,Feb 24 08:35 PM
 ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025501/xslF345X03/tm237855-4_4seq1.xml,Faria Joao V,See Remarks below.,2023-02-23 00:00:00,Sale,172.8,3795.0,655776.0,78186.0,Feb 24 08:35 PM
+ETN,http://www.sec.gov/Archives/edgar/data/1551182/000110465923025501/xslF345X03/tm237855-4_4seq1.xml,Faria Joao V,See Remarks below.,2023-02-22 00:00:00,Sale,171.23,2326.0,398281.0,77626.0,Feb 24 08:35 PM
 VIR,http://www.sec.gov/Archives/edgar/data/1706431/000120919123013006/xslF345X03/doc4.xml,HANLY ANN M.,Chief Technology Officer,2023-02-23 00:00:00,Sale,25.97,2302.0,59790.0,117203.0,Feb 24 08:35 PM
 HLF,http://www.sec.gov/Archives/edgar/data/1180262/000120919123013005/xslF345X03/doc4.xml,Mulligan Donal L,Director,2023-02-22 00:00:00,Buy,19.32,15000.0,289800.0,30000.0,Feb 24 08:34 PM
 VIR,http://www.sec.gov/Archives/edgar/data/1202102/000120919123013004/xslF345X03/doc4.xml,SCANGOS GEORGE A,President and CEO,2023-02-23 00:00:00,Sale,25.97,12631.0,328065.0,183608.0,Feb 24 08:34 PM
@@ -56,8 +84,8 @@ QSR,http://www.sec.gov/Archives/edgar/data/1552282/000120919123012958/xslF345X03
 WYNN,http://www.sec.gov/Archives/edgar/data/1174922/000117492223000039/xslF345X03/wf-form4_167728611022117.xml,CAMERON-DOE JULIE,CFO,2023-02-22 00:00:00,Option Exercise,58.85,4000.0,235400.0,69970.0,Feb 24 07:48 PM
 WYNN,http://www.sec.gov/Archives/edgar/data/1174922/000117492223000039/xslF345X03/wf-form4_167728611022117.xml,CAMERON-DOE JULIE,CFO,2023-02-22 00:00:00,Sale,108.08,4000.0,432320.0,65970.0,Feb 24 07:48 PM
 AMKR,http://www.sec.gov/Archives/edgar/data/1047127/000120919123012950/xslF345X03/doc4.xml,Haghighi Farshad,Executive Vice President,2023-02-24 00:00:00,Option Exercise,0.0,1816.0,0.0,10703.0,Feb 24 07:45 PM
-AMKR,http://www.sec.gov/Archives/edgar/data/1047127/000120919123012948/xslF345X03/doc4.xml,Engel Kevin,Executive Vice President,2023-02-23 00:00:00,Option Exercise,9.48,6250.0,59250.0,17271.0,Feb 24 07:45 PM
 AMKR,http://www.sec.gov/Archives/edgar/data/1047127/000120919123012948/xslF345X03/doc4.xml,Engel Kevin,Executive Vice President,2023-02-24 00:00:00,Option Exercise,0.0,941.0,0.0,3962.0,Feb 24 07:45 PM
+AMKR,http://www.sec.gov/Archives/edgar/data/1047127/000120919123012948/xslF345X03/doc4.xml,Engel Kevin,Executive Vice President,2023-02-23 00:00:00,Option Exercise,9.48,6250.0,59250.0,17271.0,Feb 24 07:45 PM
 AMKR,http://www.sec.gov/Archives/edgar/data/1047127/000120919123012948/xslF345X03/doc4.xml,Engel Kevin,Executive Vice President,2023-02-23 00:00:00,Sale,25.26,14250.0,359955.0,3021.0,Feb 24 07:45 PM
 AMKR,http://www.sec.gov/Archives/edgar/data/1047127/000120919123012946/xslF345X03/doc4.xml,Faust Megan,CFO,2023-02-24 00:00:00,Option Exercise,0.0,3493.0,0.0,36891.0,Feb 24 07:44 PM
 AMKR,http://www.sec.gov/Archives/edgar/data/1047127/000120919123012944/xslF345X03/doc4.xml,ROGERS MARK N,EVP & General Counsel,2023-02-24 00:00:00,Option Exercise,0.0,1881.0,0.0,26622.0,Feb 24 07:43 PM
@@ -154,12 +182,12 @@ ARDX,http://www.sec.gov/Archives/edgar/data/1437402/000156761923003767/xslF345X0
 BAC,http://www.sec.gov/Archives/edgar/data/70858/000112760223007125/xslF345X03/form4.xml,Koder Matthew M,"Pres, Gl Corp & Invest Banking",2023-02-23 00:00:00,Sale,34.27,105054.0,3600411.0,319803.0,Feb 24 05:35 PM
 CAR,http://www.sec.gov/Archives/edgar/data/723612/000072361223000020/xslF345X03/wf-form4_167727808296540.xml,KROMINGA LYNN,Director,2023-02-22 00:00:00,Sale,226.3,887.0,200728.0,628.0,Feb 24 05:35 PM
 PCOR,http://www.sec.gov/Archives/edgar/data/1611052/000120919123012840/xslF345X03/doc4.xml,Singer Benjamin C,Chief Legal Officer; Secretary,2023-02-22 00:00:00,Sale,64.25,4564.0,293237.0,136374.0,Feb 24 05:30 PM
-FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-24 00:00:00,Option Exercise,5.73,16338.0,93689.0,191363.0,Feb 24 05:30 PM
 FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-22 00:00:00,Option Exercise,5.73,126.0,723.0,175151.0,Feb 24 05:30 PM
 FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-23 00:00:00,Option Exercise,5.73,100.0,573.0,175125.0,Feb 24 05:30 PM
+FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-24 00:00:00,Option Exercise,5.73,16338.0,93689.0,191363.0,Feb 24 05:30 PM
+FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-24 00:00:00,Sale,13.52,16338.0,220857.0,175025.0,Feb 24 05:30 PM
 FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-23 00:00:00,Sale,13.75,100.0,1375.0,175025.0,Feb 24 05:30 PM
 FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-22 00:00:00,Sale,13.75,126.0,1732.0,175025.0,Feb 24 05:30 PM
-FVCB,http://www.sec.gov/Archives/edgar/data/1675644/000167564423000025/xslF345X03/primary_doc.xml,Testa Daniel M.,Director,2023-02-24 00:00:00,Sale,13.52,16338.0,220857.0,175025.0,Feb 24 05:30 PM
 PCOR,http://www.sec.gov/Archives/edgar/data/1611052/000120919123012831/xslF345X03/doc4.xml,Fleming William Fred Jr,"SVP, Corporate Controller",2023-02-22 00:00:00,Sale,64.25,2119.0,136146.0,62870.0,Feb 24 05:28 PM
 PCOR,http://www.sec.gov/Archives/edgar/data/1611052/000120919123012826/xslF345X03/doc4.xml,Durling Joy Driscoll,Chief Data Officer,2023-02-22 00:00:00,Sale,64.25,14796.0,950643.0,122374.0,Feb 24 05:26 PM
 INTA,http://www.sec.gov/Archives/edgar/data/1565687/000106299323004868/xslF345X03/form4.xml,Robertson Stephen I.,Chief Financial Officer,2023-02-22 00:00:00,Sale,37.74,72884.0,2750446.0,195693.0,Feb 24 05:24 PM

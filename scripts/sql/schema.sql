@@ -291,12 +291,12 @@ CREATE TABLE IF NOT EXISTS inside_trades (
     transaction_type VARCHAR(55),
     share_price FLOAT,
     no_of_shares INT,
-    transcation_value FLOAT,
-    shares_total INT,
+    transaction_value FLOAT,
+    total_shares INT,
     sec_form_4 VARCHAR(255),
-    sec_form_4_link VARCHAR(255),
-    insider_id INT
+    sec_form_4_link VARCHAR(255)
 );
+
 DROP TABLE news;
 CREATE TABLE IF NOT EXISTS news (
     news_id SERIAL PRIMARY KEY,
@@ -310,9 +310,9 @@ DROP TABLE blogs;
 CREATE TABLE IF NOT EXISTS blogs (
     blogs_id SERIAL PRIMARY KEY,
     blogs_date TIMESTAMP,
-    blog_title VARCHAR(555),
-    blog_source VARCHAR(255),
-    blog_link VARCHAR(255)
+    blogs_title VARCHAR(555),
+    blogs_source VARCHAR(255),
+    blogs_link VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS calendar (

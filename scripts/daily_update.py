@@ -3,12 +3,13 @@ import json
 import datetime
 import pandas as pd
 from utils import log
-from utils import database_engine
+from utils import conn_url
 from get_quotes import get_quotes
+from sqlalchemy import create_engine
 from get_ticker_data import get_ticker_data
 
 # create a connection to the PostgreSQL database
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 business_dates = pd.read_sql('market_calender', conn)['Date']
 conn.commit()

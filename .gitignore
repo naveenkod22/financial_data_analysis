@@ -11,3 +11,5 @@ __pycache__/
 /test/
 /scripts/config.ini
 /scripts/test.py
+/scripts/.ipynb_checkpoints/
+/crontab.txt

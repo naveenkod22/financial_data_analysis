@@ -4,33 +4,22 @@ import datetime
 import pandas as pd
 from utils import log
 from utils import conn_url
-from get_quotes import get_quotes
+from get_quotes import update_quotes
 from sqlalchemy import create_engine
+from utils import get_sql_data
 from get_ticker_data import get_ticker_data
 
-# create a connection to the PostgreSQL database
-engine = create_engine(conn_url())
-conn = engine.connect()
-business_dates = pd.read_sql('market_calender', conn)['Date']
-conn.commit()
+conn = create_engine(conn_url()).connect()
 
-os.chdir('/home/naveen/code/financial_data_analysis/')
-# file_path = sys.argv[1]
+business_dates = get_sql_data("SELECT * FROM market_calender")
+business_dates = [i[0] for i in business_dates]
 
-file_path = './watchlist.json'
-global watch_list
-global watch_list_name
-watch_list_name = os.path.basename(file_path).split('.')[0]
+tickers = get_sql_data("SELECT ticker FROM  fact_tickers")
+tickers = [i[0] for i in tickers]
 
-with open(file_path) as f:
-    watch_list = json.load(f)
 
 if datetime.date.today() in business_dates:
-    # Quotes and Related data for Tickers in given Json File.
-    for sector, value in watch_list.items():
-        for ticker in value:
-            get_quotes(watch_list=watch_list_name, sector=sector, ticker=ticker)
-            get_ticker_data(watch_list=watch_list_name, sector=sector,ticker=ticker)
-
-    log(message='Quotes & Ticker Data')
-    
+    for ticker in tickers:
+        update_quotes(ticker=ticker, conn=conn)
+        get_ticker_data(ticker=ticker, conn = conn)
+        log(message='Quotes & Ticker Data')

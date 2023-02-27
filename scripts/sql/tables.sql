@@ -1,7 +1,9 @@
-select * from dim_news LIMIT 10;
+select COUNT(*) from dim_news;
+-- LIST DUPLICATE VALUES IN A TABLE DIM_NEWS
+select * from dim_news where ticker = 'AAPL';
 select * from dim_blogs LIMIT 10;
 select * from dim_inside_trades LIMIT 10;
-select * from dim_ratings LIMIT 10;
+select count(*) from dim_ratings LIMIT 10;
 select * from dim_quotes LIMIT 10;
 select * from fact_tickers LIMIT 10;
 select * from dim_quarterly_earnings LIMIT 10;
@@ -33,6 +35,8 @@ from information_schema.tables
 where table_schema = 'public'
 order by 1 desc;
 
-select * from information_schema.tables;
+select * from market_calender;
 
-select * from news;
+select * from dim_quotes WHERE ticker = 'AAPL';
+
+SELECT * FROM dim_fundamentals WHERE ticker = 'AAPL';

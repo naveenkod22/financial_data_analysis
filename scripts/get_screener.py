@@ -75,7 +75,6 @@ def _add_fundamentals(df):
     return df
 
 def _update_ticker_info(df):
-    
     ticker_info = pd.read_sql('ticker_info', conn)
     new_ticker_info = df[['Ticker', 'Company','Sector','Industry','Country']]
     tickers = new_ticker_info['Ticker'][~new_ticker_info['Ticker'].isin(ticker_info['Ticker'])]

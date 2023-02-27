@@ -1,167 +1,137 @@
-# %%
-import os
 import time
-import datetime
 import pandas as pd
-from utils import log
-from utils import database_engine
-from finvizfinance.news import News
-from finvizfinance.insider import Insider
-from finvizfinance.calendar import Calendar
+from finvizfinance import quote
+from utils import get_sql_table, format_fundamentals
 
 
 
-def _add_year_to_date(df):
-    year = str(pd.to_datetime('today').year)
-    df['Date'] = df['Date']+ " " +year 
-    df['Date'] = pd.to_datetime(df['Date'], format='%b %d %Y', errors='coerce')
-
-    if (datetime.datetime.now().month in [1,2,3]):
-        df['Date'] = df['Date'].apply(lambda x: x.replace(year=datetime.datetime.now().year-1) 
-                                      if (x - datetime.datetime.now()).days > 120 
-                                      else x.replace(year=datetime.datetime.now().year))
-    if (datetime.datetime.now().month in [10,11,12]):
-        df['Date'] = df['Date'].apply(lambda x: x.replace(year=datetime.datetime.now().year+1) 
-                                      if (datetime.datetime.now() - x).days > 200 
-                                      else x.replace(year=datetime.datetime.now().year))
-    return df
-
-def _format_date(df):
-    df['Date'] = df['Date'].str.extract('(\d\d\:\d\d\w{2})', expand=False)
-    df.dropna(subset=['Date'],inplace=True)
-    today = datetime.datetime.now().date().strftime('%Y-%m-%d')
-    df['Date'] =  today + '-' + df['Date']
-    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d-%I:%M%p', errors='coerce')
-    return df
-
-def update_calendar():
-    calendar = Calendar().calendar()
-    time.sleep(0.1)
-    df = pd.read_sql("SELECT * FROM calendar", database_engine())
-    return df
-
-df = update_calendar()
-df.head()
-#     if not os.path.exists(path):
-#         calendar.to_csv(path,index=False)
-#     else:
-#         df = pd.read_csv(path)
-#         calendar = pd.concat([calendar,df], ignore_index=True)
-#         calendar = calendar.drop_duplicates(subset=['Datetime', 'Release'], keep='first')
-#         calendar.to_csv(path, index=False)
-#     print('Calendar updated')
-
-
-# news_path = "{base_path}news.csv".format(base_path=base_path)
-# blogs_path = "{base_path}blogs.csv".format(base_path=base_path)
-# news_blogs = News().get_news()
-# time.sleep(0.1)
-
-# def update_news_blogs(df=news_blogs, news_path = news_path, blogs_path = blogs_path):
-#     paths = {'news': news_path, 'blogs':blogs_path}
-#     for key, path in paths.items():
-#         df_temp = df[key]
-#         df_temp = _format_date(df_temp)
-#         if not os.path.exists(path):
-#             df_temp.to_csv(path,index=False)
-#         else:
-#             df_old = pd.read_csv(path)
-#             df_temp = df[key]
-#             df_temp = pd.concat([df_temp,df_old], ignore_index=True)
-#             df_temp = df_temp.drop_duplicates(subset=['Title'], keep='first')
-#             df_temp.to_csv(path, index=False)
-#     print('News and Blogs updated')
+def _transform_save_rating(df,ticker, conn):
+    rating_cols = {'Date':'rating_date', 'Status':'rating_status', 'Outer':'rating_agency'}
     
+    if df['Rating'].str.contains(" → ").any():
+        df[['previous_rating', 'current_rating']] = df['Rating'].str.split(" → ", expand=True)
+        df['current_rating'].fillna(df['previous_rating'], inplace=True)
+    else:
+        df['current_rating'] = df['Rating']
+        df['previous_rating'] = df['Rating']
+    
+    if df['Price'].str.contains(" → ").any():    
+        df[['previous_price', 'current_price']] = df['Price'].str.split(" → ", expand=True)
+        df[['previous_price', 'current_price']] = df[['previous_price', 'current_price']].apply(lambda x: x.str.replace('$', '',regex=False))
+        df['current_price'].fillna(df['previous_price'], inplace=True)
+    else:
+        df['Price'] = df['Price'].str.replace('$', '',regex=False)
+        df['current_price'] = df['Price']
+        df['previous_price'] = df['Price']       
+    
+    df.drop(columns=['Rating', 'Price'], inplace=True)
+    df['ticker'] = ticker
+    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d')
+    df.rename(columns=rating_cols, inplace=True)
 
-# def update_insider():
-#     path = "{base_path}insider.csv".format(base_path=base_path)
-#     insider = Insider().get_insider()
-#     time.sleep(0.1)
-#     insider = _add_year_to_date(insider)
+    ratings = get_sql_table("SELECT * FROM dim_ratings WHERE ticker = '{}'".format(ticker))
+    ratings['rating_date'] = pd.to_datetime(ratings['rating_date'], format='%Y-%m-%d')
+        
+    # selcet rows that are not in the database
+    ratings = df[~df[['rating_date', 'rating_status', 'rating_agency']].apply(tuple, 1).isin(ratings[['rating_date', 'rating_status', 'rating_agency']].apply(tuple, 1))]
+    ratings.to_sql('dim_ratings', conn, if_exists='replace', index=False)
+ 
+def _transform_save_news(df,ticker, conn):
+    df['news_source'] = df['Link'].str.extract(r'//(.*?).com/')
+    df['ticker'] = ticker
+    news_cols = {'Date':'news_date', 'Title':'news_title', 'Link':'news_link'}
+    df.rename(columns=news_cols, inplace=True)
+    news = get_sql_table("SELECT * FROM dim_news WHERE ticker = '{}'".format(ticker))
+    # selcet rows that are not in the database
+    news = df[~df[['news_title']].apply(tuple, 1).isin(news[['news_title']].apply(tuple, 1))]
+    news.to_sql('dim_news', conn, if_exists='append', index=False)
+
+
+def _transform_save_inside_trade(df,ticker, conn):
+    df['ticker'] = ticker
+    inside_trade_cols = {'Insider Trading':'traded_by', 'Relationship':'relationship', 
+                        'Date':'trading_date', 'Transaction':'transaction_type', 'Cost':'share_price',
+                        '#Shares':'no_of_shares', 'Value ($)':'transaction_value', 
+                        '#Shares Total':'shares_total', 'SEC Form 4':'sec_form_4',
+                        'SEC Form 4 Link':'sec_form_4_link', 'Insider_id':'insider_id'}
+    df.rename(columns=inside_trade_cols, inplace=True)
+    inside_trade = get_sql_table("SELECT * FROM dim_inside_trades WHERE ticker = '{}'".format(ticker))
+    # selcet rows that are not in the database
+    subset_cols = ['traded_by', 'relationship', 'trading_date', 'transaction_type', 
+                   'share_price', 'no_of_shares', 'transaction_value', 'shares_total', 
+                   'sec_form_4', 'sec_form_4_link', 'insider_id']
+    inside_trade = df[~df[subset_cols].apply(tuple, 1).isin(inside_trade[subset_cols].apply(tuple, 1))]
+    inside_trade.to_sql('dim_inside_trades', conn, if_exists='append', index=False)
+
+
+def _transform_save_fundament(dct,ticker, conn):
+    series = pd.Series(dct)
+    today = pd.to_datetime('today').strftime('%Y-%m-%d')
+    series.name = today
+    df = series.to_frame().transpose(copy=True)
+    df.reset_index(drop=False, inplace=True)
+    df.rename(columns={'index':'Date'}, inplace=True)
+    df['ticker'] = ticker
+    df = format_fundamentals(df)
+    df.to_sql('dim_fundamentals', conn, if_exists='append', index=False)
+
+ 
+
+# This function gets Ticker description, Inside Trade,  Fundamentals, Ticker Rating, Ticker News
+def _get_ticker_data(ticker, conn):
+    tick = quote.finvizfinance(ticker=ticker)
+
+# # Ticker Description
+#     path = "{base_path}{ticker}_description.txt".format(base_path=base_path, ticker=ticker)
 #     if not os.path.exists(path):
-#         insider.to_csv(path,index=False)
-#     else:
-#         df = pd.read_csv(path)
-#         insider = pd.concat([insider,df], ignore_index=True)
-#         insider = insider.drop_duplicates(subset= ['Ticker','Owner','Relationship','Transaction','Cost','#Shares','Value ($)'], keep='first')
-#         insider.to_csv(path, index=False)
-#     print('Insider updated')
+#         ticker_description = tick.ticker_description()
+#         time.sleep(0.1)
+#         with open(path, "w") as file:
+#             file.write(ticker_description)
 
-# if __name__ == "__main__":
-#     try:    
-#         update_insider()
-#         update_calendar()
-#         update_news_blogs()
-#     except ConnectionError:
-#         update_insider()
-#         update_calendar()
-#         update_news_blogs()
-
-#     log(message="News, Blogs, Insider, Calender Data")
-# %%
-import pandas as pd
-from sqlalchemy import create_engine
-from sqlalchemy.sql import text
-# create a database engine
-engine = create_engine('postgresql://naveen:111222@localhost/stock_database')
-
-# define the SQL query
-query = "select * from news"
+    try:
+# Ticker Full Info.
+        full_info = tick.ticker_full_info()
+        time.sleep(0.1)
+        for key in full_info.keys():
+            # Ticker Fundament
+            if key == 'fundament':
+                dct = full_info['fundament']
+                _transform_save_fundament(dct=dct,ticker=ticker, conn=conn)
 
 
+            # Ticker Ratting
+            if key == 'ratings_outer':
+                ratings_outer = full_info['ratings_outer']
+                _transform_save_rating(ratings_outer,ticker=ticker, conn=conn)
+            
+            # Ticker News
+            if key == 'news':
+                news = full_info['news']
+                _transform_save_news(df=news,ticker=ticker, conn=conn)
 
-df = pd.read_csv('../data/news.csv')
+            # Inside Trade
+            if key == 'inside trader':
+                inside_trade = full_info['inside trader']
+                _transform_save_inside_trade(df=inside_trade,ticker=ticker, conn=conn)
+            
+    except AttributeError:
+        dct = tick.ticker_fundament()
+        time.sleep(0.1)
+        _transform_save_fundament(dct=dct,ticker=ticker, conn=conn)
 
-# %%
-print(df.shape)
-print(df_sql.shape)
+        ratings_outer = tick.ticker_outer_ratings()
+        time.sleep(0.1)
+        _transform_save_rating(ratings_outer,ticker=ticker, conn=conn)
 
+        news = tick.ticker_news()
+        _transform_save_news(df=news,ticker=ticker, conn=conn)
 
-# %%
-import pandas as pd
-import psycopg2
-
-# Set up the database connection
-conn = psycopg2.connect(
-    host='localhost',
-    database='stock_database',
-    user='naveen',
-    password='111222'
-)
-
-# Define the SQL query
-query = 'SELECT * FROM news'
-
-# Read the query results into a Pandas DataFrame
-df = pd.read_sql(query, conn)
-
-# Close the database connection
-conn.close()
-
-# Print the DataFrame
-print(df)
-
-
-# %%
-from sqlalchemy import create_engine
-import psycopg2
-import pandas as pd
-from utils import conn_url
-
-conn = psycopg2.connect(conn_url())
-
-# Define the SQL query
-query = 'SELECT * FROM ticker_info'
-
-# Read the query results into a Pandas DataFrame
-df_info = pd.read_sql(query, conn)
-df_info.to_csv('ticker_info.csv', index=False)
-
-query = 'SELECT * FROM all_signal_screener'
-all_signals = pd.read_sql(query, conn)
-all_signals.to_csv('all_signals.csv', index=False)
-
-# Close the database connection
-conn.close()
-
-
+def get_ticker_data(ticker, conn):
+    try:
+        _get_ticker_data(ticker, conn)
+    
+    except ConnectionError:
+        print('Connection Error Occurred for Get Data')
+        _get_ticker_data(ticker, conn)
+    

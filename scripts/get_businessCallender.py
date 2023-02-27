@@ -21,7 +21,7 @@ def get_business_calender():
     schedule.drop(columns=['market_open', 'market_close'], inplace=True)
     schedule = schedule.rename(columns={'index': 'Date'})
     schedule.to_sql('market_calender', conn, if_exists='replace', index=False)
-    conn.commit()
+    conn.close()
 
 if __name__ == '__main__':
     get_business_calender()

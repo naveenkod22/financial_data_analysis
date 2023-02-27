@@ -6,11 +6,12 @@ import time
 import datetime
 import numpy as np
 import pandas as pd
-from utils import database_engine
+from utils import conn_url
+from sqlalchemy import create_engine
 from utils import format_fundamentals
 
 start = time.time()
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 # TO FACT_TICKER TABLE
@@ -45,10 +46,9 @@ fact_ticker_df.rename(columns={'Ticker':'ticker', 'Description':'description',
                                'Country':'country','Index':'index', 'Sector': 'sector', 'Industry':'industry'}, inplace=True)
 
 fact_ticker_df.to_sql('fact_tickers', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO QUOTES TABLE
-
 
 file_path = '/home/naveen/code/financial_data_analysis/watchlist.json'
 with open(file_path) as f:
@@ -64,17 +64,17 @@ for sector, value in watch_list.items():
         quotes = pd.concat([quotes, df], ignore_index=True)
 
 quotes.rename(columns={'Ticker':'ticker', 'Date':'quote_date', 'Open':'open_price', 
-                        'High':'high_price', 'Low':'low_price', 'close':'close_price', 
+                        'High':'high_price', 'Low':'low_price', 'Close':'close_price', 
                         'Adj Close':'adj_close_price', 'Volume':'volume', 'Dividends':'dividend', 
                         'Stock Splits': 'splits'}, inplace=True)
 
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
-quotes.to_sql('dim_quotes', conn, if_exists='replace', index=False)
-conn.commit()
+quotes.to_sql('dim_quotes', conn, if_exists='append', index=False)
+conn.close()
 
 # TO NEWS TABLE
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*news.csv', recursive=True)
@@ -89,11 +89,11 @@ source = news_df['source']
 news_df['Source'].fillna(source, inplace=True)
 news_df.drop(columns=['source'], inplace=True)
 news_df.rename(columns={'ticker':'ticker', 'Date':'news_date', 'Title':'news_title', 'Source':'news_source', 'Link':'news_link'}, inplace=True)    
-news_df.to_sql('dim_news', conn, if_exists='replace', index=False)
-conn.commit()
+news_df.to_sql('dim_news', conn, if_exists='append', index=False)
+conn.close()
 
 # TO DIM_RATING TABLE
-engine = database_engine()
+eengine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*ratting.csv', recursive=True)
@@ -103,17 +103,19 @@ for file in files:
     df['ticker'] = os.path.basename(file).split('_')[0]
     rating_df = pd.concat([rating_df, df], ignore_index=True)
 
+rating_df[['Previous_price', 'Current_price']] = rating_df[['Previous_price', 'Current_price']].apply(lambda x: x.str.replace('$', '',regex=False))
+
 rating_df.rename(columns={'Date':'rating_date', 'Status':'rating_status', 'Outer':'rating_agency', 'Previous_rating':'previous_rating', 
                            'Current_rating':'current_rating','Previous_price':'previous_price', 'Current_price':'current_price', 
                            'ticker':'ticker'}, inplace=True)
 
 
-rating_df.to_sql('dim_ratings', conn, if_exists='replace', index=False)
-conn.commit()
+rating_df.to_sql('dim_ratings', conn, if_exists='append', index=False)
+conn.close()
 
 # TO INSIDE TRADING TABLE
 
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*inside_t*.csv', recursive=True)
@@ -129,12 +131,12 @@ inside_df.rename(columns={'Insider Trading':'traded_by', 'Relationship':'relatio
                         '#Shares Total':'shares_total', 'SEC Form 4':'sec_form_4',
                         'SEC Form 4 Link':'sec_form_4_link', 'Insider_id':'insider_id', 'ticker':'ticker'}, inplace=True)
 
-inside_df.to_sql('dim_inside_trades', conn, if_exists='replace', index=False)
-conn.commit()
+inside_df.to_sql('dim_inside_trades', conn, if_exists='append', index=False)
+conn.close()
 
 # TO ANNUAL EARNINGS TABLE
 
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*annual_earnings*.csv', recursive=True)
@@ -146,11 +148,11 @@ for file in files:
 
 earn_df.rename(columns={'ticker':'ticker', 'fiscalDateEnding':'fiscal_date_ending', 'reportedEPS':'reported_eps'}, inplace=True)
 earn_df.to_sql('dim_annual_earnings', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO QUARTERLY EARNINGS TABLE
 
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*quarterly_earnings*.csv', recursive=True)
@@ -166,11 +168,11 @@ q_earn_df.rename(columns={'ticker':'ticker', 'fiscalDateEnding':'fiscal_date_end
                         'surprise':'surprise', 'surprisePercentage':'surprise_percentage'}, inplace=True)
 q_earn_df.replace('None', np.nan, inplace=True)
 q_earn_df.to_sql('dim_quarterly_earnings', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO BALANCE SHEET TABLE
 
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*balance_sheet*.csv', recursive=True)
@@ -192,11 +194,11 @@ non_numeric_columns = ['ticker', 'report_type','reported_currency', 'fiscal_date
 balance_sheetdf = balance_sheetdf.apply(lambda x: pd.to_numeric(x, errors='coerce') if x.name not in non_numeric_columns else x)
 
 balance_sheetdf.to_sql('dim_balance_sheets', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO CASH FLOW TABLE
 
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*cash_flow*.csv', recursive=True)
@@ -218,11 +220,11 @@ non_numeric_columns = ['ticker', 'report_type','reported_currency', 'fiscal_date
 cash_flowdf = cash_flowdf.apply(lambda x: pd.to_numeric(x, errors='coerce') if x.name not in non_numeric_columns else x)
 
 cash_flowdf.to_sql('dim_cash_flows', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO INCOME STATEMENT TABLE
 
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*income_statement*.csv', recursive=True)
@@ -244,10 +246,10 @@ non_numeric_columns = ['ticker', 'report_type','reported_currency', 'fiscal_date
 income_statement_df = income_statement_df.apply(lambda x: pd.to_numeric(x, errors='coerce') if x.name not in non_numeric_columns else x)
 
 income_statement_df.to_sql('dim_income_statements', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO FUNDAMENTALS TABLE
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 files = glob.glob('/home/naveen/code/financial_data_analysis/data/watchlist/**/*fundament.csv', recursive=True)
@@ -259,10 +261,10 @@ for file in files:
 
 fundament_df = format_fundamentals(fundament_df)
 fundament_df.to_sql('dim_fundamentals', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO NEWS TABLE
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 
@@ -270,10 +272,10 @@ df = pd.read_csv('/home/naveen/code/financial_data_analysis/data/news.csv')
 df.columns = df.columns.str.lower()
 df = df.add_prefix('news_')
 df.to_sql('news', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO BLOGS TABLE
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 
@@ -282,11 +284,11 @@ df.columns = df.columns.str.lower()
 df = df.add_prefix('blogs_')
 df.columns
 df.to_sql('blogs', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 
 # TO INSIDER TABLE
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 
@@ -297,10 +299,10 @@ df.rename(columns={'owner':'traded_by', 'date':'trading_date',
                 '#shares':'no_of_shares', 'value_($)':'transaction_value', 
                 '#shares_total':'total_shares'}, inplace=True)
 df.to_sql('inside_trades', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 # TO CALENDAR TABLE
-engine = database_engine()
+engine = create_engine(conn_url())
 conn = engine.connect()
 
 
@@ -316,7 +318,7 @@ df.rename(columns={'datetime':'news_date', 'release':'release_title',
                    'for':'release_for','prior':'previous'}, inplace=True)
 
 df.to_sql('calendar', conn, if_exists='append', index=False)
-conn.commit()
+conn.close()
 
 
 

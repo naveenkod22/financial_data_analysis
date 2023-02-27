@@ -2,6 +2,7 @@ import os
 import logging
 import datetime
 import configparser
+from sqlalchemy import create_engine
 import numpy as np
 import pandas as pd
 
@@ -47,7 +48,25 @@ def format_earnings(df):
         df['earnings_date'] = df['earnings_date'].apply(lambda x: x.replace(year=datetime.datetime.now().year-1) if (x - datetime.datetime.now()).days > 120 else x.replace(year=datetime.datetime.now().year))
     if (datetime.datetime.now().month in [10,11,12]):
         df['earnings_date'] = df['earnings_date'].apply(lambda x: x.replace(year=datetime.datetime.now().year+1) if (datetime.datetime.now() - x).days > 200 else x.replace(year=datetime.datetime.now().year))
+
+    df['earnings_date'] = pd.to_datetime(df['earnings_date'], format='%b %d %Y', errors='coerce')
     return df
+
+def get_sql_table(statement):
+    """Returns a dataframe from a SQL statement"""
+    engine = create_engine(conn_url())
+    with engine.connect() as conn:
+        result = conn.execute(statement)
+        df = pd.DataFrame(result.fetchall(), columns=result.keys())
+    return df
+
+def get_sql_data(statement):
+    """Returns a dataframe from a SQL statement"""
+    engine = create_engine(conn_url())
+    with engine.connect() as conn:
+        result = conn.execute(statement)
+        data = result.fetchall()
+    return data
 
 def convert_to_number(value):
     """Converts a string to a number"""
@@ -108,7 +127,7 @@ def format_fundamentals(df):
     df.rename(columns={'52w_range_from':'range_from_52w', '52w_range_to':'range_to_52w'}, inplace=True)
 
     df = format_earnings(df)
-    df.drop(columns=['earnings_date', 'earnings_timing'], inplace=True)
+    # df.drop(columns=['earnings_date', 'earnings_timing'], inplace=True)
 
     bool_cols = ['optionable', 'shortable']
     bool_dict = {'Yes': True, 'No': False}

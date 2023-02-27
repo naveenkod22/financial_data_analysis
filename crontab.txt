@@ -1,13 +1,12 @@
 # Get_updates
-59 * * * * /home/naveen/miniconda3/envs/stock_data_analysis/bin/python /home/naveen/code/financial_data_analysis/script>
+59 * * * * /home/naveen/miniconda3/envs/stock_data/bin/python /home/naveen/code/financial_data_analysis/scripts/get_updates.py
 
 # daily Update
-40 20 * * 1-5 /home/naveen/miniconda3/envs/stock_data_analysis/bin/python /home/naveen/code/financial_data_analysis/scr>
+40 20 * * 1-5 /home/naveen/miniconda3/envs/stock_data/bin/python /home/naveen/code/financial_data_analysis/scripts/daily_update.py
 
 # All signal Screener
-0 */2 * * * /home/naveen/miniconda3/envs/stock_data_analysis/bin/python /home/naveen/code/financial_data_analysis/scrip>
+0 */2 * * * /home/naveen/miniconda3/envs/stock_data/bin/python /home/naveen/code/financial_data_analysis/scripts/get_screener.py
 
 # Update  business callender
-30 20 1,2,3 * * /home/naveen/miniconda3/envs/stock_data_analysis/bin/python /home/naveen/code/financial_data_analysis/s>
+30 20 1,2,3 * * /home/naveen/miniconda3/envs/stock_data/bin/python /home/naveen/code/financial_data_analysis/scripts/get_businessCallender.py
 
-# * * * * * date >> /home/naveen/code/financial_data_analysis/logs/get_updates.log

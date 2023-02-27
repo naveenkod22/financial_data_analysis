@@ -325,3 +325,9 @@ CREATE TABLE IF NOT EXISTS calendar (
     expected VARCHAR(25),
     previous VARCHAR(25)
 );
+
+CREATE TABLE IF NOT EXISTS last_updated (
+    last_updated_id SERIAL PRIMARY KEY,
+    table_name VARCHAR(255),
+    last_updated_date TIMESTAMP
+);

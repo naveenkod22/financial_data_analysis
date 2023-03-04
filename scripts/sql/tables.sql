@@ -35,8 +35,19 @@ from information_schema.tables
 where table_schema = 'public'
 order by 1 desc;
 
-select * from market_calender;
+select COUNT(*) from dim_news;
 
-select * from dim_quotes WHERE ticker = 'AAPL';
+
+SELECT COUNT(*) FROM inside_trades;
+-- select apple quote for today date
+select * from dim_quotes WHERE ticker = 'TSLA' AND quote_date = '2023-03-03';
+select * from dim_quotes WHERE ticker = 'AAPL' & quote_date = ;
 
 SELECT * FROM dim_fundamentals WHERE ticker = 'AAPL';
+ 
+SELECT * FROM all_signal_screener WHERE "Ticker" = 'TSLA' LIMIT 10;
+
+SELECT * FROM calendar;
+-- News: 5067, Apple Quotes: 10645; 4477
+
+SELECT COUNT(*) FROM inside_trades;

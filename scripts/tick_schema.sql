@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS dim_quarterly_earnings (
     surprise_percentage FLOAT
 );
 
-CREATE TABLE IF NOT EXISTS inside_trade (
+CREATE TABLE IF NOT EXISTS inside_trades (
     inside_trade_id SERIAL PRIMARY KEY,
     ticker VARCHAR(8),
     trading_owner VARCHAR(100),

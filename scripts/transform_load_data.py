@@ -332,7 +332,6 @@ class TransformLoad():
 
         max_date_query = "SELECT MAX(fiscal_date_ending) FROM {} WHERE ticker = '{}'".format('dim_quarterly_earnings',ticker)
         max_date = database_connection.get_sql_data(max_date_query, conn=self.conn)[0][0]
-        print(type(max_date))
         if max_date != None:
             delete_query = "DELETE FROM {} WHERE ticker = '{}' AND fiscal_date_ending = '{}'".format('dim_quarterly_earnings',ticker,max_date)
             database_connection.update_sql_table(delete_query, conn=self.conn)
@@ -349,7 +348,6 @@ class TransformLoad():
 
         max_date_query = "SELECT MAX(fiscal_date_ending) FROM {} WHERE ticker = '{}'".format('dim_annual_earnings',ticker)
         max_date = database_connection.get_sql_data(max_date_query, conn=self.conn)[0][0]
-        print(type(max_date))
         if max_date != None:
             delete_query = "DELETE FROM {} WHERE ticker = '{}' AND fiscal_date_ending = '{}'".format('dim_annual_earnings',ticker,max_date)
             database_connection.update_sql_table(delete_query, conn=self.conn)

@@ -28,4 +28,4 @@ def update_business_calender():
 
 if __name__ == '__main__':
     update_business_calender()
-    print('Business Calender Updated{}'.format(datetime.datetime.now()))
+    print('Business Calender; {}'.format(datetime.datetime.now()))

@@ -26,4 +26,4 @@ if datetime.date.today() in business_dates:
             get_data.update_ticker_quotes(ticker=ticker)
 
 transform_load_conn.close()
-print('Finished updating ticker data at {}'.format(datetime.datetime.now()))
+print('Ticker Data; {}'.format(datetime.datetime.now()))

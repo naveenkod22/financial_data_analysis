@@ -156,7 +156,7 @@ WHERE (ticker,market_cap, prev_close) IN (
    HAVING COUNT(*) > 1
 );
 
-select count(*) from news;
+select count(*) from news ;
 select count(*) from inside_trades;
 select count(*) from blogs;
 select count(*) from calendar;
@@ -179,3 +179,5 @@ select * from dim_fundamentals; where ticker = 'TSLA' and date >= '2023-03-08';
 select * from all_signal_screener where "ticker" = 'TSLA' and "date" >= '2023-03-09';
 
 select count(*) from ticker_info;
+
+select * from news where news_date >= '2023-03-09';

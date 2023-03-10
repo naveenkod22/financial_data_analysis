@@ -18,4 +18,4 @@ except ConnectionError as e:
     get_data.update_insider()
 
 transform_load_conn.close()
-print('Finished updating news, blogs, Calendar, insider trades at {}'.format(datetime.datetime.now()))
+print('News, Blogs, Calendar, Insider Trades; {}'.format(datetime.datetime.now()))

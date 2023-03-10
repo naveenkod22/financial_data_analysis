@@ -13,4 +13,4 @@ except ConnectionError as e:
     get_data.update_screeners()
 
 transform_load_conn.close()
-print('Finished updating screeners at {}'.format(datetime.datetime.now()))
+print('All Signal Screener; {}'.format(datetime.datetime.now()))

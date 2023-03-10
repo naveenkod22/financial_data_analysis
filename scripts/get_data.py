@@ -113,7 +113,7 @@ class GetData():
         for i in signals:
             screener = Overview()
             screener.set_filter(signal=i)
-            one_signal_df = screener.screener_view()
+            one_signal_df = screener.screener_view(verbose=False)
             try:
                 one_signal_df['signal'] = i
                 signals_df = pd.concat([signals_df, one_signal_df], ignore_index=True)

@@ -53,6 +53,14 @@ class GetData():
             self.transform_load.transform_load_dim_news(df=news,ticker=ticker)
 
 
+    def update_fact_tickers(self, ticker):
+        tick = quote.finvizfinance(ticker=ticker)
+        description = tick.ticker_description()
+        time.sleep(0.1)
+        fundament = tick.ticker_fundament()
+        time.sleep(0.1)
+        self.transform_load.transform_load_fact_tickers(ticker=ticker, description=description, fundament=fundament)
+
     # This function gets Ticker Quotes
     def update_ticker_quotes(self, ticker):
         self.transform_load.transform_load_quotes(ticker=ticker) 

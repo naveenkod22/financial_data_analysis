@@ -38,3 +38,9 @@ class DatabaseConnection():
         result = conn.execute(statement)
         data = result.fetchall()
         return data
+    
+    def update_sql_table(self, statement, conn):
+        """Updates a SQL table"""
+        conn.execute(statement)
+        message = 'Table updated successfully'
+        return message

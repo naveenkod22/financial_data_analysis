@@ -84,7 +84,6 @@ class GetData():
         for function in functions:
             url = "https://www.alphavantage.co/query?function={function}&symbol={ticker}&apikey={api_key}".format(function=function, ticker=ticker, api_key=api_key)
             data = requests.get(url)
-            time.sleep(13)
             data = data.json()
             if function == 'BALANCE_SHEET':
                 self.transform_load.transform_load_balance_sheets(data=data, ticker=ticker)
@@ -101,7 +100,6 @@ class GetData():
         function = 'EARNINGS'
         url = "https://www.alphavantage.co/query?function={function}&symbol={ticker}&apikey={api_key}".format(function=function, ticker=ticker, api_key=api_key)
         data = requests.get(url)
-        time.sleep(13)
         data = data.json()
         self.transform_load.transform_load_earnings(data=data, ticker=ticker)
 

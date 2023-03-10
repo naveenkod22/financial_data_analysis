@@ -142,10 +142,9 @@ class TransformLoad():
         non_numeric_columns = ['ticker', 'report_type','reported_currency', 'fiscal_date_ending']
         data = data.apply(lambda x: pd.to_numeric(x, errors='coerce') if x.name not in non_numeric_columns else x)
         data['fiscal_date_ending'] = pd.to_datetime(data['fiscal_date_ending']).dt.date
-        max_date = database_connection.get_sql_data("SELECT MAX(fiscal_date_ending) FROM {table} WHERE ticker = '{ticker}'".format(ticker = ticker, table = table), conn=self.conn)[0][0]
-        if max_date != None:
-            data = data[data['fiscal_date_ending'] > max_date]
-
+        db_data = database_connection.get_sql_table("SELECT * FROM {table} WHERE ticker = '{ticker}'".format(ticker = ticker, table = table), conn=self.conn)
+        subset = ['ticker', 'report_type', 'fiscal_date_ending']
+        data = data[~data[subset].apply(tuple, 1).isin(db_data[subset].apply(tuple, 1))]        
         return data
 
 
@@ -330,10 +329,15 @@ class TransformLoad():
         df.rename(columns=quarterly_earning_cols, inplace=True)
         df.replace('None', np.nan, inplace=True)
         df['fiscal_date_ending'] = pd.to_datetime(df['fiscal_date_ending']).dt.date
-        max_date = database_connection.get_sql_data("SELECT MAX(fiscal_date_ending) FROM {} WHERE ticker = '{}'".format('dim_quarterly_earnings',ticker), conn=self.conn)[0][0]
-        
+
+        max_date_query = "SELECT MAX(fiscal_date_ending) FROM {} WHERE ticker = '{}'".format('dim_quarterly_earnings',ticker)
+        max_date = database_connection.get_sql_data(max_date_query, conn=self.conn)[0][0]
+        print(type(max_date))
         if max_date != None:
-            df = df[df['fiscal_date_ending'] > max_date]
+            delete_query = "DELETE FROM {} WHERE ticker = '{}' AND fiscal_date_ending = '{}'".format('dim_quarterly_earnings',ticker,max_date)
+            database_connection.update_sql_table(delete_query, conn=self.conn)
+            df = df[df['fiscal_date_ending'] >= max_date]
+        
         df.to_sql('dim_quarterly_earnings', self.conn, if_exists='append', index=False)
         
         df = pd.DataFrame(data=data['annualEarnings'])
@@ -342,10 +346,15 @@ class TransformLoad():
         df.rename(columns=annual_earning_cols, inplace=True)
         df.replace('None', np.nan, inplace=True)
         df['fiscal_date_ending'] = pd.to_datetime(df['fiscal_date_ending']).dt.date
-        max_date = database_connection.get_sql_data("SELECT MAX(fiscal_date_ending) FROM {} WHERE ticker = '{}'".format('dim_annual_earnings',ticker), conn=self.conn)[0][0]
-        
+
+        max_date_query = "SELECT MAX(fiscal_date_ending) FROM {} WHERE ticker = '{}'".format('dim_annual_earnings',ticker)
+        max_date = database_connection.get_sql_data(max_date_query, conn=self.conn)[0][0]
+        print(type(max_date))
         if max_date != None:
-            df = df[df['fiscal_date_ending'] > max_date]
+            delete_query = "DELETE FROM {} WHERE ticker = '{}' AND fiscal_date_ending = '{}'".format('dim_annual_earnings',ticker,max_date)
+            database_connection.update_sql_table(delete_query, conn=self.conn)
+            df = df[df['fiscal_date_ending'] >= max_date]
+        
         df.to_sql('dim_annual_earnings', self.conn, if_exists='append', index=False)
 
 

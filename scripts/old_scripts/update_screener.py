@@ -59,9 +59,9 @@ def _add_fundamentals(df):
     tickers = df['Ticker'].to_list()
     for ticker in tickers:
         try:
-            fundament_series = quote.finvizfinance(ticker=ticker).ticker_fundament()
+            fundament_dict = quote.finvizfinance(ticker=ticker).ticker_fundament()
             time.sleep(0.1)
-            fundamentals_df[ticker] = fundament_series.values()
+            fundamentals_df[ticker] = fundament_dict.values()
             time.sleep(0.2)
         except:
             print('An Exception occurred while adding fundamentals')

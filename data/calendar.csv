@@ -1,25 +1,43 @@
 Datetime,Release,Impact,For,Actual,Expected,Prior
+"Mon Mar 06, 10:00 AM",Factory Orders,1,Jan,-1.6%,-1.8%,1.7%
+"Tue Mar 07, 10:00 AM",Wholesale Inventories,1,Jan,-0.4%,-0.4%,0.1%
+"Tue Mar 07, 3:00 PM",Consumer Credit,1,Jan,$14.8B,$22.9B,$10.6B
+"Wed Mar 08, 7:00 AM",MBA Mortgage Applications Index,1,03/04,7.4%,NA,-5.7%
+"Wed Mar 08, 8:15 AM",ADP Employment Change,3,Feb,242K,195K,119K
+"Wed Mar 08, 8:30 AM",Trade Balance,2,Jan,-$68.3B,-$69.0B,-$67.2B
+"Wed Mar 08, 10:00 AM",JOLTS - Job Openings,1,Jan,10.824M,NA,11.234M
+"Wed Mar 08, 10:30 AM",EIA Crude Oil Inventories,3,03/04,-1.69M,NA,1.17M
+"Wed Mar 08, 2:00 PM",Fed's Beige Book,2,Mar,-,NA,NA
+"Thu Mar 09, 8:30 AM",Initial Claims,2,03/04,211K,198K,190K
+"Thu Mar 09, 8:30 AM",Continuing Claims,2,02/25,1718K,NA,1649K
+"Thu Mar 09, 10:30 AM",EIA Natural Gas Inventories,1,03/04,-84 bcf,NA,-81 bcf
+"Fri Mar 10, 8:30 AM",Nonfarm Payrolls,3,Feb,-,205K,517K
+"Fri Mar 10, 8:30 AM",Nonfarm Private Payrolls,3,Feb,-,203K,443K
+"Fri Mar 10, 8:30 AM",Unemployment Rate,3,Feb,-,3.4%,3.4%
+"Fri Mar 10, 8:30 AM",Avg. Hourly Earnings,1,Feb,-,0.3%,0.3%
+"Fri Mar 10, 8:30 AM",Average Workweek,2,Feb,-,34.6,34.7
+"Fri Mar 10, 2:00 PM",Treasury Budget,1,Feb,-,NA,-$38.8B
 "Mon Feb 27, 8:30 AM",Durable Orders,3,Jan,-4.5%,-3.9%,5.1%
 "Mon Feb 27, 8:30 AM",Durable Goods -ex transportation,3,Jan,0.7%,0.1%,-0.4%
 "Mon Feb 27, 10:00 AM",Pending Home Sales,2,Jan,8.1%,1.0%,1.1%
-"Tue Feb 28, 8:30 AM",Adv. Intl. Trade in Goods,1,Jan,-$91.5B,NA,-$89.7B
-"Tue Feb 28, 8:30 AM",Adv. Retail Inventories,1,Jan,0.3%,NA,0.4%
-"Tue Feb 28, 8:30 AM",Adv. Wholesale Inventories,1,Jan,-0.4%,NA,0.1%
-"Tue Feb 28, 9:00 AM",FHFA Housing Price Index,1,Dec,-0.1%,NA,-0.1%
+"Tue Feb 28, 8:30 AM",Adv. Intl. Trade in Goods,1,Jan,-$91.5B,,-$89.7B
+"Tue Feb 28, 8:30 AM",Adv. Retail Inventories,1,Jan,0.3%,,0.4%
+"Tue Feb 28, 8:30 AM",Adv. Wholesale Inventories,1,Jan,-0.4%,,0.1%
+"Tue Feb 28, 9:00 AM",FHFA Housing Price Index,1,Dec,-0.1%,,-0.1%
 "Tue Feb 28, 9:00 AM",S&P Case-Shiller Home Price Index,1,Dec,4.6%,5.8%,6.8%
 "Tue Feb 28, 9:45 AM",Chicago PMI,2,Feb,43.6,45.0,44.3
 "Tue Feb 28, 10:00 AM",Consumer Confidence,2,Feb,102.9,108.4,106.0
-"Wed Mar 01, 7:00 AM",MBA Mortgage Applications Index,1,02/25,-5.7%,NA,-13.3%
-"Wed Mar 01, 9:45 AM",IHS Markit Manufacturing PMI - Final,1,Feb,47.3,NA,47.8
+"Wed Mar 01, 7:00 AM",MBA Mortgage Applications Index,1,02/25,-5.7%,,-13.3%
+"Wed Mar 01, 9:45 AM",IHS Markit Manufacturing PMI - Final,1,Feb,47.3,,47.8
 "Wed Mar 01, 10:00 AM",ISM Manufacturing Index,3,Feb,47.7%,47.8%,47.4%
 "Wed Mar 01, 10:00 AM",Construction Spending,1,Jan,-0.1%,0.3%,-0.7%
-"Wed Mar 01, 10:30 AM",EIA Crude Oil Inventories,3,02/25,1.17M,NA,7.65M
+"Wed Mar 01, 10:30 AM",EIA Crude Oil Inventories,3,02/25,1.17M,,7.65M
 "Thu Mar 02, 8:30 AM",Productivity-Rev.,2,Q4,1.7%,2.5%,3.0%
 "Thu Mar 02, 8:30 AM",Unit Labor Costs-Rev.,1,Q4,3.2%,1.4%,1.1%
 "Thu Mar 02, 8:30 AM",Initial Claims,2,02/25,190K,197K,192K
-"Thu Mar 02, 8:30 AM",Continuing Claims,2,02/18,1655K,NA,1660K
-"Thu Mar 02, 10:30 AM",EIA Natural Gas Inventories,1,02/24,-81 bcf,NA,-71 bcf
-"Fri Mar 03, 9:45 AM",IHS Markit Services PMI - Final,1,Feb,50.6,NA,50.5
+"Thu Mar 02, 8:30 AM",Continuing Claims,2,02/18,1655K,,1660K
+"Thu Mar 02, 10:30 AM",EIA Natural Gas Inventories,1,02/24,-81 bcf,,-71 bcf
+"Fri Mar 03, 9:45 AM",IHS Markit Services PMI - Final,1,Feb,50.6,,50.5
 "Fri Mar 03, 10:00 AM",ISM Services PMI,1,Feb,55.1%,54.5%,55.2%
 "Fri Mar 03, 10:00 AM",ISM Non-Manufacturing Index,3,Feb,-,54.5%,55.2%
 "Tue Feb 21, 9:45 AM",IHS Markit Manufacturing PMI - Prelim,1,Feb,47.8,,46.9

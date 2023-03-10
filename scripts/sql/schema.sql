@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS fact_tickers CASCADE;
 
 CREATE TABLE IF NOT EXISTS fact_tickers (
   ticker VARCHAR(8) PRIMARY KEY,
+  company VARCHAR(255),
   sector VARCHAR(255),
   industry VARCHAR(255),
   country VARCHAR(100),
@@ -13,7 +14,7 @@ DROP TABLE dim_fundamentals;
 CREATE TABLE IF NOT EXISTS dim_fundamentals (
     fundamental_id SERIAL PRIMARY KEY,
     ticker VARCHAR(8) REFERENCES fact_tickers(ticker),
-    date DATE, 
+    date TIMESTAMP, 
     p_e FLOAT, 
     eps_ttm FLOAT, 
     insider_own_percentage FLOAT, 

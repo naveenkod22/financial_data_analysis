@@ -8,20 +8,52 @@ import yfinance as yf
 from finvizfinance import quote
 from numpy import number as np_number
 from sqlalchemy import create_engine
-from finvizfinance.quote import finvizfinance
-from finvizfinance.screener.overview import Overview
 from database_connection import DatabaseConnection
 
 warnings.filterwarnings('ignore')
 database_connection = DatabaseConnection()
 
 class TransformLoad():
+    """
+    This Class transforms and loads data into database, this class is initialized in GetData class
+    The connection url is passed to this class from GetData class during initialization.
+
+    Parameters:
+    conn_url (str): connection url to database
+
+    Methods:
+    convert_to_number(value)
+    add_year_to_date(df, date_col='Date')
+    format_earnings(df)
+    format_date(df, date_col = 'Date')
+    format_fundamentals(df)
+    format_statements(data, ticker, table)
+    transform_load_ratings(df, ticker)
+    transform_load_dim_news(df,ticker)
+    transform_load_dim_inside_trade(df,ticker)
+    transform_load_fundament(dct,ticker)
+    transform_load_calendar(df)
+    transform_load_news_blogs(dct)
+    transform_load_insider_trades(df)
+    transform_load_quotes(ticker)
+    transform_load_fact_tickers(ticker,description, fundament)
+    transform_load_balance_sheets(data, ticker)
+    transform_load_cash_flows(data, ticker)
+    transform_load_income_statements(data, ticker)
+    transform_load_earnings(data, ticker)
+    transform_load_screener_data(df)
+    """
     def __init__(self, conn_url):
         self.conn = create_engine(conn_url).connect()
         
 
     def convert_to_number(self, value):
-        """Converts a string to a number"""
+        """
+        Converts a string to a number
+
+        Parameters:
+        value (str): string to be converted to number
+        """
         value = str(value).replace(',', '').replace('%', '').replace('- ', '-').replace('None', '-')
         if value.endswith('K'):
             return float(value.strip('K')) * 1000
@@ -37,6 +69,13 @@ class TransformLoad():
             return float(value)
 
     def add_year_to_date(self, df, date_col='Date'):
+        """
+        Adds year to date column
+
+        Parameters:
+        df (dataframe): dataframe with date column
+        date_col (str): date column name
+        """
         year = str(pd.to_datetime('today').year)
         df[date_col] = df[date_col]+ " " +year 
         df[date_col] = pd.to_datetime(df[date_col], format='%b %d %Y', errors='coerce')
@@ -53,7 +92,12 @@ class TransformLoad():
 
 
     def format_earnings(self, df):
-        # earnings to earnings_date and earnings_timing
+        """
+        Formats earnings column in dataframe to earnings_date and earnings_timing
+
+        Parameters:
+        df (dataframe): dataframe with earnings column
+        """
         df['earnings'].replace('-', np.nan, inplace=True)
         df[['earnings_date', 'earnings_timing']] = df['earnings'].str.extract(r"([a-zA-Z]+\s\d+)\s([a-zA-Z]*)")
         df.drop(columns=['earnings'], inplace=True)
@@ -63,6 +107,13 @@ class TransformLoad():
 
 
     def format_date(self, df, date_col = 'Date'):
+        """
+        Formats date column in dataframe to datetime
+        
+        Parameters:
+        df (dataframe): dataframe with date column
+        date_col (str): date column name
+        """
         df[date_col] = df[date_col].str.extract('(\d\d\:\d\d\w{2})', expand=False)
         df.dropna(subset=[date_col],inplace=True)
         today = datetime.datetime.now().date().strftime('%Y-%m-%d')
@@ -72,6 +123,12 @@ class TransformLoad():
 
 
     def format_fundamentals(self, df):
+        """
+        Formats fundamentals dataframe to match columns of dataframe to database table
+
+        Parameters:
+        df (dataframe): dataframe with fundamentals data
+        """
         df['Short Float / Ratio'].replace('-', np.nan, inplace=True)
         df[['short_float', 'short_float_ratio']] = df['Short Float / Ratio'].str.split('/', expand=True)
         df.drop(columns=['Short Float / Ratio'], inplace=True)
@@ -95,13 +152,9 @@ class TransformLoad():
         for col in percent_cols:
             if df[col].dtypes == 'object':
                 df[col] = df[col].apply(self.convert_to_number)
-        # df[percent_cols] = df[percent_cols].apply(lambda x: pd.to_numeric(x.str.replace('%', '').str.replace('-','')))
         df.rename(columns=dict(zip(percent_cols, new_percent_col_names)), inplace=True)
         df.rename(columns = {'dividend_%_percentage':'dividend_percentage'}, inplace=True)
         df.rename(columns={'52w_high_percentage':'high_52w_percentage', '52w_low_percentage':'low_52w_percentage'}, inplace=True)
-    
-        # df['change'] = df['change'].apply(lambda x: pd.to_numeric(x.str.replace('%', '').str.replace('-','')))
-        # df.rename(columns={'change':'change_percentage'}, inplace=True)
 
         float_cols = ['shs_outstand', 'p_e','employees','market_cap','volume', 'shs_float', 'income', 'sales', 'short_interest', 
                     'avg_volume', 'eps_ttm', 'forward_p_e', 'eps_next_y', 'peg', 'eps_next_q', 
@@ -111,8 +164,6 @@ class TransformLoad():
         for col in float_cols:
             if df[col].dtypes == 'object':
                 df[col] = df[col].apply(self.convert_to_number)
-
-
 
         df.rename(columns={'52w_range_from':'range_from_52w', '52w_range_to':'range_to_52w'}, inplace=True)
 
@@ -125,6 +176,14 @@ class TransformLoad():
     
     
     def format_statements(self, data, ticker, table):
+        """
+        Formats financial statements dataframe to match columns of dataframe to database table
+
+        Parameters:
+        data (dict of csv's): dictionary with financial statements data
+        ticker (str): ticker
+        table (str): table name(dictionary key name)
+        """
         quarter_reports = pd.DataFrame(data=data['quarterlyReports'])
         quarter_reports['report_type'] = 'quarterly'
 
@@ -149,6 +208,13 @@ class TransformLoad():
 
 
     def transform_load_ratings(self, df, ticker):
+        """
+        Formats ratings dataframe to match columns of dataframe to database table dim_ratings and loads data to database
+
+        Parameters:
+        df (dataframe): dataframe with ratings data
+        ticker (str): ticker
+        """
         rating_cols = {'Date':'rating_date', 'Status':'rating_status', 'Outer':'rating_agency'}
         if df['Rating'].str.contains(" → ").any():
             df[['previous_rating', 'current_rating']] = df['Rating'].str.split(" → ", expand=True)
@@ -181,6 +247,13 @@ class TransformLoad():
 
 
     def transform_load_dim_news(self, df,ticker):
+        """
+        Formats news dataframe to match columns of dataframe to database table dim_news
+
+        Parameters:
+        df (dataframe): dataframe with news data
+        ticker (str): ticker
+        """
         df['news_source'] = df['Link'].str.extract(r'//(.*?).com/')
         df['ticker'] = ticker
         news_cols = {'Date':'news_date', 'Title':'news_title', 'Link':'news_link'}
@@ -197,6 +270,13 @@ class TransformLoad():
 
 
     def transform_load_dim_inside_trade(self, df,ticker):
+        """
+        Formats inside trade dataframe to match columns of dataframe to database table dim_inside_trades
+
+        Parameters:
+        df (dataframe): dataframe with inside trade data
+        ticker (str): ticker
+        """
         df['ticker'] = ticker
         inside_trade_cols = {'Insider Trading':'traded_by', 'Relationship':'relationship', 
                             'Date':'trading_date', 'Transaction':'transaction_type', 'Cost':'share_price',
@@ -211,6 +291,13 @@ class TransformLoad():
 
 
     def transform_load_fundament(self, dct,ticker):
+        """
+        Formats fundamentals dataframe to match columns of dataframe to database table dim_fundamentals
+
+        Parameters:
+        dct (dict): dictionary with fundamentals data
+        ticker (str): ticker
+        """
         series = pd.Series(dct)
         today = pd.to_datetime('today').strftime('%Y-%m-%d %H:%M:%S')
         series.name = today
@@ -219,11 +306,16 @@ class TransformLoad():
         df.rename(columns={'index':'Date'}, inplace=True)
         df['ticker'] = ticker
         df = self.format_fundamentals(df)
-        df.to_csv('fundamentals_dim.csv', index=False)
         df.to_sql('dim_fundamentals', self.conn, if_exists='append', index=False)
 
 
     def transform_load_calendar(self, df):
+        """
+        Formats calendar dataframe to match columns of dataframe to database table calendar
+
+        Parameters:
+        df (dataframe): dataframe with calendar data
+        """
         calendar_cols={'datetime':'news_date', 'release':'release_title', 
                         'for':'release_for','prior':'previous'}
         df.columns = df.columns.str.lower()
@@ -245,6 +337,12 @@ class TransformLoad():
 
 
     def transform_load_news_blogs(self, dct):
+        """
+        Formats news and blogs dataframe to match columns of dataframe to database tables news and blogs
+
+        Parameters:
+        dct (dict): dictionary with news and blogs data
+        """
         tables = ['news', 'blogs']
         date = (datetime.datetime.now()-datetime.timedelta(1)).strftime('%Y-%m-%d')
         for table in tables:
@@ -260,6 +358,12 @@ class TransformLoad():
 
 
     def transform_load_insider_trades(self, df):
+        """
+        Formats insider trades dataframe to match columns of dataframe to database table inside_trades
+
+        Parameters:
+        df (dataframe): dataframe with insider trades data
+        """
         df = self.add_year_to_date(df)
         date = (datetime.datetime.now()-datetime.timedelta(10)).strftime('%Y-%m-%d')
         df = df[df['Date']>=pd.to_datetime(date, format='%Y-%m-%d')].copy(deep= True)
@@ -276,6 +380,12 @@ class TransformLoad():
     
 
     def transform_load_quotes(self, ticker):
+        """
+        Formats dataframe to match columns of dataframe to database table dim_quotes
+
+        Parameters:
+        ticker (str): ticker
+        """
         quote_cols = {'Date':'quote_date', 'Open':'open_price', 
                 'High':'high_price', 'Low':'low_price', 'Close':'close_price', 
                 'Adj Close':'adj_close_price', 'Volume':'volume', 'Dividends':'dividend', 
@@ -297,6 +407,14 @@ class TransformLoad():
 
 
     def transform_load_fact_tickers(self, ticker,description, fundament):
+        """
+        Formats  dataframe to match columns of dataframe to database table fact_tickers
+
+        Parameters:
+        ticker (str): ticker of the company. example: AAPL
+        description (str): description of the company
+        fundament (pandas series): pandas series with fundamental data
+        """
         df = pd.Series(fundament).to_frame().T
         df['Description'] = description
         df['Ticker'] = ticker
@@ -307,21 +425,49 @@ class TransformLoad():
 
     # financial statements
     def transform_load_balance_sheets(self, data, ticker):
+        """
+        Formats balance sheet dataframe to match columns of dataframe to database table dim_balance_sheets using format_statements method
+        
+        Parameters:
+        data (dataframe): dataframe with balance sheet data
+        ticker (str): ticker of the company
+        """
         data = self.format_statements(data, ticker, table='dim_balance_sheets')
         data.to_sql('dim_balance_sheets', self.conn, if_exists='append', index=False)
 
 
     def transform_load_cash_flows(self, data, ticker):
+        """
+        Formats cash flow dataframe to match columns of dataframe to database table dim_cash_flows using format_statements method
+        
+        Parameters:
+        data (dataframe): dataframe with cash flow data
+        ticker (str): ticker of the company
+        """
         data = self.format_statements(data, ticker, table = 'dim_cash_flows')
         data.to_sql('dim_cash_flows', self.conn, if_exists='append', index=False)
 
     def transform_load_income_statements(self, data, ticker):
+        """
+        Formats income statement dataframe to match columns of dataframe to database table dim_income_statements using format_statements method
+
+        Parameters:
+        data (dataframe): dataframe with income statement data
+        ticker (str): ticker of the company
+        """
         data = self.format_statements(data, ticker, table = 'dim_income_statements')
         data.to_sql('dim_income_statements', self.conn, if_exists='append', index=False)
 
 
     # Earning reports
     def transform_load_earnings(self, data, ticker):
+        """
+        Formats earnings dataframe to match columns of dataframe to database table dim_quarterly_earnings and dim_annual_earnings
+        
+        Parameters:
+        data (dict): dictionary with earnings data; keys: 'annualEarnings', 'quarterlyEarnings'
+        ticker (str): ticker of the company
+        """
         df = pd.DataFrame(data=data['quarterlyEarnings'])
         df['ticker'] = ticker
         quarterly_earning_cols = {'fiscalDateEnding':'fiscal_date_ending', 'reportedEPS':'reported_eps','reportedDate':'reported_date', 
@@ -357,6 +503,13 @@ class TransformLoad():
 
 
     def transform_load_screener_data(self, df):
+        """
+        Formats screener dataframe to match columns of dataframe to database table all_signal_screener:
+        - TAlso adds fundamental data to all tickers in the screener dataframe
+
+        Parameters:
+        df (dataframe): dataframe with screener data
+        """
         df.columns = df.columns.str.lower()
         repeated_tickers = df['ticker'].value_counts()>1
         repeated_tickers = repeated_tickers[repeated_tickers].index.tolist()
@@ -372,7 +525,7 @@ class TransformLoad():
         df.drop_duplicates(subset=['ticker'], inplace=True)
         df.drop(columns=['signal'], inplace=True)
 
-        # adding fundamental data to signals
+        # adding fundamental data to all_signal_screener table
         for_columns = quote.finvizfinance(ticker = 'AAPL').ticker_fundament()
         fundamental_df = pd.DataFrame(index=for_columns.keys())
 
@@ -396,7 +549,6 @@ class TransformLoad():
         signals_df = self.format_fundamentals(signals_df)
         signals_df['date'] = datetime.datetime.now().strftime("%Y%m%d_%H%M")
         signals_df['date'] = pd.to_datetime(signals_df['date'], format='%Y%m%d_%H%M')
-        signals_df.to_csv('all_signal_screener.csv')
         signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)
 
 
@@ -414,6 +566,5 @@ class TransformLoad():
         
         new_ticker_info['description'] = new_ticker_info['ticker'].map(description)
         new_ticker_info.dropna(inplace=True)
-        ticker_info.to_csv('ticker_info.csv')
         new_ticker_info.to_sql('ticker_info', self.conn, if_exists='append', index=False)
         

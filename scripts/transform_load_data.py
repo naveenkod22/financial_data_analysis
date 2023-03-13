@@ -382,7 +382,7 @@ class TransformLoad():
     def transform_load_quotes(self, ticker):
         """
         Formats dataframe to match columns of dataframe to database table dim_quotes
-
+        Note: This function both downloads and loads data into the database when ticker is provided
         Parameters:
         ticker (str): ticker
         """
@@ -504,8 +504,9 @@ class TransformLoad():
 
     def transform_load_screener_data(self, df):
         """
-        Formats screener dataframe to match columns of dataframe to database table all_signal_screener:
-        - TAlso adds fundamental data to all tickers in the screener dataframe
+        Formats screener dataframe to match columns of dataframe to database table all_signal_screener and ticker_info:
+        Note: This function downloads all fundamental data, ticker description for all tickers in the screener dataframe.
+
 
         Parameters:
         df (dataframe): dataframe with screener data

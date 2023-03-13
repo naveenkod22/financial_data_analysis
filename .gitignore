@@ -13,3 +13,6 @@ __pycache__/
 /scripts/test.py
 /scripts/.ipynb_checkpoints/
 /crontab.txt
+/data/
+/scripts/sql/tables.sql
+

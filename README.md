@@ -26,17 +26,19 @@
 ---
 # Repository structure:
 ```
-./
-├── data: All the data gathered for this project.
-│   ├── active
-│   ├── fundamentals
-│   │   ├── Automakers
-│   │   ├── IBM
-│   │   ├── semi_conductor
-│   │   └── tech
-│   ├── gainers
-│   ├── losers
-│   └── watchlist
-├── notebooks: Ipython Notebooks for Data Analysis.
-├── scripts: Python scripts to fetch the data.
+.
+├── logs.log : All the log messages from cron jobs are piped into this file.
+├── notebooks : Folder containing Jupyter notebooks
+├── README.md
+├── scripts
+│   ├── database_connection.py: Code for python class DatabaseConnection.
+│   ├── get_data.py: Code for python class GetData.
+│   ├── sql: This folder contains SQL scripts to create databases.
+│   ├── transform_load_data.py: Code for python class TransformLoad.
+│   ├── update_businessCalender.py: Code to update market_calender.
+│   ├── update_factTickers.py: Code to add new tickers to fact_tickers table.
+│   ├── update_financialStatements.py: Code to update cashflow, balance sheets, income statements and earning tables.
+│   ├── update_news.py: Code to update news, blogs, insider trades, calender tables.
+│   ├── update_screeners.py: Code to update All Signal Screener and ticker info tables.
+│   └── update_tickerData.py: Code to update ticker quotes and all ticker related data(news, insider trades, ratings, fundamentals).
 ```

@@ -1,8 +1,7 @@
 DROP TABLE IF EXISTS fact_tickers CASCADE;
-
 CREATE TABLE IF NOT EXISTS fact_tickers (
   ticker VARCHAR(8) PRIMARY KEY,
-  company VARCHAR(255),
+  company VARCHAR(500),
   sector VARCHAR(255),
   industry VARCHAR(255),
   country VARCHAR(100),
@@ -316,6 +315,7 @@ CREATE TABLE IF NOT EXISTS blogs (
     blogs_link VARCHAR(255)
 );
 
+DROP TABLE calendar;
 CREATE TABLE IF NOT EXISTS calendar (
     calendar_id SERIAL PRIMARY KEY,
     news_date TIMESTAMP,
@@ -327,8 +327,12 @@ CREATE TABLE IF NOT EXISTS calendar (
     previous VARCHAR(25)
 );
 
-CREATE TABLE IF NOT EXISTS last_updated (
-    last_updated_id SERIAL PRIMARY KEY,
-    table_name VARCHAR(255),
-    last_updated_date TIMESTAMP
+DROP TABLE IF EXISTS api_requests;
+CREATE TABLE api_requests (
+    request_id SERIAL PRIMARY KEY,
+    request_date DATE,
+    no_of_requests INT,
+    website VARCHAR(100),
+    remaining_tickers TEXT,
+    updated_tickers TEXT
 );

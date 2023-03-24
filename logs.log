@@ -92,3 +92,998 @@ News, Blogs, Calendar, Insider Trades; 2023-03-12 21:59:02.889500
 All Signal Screener; 2023-03-12 22:13:37.770365
 News, Blogs, Calendar, Insider Trades; 2023-03-12 22:59:02.928189
 News, Blogs, Calendar, Insider Trades; 2023-03-12 23:59:03.050083
+All Signal Screener; 2023-03-13 00:13:32.289750
+News, Blogs, Calendar, Insider Trades; 2023-03-13 00:59:03.252894
+News, Blogs, Calendar, Insider Trades; 2023-03-13 01:59:02.955870
+All Signal Screener; 2023-03-13 02:12:38.210560
+News, Blogs, Calendar, Insider Trades; 2023-03-13 02:59:03.139025
+News, Blogs, Calendar, Insider Trades; 2023-03-13 03:59:02.727992
+All Signal Screener; 2023-03-13 04:12:19.003497
+News, Blogs, Calendar, Insider Trades; 2023-03-13 04:59:02.817790
+News, Blogs, Calendar, Insider Trades; 2023-03-13 05:59:02.629373
+All Signal Screener; 2023-03-13 06:12:49.958921
+News, Blogs, Calendar, Insider Trades; 2023-03-13 06:59:02.580603
+News, Blogs, Calendar, Insider Trades; 2023-03-13 07:59:03.219981
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1799, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 953, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type double precision: "-"
+LINE 1: ..., 20.67,  -26.12, 2.34, 1.77, NULL,  -41.5, NULL, '-',  -10....
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_screeners.py", line 11, in <module>
+    get_data.update_screeners()
+  File "/home/naveen/code/financial_data_analysis/scripts/get_data.py", line 196, in update_screeners
+    self.transform_load.transform_load_screener_data(df=signals_df)
+  File "/home/naveen/code/financial_data_analysis/scripts/transform_load_data.py", line 553, in transform_load_screener_data
+    signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/core/generic.py", line 2987, in to_sql
+    return sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 695, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1738, in to_sql
+    total_inserted = sql_engine.insert_records(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1335, in insert_records
+    raise err
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1325, in insert_records
+    return table.insert(chunksize=chunksize, method=method)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 946, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 853, in _execute_insert
+    result = conn.execute(self.table.insert(), data)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1306, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 332, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1498, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1799, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 953, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type double precision: "-"
+LINE 1: ..., 20.67,  -26.12, 2.34, 1.77, NULL,  -41.5, NULL, '-',  -10....
+                                                             ^
+
+[SQL: INSERT INTO all_signal_screener (ticker, market_cap, p_e, price, change_percentage, volume, signals, no_of_signals, eps_ttm, insider_own_percentage, shs_outstand, perf_week_percentage, forward_p_e, eps_next_y, insider_trans_percentage, shs_float, perf_month_percentage, income, peg, eps_next_q, inst_own_percentage, perf_quarter_percentage, sales, p_s, eps_this_y_percentage, inst_trans_percentage, short_interest, perf_half_y_percentage, book_sh, p_b, eps_next_y_percentage_percentage, roa_percentage, target_price, perf_year_percentage, cash_sh, p_c, eps_next_5y_percentage, roe_percentage, range_from_52w, range_to_52w, perf_ytd_percentage, dividend, p_fcf, eps_past_5y_percentage, roi_percentage, high_52w_percentage, beta, dividend_percentage, quick_ratio, sales_past_5y_percentage, gross_margin_percentage, low_52w_percentage, atr, employees, current_ratio, sales_q_q_percentage, oper_margin_percentage, rsi_14, volatility_w_percentage, volatility_m_percentage, optionable, debt_eq, eps_q_q_percentage, profit_margin_percentage, rel_volume, prev_close, shortable, lt_debt_eq, payout_percentage, avg_volume, recom, sma20_percentage, sma50_percentage, sma200_percentage, short_float_percentage, short_float_ratio, earnings_date, earnings_timing, date) VALUES (%(ticker)s, %(market_cap)s, %(p_e)s, %(price)s, %(change_percentage)s, %(volume)s, %(signals)s, %(no_of_signals)s, %(eps_ttm)s, %(insider_own_percentage)s, %(shs_outstand)s, %(perf_week_percentage)s, %(forward_p_e)s, %(eps_next_y)s, %(insider_trans_percentage)s, %(shs_float)s, %(perf_month_percentage)s, %(income)s, %(peg)s, %(eps_next_q)s, %(inst_own_percentage)s, %(perf_quarter_percentage)s, %(sales)s, %(p_s)s, %(eps_this_y_percentage)s, %(inst_trans_percentage)s, %(short_interest)s, %(perf_half_y_percentage)s, %(book_sh)s, %(p_b)s, %(eps_next_y_percentage_percentage)s, %(roa_percentage)s, %(target_price)s, %(perf_year_percentage)s, %(cash_sh)s, %(p_c)s, %(eps_next_5y_percentage)s, %(roe_percentage)s, %(range_from_52w)s, %(range_to_52w)s, %(perf_ytd_percentage)s, %(dividend)s, %(p_fcf)s, %(eps_past_5y_percentage)s, %(roi_percentage)s, %(high_52w_percentage)s, %(beta)s, %(dividend_percentage)s, %(quick_ratio)s, %(sales_past_5y_percentage)s, %(gross_margin_percentage)s, %(low_52w_percentage)s, %(atr)s, %(employees)s, %(current_ratio)s, %(sales_q_q_percentage)s, %(oper_margin_percentage)s, %(rsi_14)s, %(volatility_w_percentage)s, %(volatility_m_percentage)s, %(optionable)s, %(debt_eq)s, %(eps_q_q_percentage)s, %(profit_margin_percentage)s, %(rel_volume)s, %(prev_close)s, %(shortable)s, %(lt_debt_eq)s, %(payout_percentage)s, %(avg_volume)s, %(recom)s, %(sma20_percentage)s, %(sma50_percentage)s, %(sma200_percentage)s, %(short_float_percentage)s, %(short_float_ratio)s, %(earnings_date)s, %(earnings_timing)s, %(date)s)]
+[parameters: ({'ticker': 'EUDA', 'market_cap': 29290000.0, 'p_e': None, 'price': 2.02, 'change_percentage': 0.542, 'volume': 13873516.0, 'signals': "['Most Active', 'Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 4, 'eps_ttm': -0.14, 'insider_own_percentage': 13.7, 'shs_outstand': 11070000.0, 'perf_week_percentage': 50.75, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': 0.0, 'shs_float': 7070000.0, 'perf_month_percentage': 37.41, 'income': -1500000.0, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': 35.3, 'perf_quarter_percentage': -17.89, 'sales': 10100000.0, 'p_s': 2.9, 'eps_this_y_percentage': None, 'inst_trans_percentage': 1.05, 'short_interest': 20000.0, 'perf_half_y_percentage': -79.68, 'book_sh': 7.43, 'p_b': 0.27, 'eps_next_y_percentage_percentage': None, 'roa_percentage': -1.7, 'target_price': None, 'perf_year_percentage': None, 'cash_sh': 0.02, 'p_c': 97.63, 'eps_next_5y_percentage': None, 'roe_percentage': -1.8, 'range_from_52w': 1.05, 'range_to_52w': '10.50', 'perf_ytd_percentage': 22.6, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -80.76, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 17.4, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 92.36, 'atr': '0.45', 'employees': None, 'current_ratio': 17.4, 'sales_q_q_percentage': -14.2, 'oper_margin_percentage': None, 'rsi_14': 59.93, 'volatility_w_percentage': 68.73, 'volatility_m_percentage': 27.13, 'optionable': False, 'debt_eq': 0.01, 'eps_q_q_percentage': 506.0, 'profit_margin_percentage': None, 'rel_volume': '103.96', 'prev_close': '1.31', 'shortable': False, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 358280.0, 'recom': None, 'sma20_percentage': 45.42, 'sma50_percentage': 27.41, 'sma200_percentage': -70.14, 'short_float_percentage': 0.33, 'short_float_ratio': 0.06, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'CZOO', 'market_cap': 76110000.0, 'p_e': None, 'price': 2.62, 'change_percentage': 0.3232, 'volume': 5256822.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -21.63, 'insider_own_percentage': 31.8, 'shs_outstand': 37970000.0, 'perf_week_percentage': 22.43, 'forward_p_e': None, 'eps_next_y': -4.85, 'insider_trans_percentage': 0.0, 'shs_float': 25960000.0, 'perf_month_percentage': -34.53, 'income': -816100000.0, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': 39.4, 'perf_quarter_percentage': -44.26, 'sales': 1250000000.0, 'p_s': 0.06, 'eps_this_y_percentage': -474.3, 'inst_trans_percentage': -61.67, 'short_interest': 640000.0, 'perf_half_y_percentage': -81.07, 'book_sh': 16.39, 'p_b': 0.16, 'eps_next_y_percentage_percentage': 52.4, 'roa_percentage': None, 'target_price': 406.64, 'perf_year_percentage': -95.13, 'cash_sh': 16.46, 'p_c': 0.16, 'eps_next_5y_percentage': -1.68, 'roe_percentage': None, 'range_from_52w': 1.93, 'range_to_52w': '65.20', 'perf_ytd_percentage': -16.45, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -31.2, 'high_52w_percentage': -95.98, 'beta': None, 'dividend_percentage': None, 'quick_ratio': None, 'sales_past_5y_percentage': None, 'gross_margin_percentage': 1.6, 'low_52w_percentage': 35.75, 'atr': '0.42', 'employees': 3822.0, 'current_ratio': None, 'sales_q_q_percentage': 153.0, 'oper_margin_percentage': None, 'rsi_14': 45.77, 'volatility_w_percentage': 19.64, 'volatility_m_percentage': 13.83, 'optionable': True, 'debt_eq': 0.55, 'eps_q_q_percentage': -725.1, 'profit_margin_percentage': None, 'rel_volume': '36.62', 'prev_close': '1.98', 'shortable': False, 'lt_debt_eq': 0.12, 'payout_percentage': None, 'avg_volume': 227090.0, 'recom': 3.0, 'sma20_percentage': 1.93, 'sma50_percentage': -27.3, 'sma200_percentage': -73.86, 'short_float_percentage': 2.47, 'short_float_ratio': 2.82, 'earnings_date': datetime.datetime(2023, 1, 18, 0, 0), 'earnings_timing': 'BMO', 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'UNCY', 'market_cap': 31090000.0, 'p_e': None, 'price': 2.68, 'change_percentage': 0.301, 'volume': 70240424.0, 'signals': "['Most Active', 'Most Volatile', 'Multiple Bottom', 'New High', 'Overbought', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 7, 'eps_ttm': -1.03, 'insider_own_percentage': 0.6, 'shs_outstand': 15060000.0, 'perf_week_percentage': 446.94, 'forward_p_e': None, 'eps_next_y': -1.06, 'insider_trans_percentage': 0.0, 'shs_float': 8840000.0, 'perf_month_percentage': 396.57, 'income': -15500000.0, 'peg': None, 'eps_next_q': -0.24, 'inst_own_percentage': 18.3, 'perf_quarter_percentage': 268.64, 'sales': 1000000.0, 'p_s': 31.09, 'eps_this_y_percentage': -327.7, 'inst_trans_percentage': -8.88, 'short_interest': 150000.0, 'perf_half_y_percentage': 272.22, 'book_sh': 0.31, 'p_b': 8.65, 'eps_next_y_percentage_percentage': 2.8, 'roa_percentage': -107.7, 'target_price': 9.1, 'perf_year_percentage': 95.62, 'cash_sh': 0.6, 'p_c': 4.44, 'eps_next_5y_percentage': None, 'roe_percentage': -139.9, 'range_from_52w': 0.4, 'range_to_52w': '2.24', 'perf_ytd_percentage': 396.3, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': 19.64, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 1.8, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 569.33, 'atr': '0.28', 'employees': 9.0, 'current_ratio': 1.8, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 95.1, 'volatility_w_percentage': 38.09, 'volatility_m_percentage': 16.26, 'optionable': False, 'debt_eq': 0.0, 'eps_q_q_percentage': -0.5, 'profit_margin_percentage': None, 'rel_volume': '15.19', 'prev_close': '2.06', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 5620000.0, 'recom': 2.0, 'sma20_percentage': 265.38, 'sma50_percentage': 334.5, 'sma200_percentage': 274.95, 'short_float_percentage': 1.67, 'short_float_ratio': 0.03, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'CING', 'market_cap': 16710000.0, 'p_e': None, 'price': 1.85, 'change_percentage': 0.25, 'volume': 4377216.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -1.51, 'insider_own_percentage': 2.3, 'shs_outstand': 11310000.0, 'perf_week_percentage': 37.04, 'forward_p_e': None, 'eps_next_y': -0.84, 'insider_trans_percentage': 200.84, 'shs_float': 7500000.0, 'perf_month_percentage': 92.41, 'income': -15700000.0, 'peg': None, 'eps_next_q': -0.32, 'inst_own_percentage': 2.3, 'perf_quarter_percentage': 90.72, 'sales': None, 'p_s': None, 'eps_this_y_percentage': -695.2, 'inst_trans_percentage': -64.72, 'short_interest': 1070000.0, 'perf_half_y_percentage': 24.16, 'book_sh': 0.74, 'p_b': 2.5, 'eps_next_y_percentage_percentage': 12.5, 'roa_percentage': -153.1, 'target_price': 5.88, 'perf_year_percentage': 40.15, 'cash_sh': 1.09, 'p_c': 1.7, 'eps_next_5y_percentage': None, 'roe_percentage': -188.0, 'range_from_52w': 0.66, 'range_to_52w': '2.20', 'perf_ytd_percentage': 85.0, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -15.91, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 1.8, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 178.61, 'atr': '0.19', 'employees': 16.0, 'current_ratio': 1.8, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 67.69, 'volatility_w_percentage': 16.83, 'volatility_m_percentage': 13.9, 'optionable': False, 'debt_eq': 0.6, 'eps_q_q_percentage': 52.4, 'profit_margin_percentage': None, 'rel_volume': '5.10', 'prev_close': '1.48', 'shortable': False, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 856280.0, 'recom': 2.0, 'sma20_percentage': 41.28, 'sma50_percentage': 66.03, 'sma200_percentage': 51.55, 'short_float_percentage': 14.29, 'short_float_ratio': 1.25, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'EVOK', 'market_cap': 9900000.0, 'p_e': None, 'price': 3.6, 'change_percentage': 0.2121, 'volume': 78489.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -2.72, 'insider_own_percentage': 2.46, 'shs_outstand': 3340000.0, 'perf_week_percentage': 22.87, 'forward_p_e': None, 'eps_next_y': -1.38, 'insider_trans_percentage': 0.0, 'shs_float': 3260000.0, 'perf_month_percentage': -10.22, 'income': -8100000.0, 'peg': None, 'eps_next_q': -0.53, 'inst_own_percentage': 1.9, 'perf_quarter_percentage': 77.34, 'sales': 2100000.0, 'p_s': 4.71, 'eps_this_y_percentage': 48.6, 'inst_trans_percentage': -13.28, 'short_interest': 30000.0, 'perf_half_y_percentage': 50.53, 'book_sh': 1.66, 'p_b': 2.17, 'eps_next_y_percentage_percentage': 46.5, 'roa_percentage': -68.3, 'target_price': 7.0, 'perf_year_percentage': -42.88, 'cash_sh': 4.51, 'p_c': 0.8, 'eps_next_5y_percentage': 40.0, 'roe_percentage': -177.7, 'range_from_52w': 1.37, 'range_to_52w': '16.80', 'perf_ytd_percentage': 34.33, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': 25.4, 'roi_percentage': -94.8, 'high_52w_percentage': -78.57, 'beta': 0.42, 'dividend_percentage': None, 'quick_ratio': 6.9, 'sales_past_5y_percentage': None, 'gross_margin_percentage': 84.7, 'low_52w_percentage': 162.45, 'atr': '0.28', 'employees': 4.0, 'current_ratio': 7.1, 'sales_q_q_percentage': -11.1, 'oper_margin_percentage': None, 'rsi_14': 58.85, 'volatility_w_percentage': 8.08, 'volatility_m_percentage': 8.28, 'optionable': False, 'debt_eq': 0.0, 'eps_q_q_percentage': 17.1, 'profit_margin_percentage': None, 'rel_volume': '2.07', 'prev_close': '2.97', 'shortable': True, 'lt_debt_eq': 0.91, 'payout_percentage': None, 'avg_volume': 38580.0, 'recom': 2.0, 'sma20_percentage': 20.97, 'sma50_percentage': 6.92, 'sma200_percentage': 37.28, 'short_float_percentage': 0.8, 'short_float_ratio': 0.68, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'DTC', 'market_cap': 433490000.0, 'p_e': None, 'price': 5.49, 'change_percentage': 0.2119, 'volume': 3566447.0, 'signals': "['Channel Down', 'Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 4, 'eps_ttm': -0.6, 'insider_own_percentage': 0.4, 'shs_outstand': 63470000.0, 'perf_week_percentage': 31.97, 'forward_p_e': 5.27, 'eps_next_y': 1.04, 'insider_trans_percentage': 1.78, 'shs_float': 63360000.0, 'perf_month_percentage': 22.82, 'income': -48500000.0, 'peg': None, 'eps_next_q': 0.1, 'inst_own_percentage': None, 'perf_quarter_percentage': 28.57, 'sales': 496900000.0, 'p_s': 0.87, 'eps_this_y_percentage': 145.2, 'inst_trans_percentage': -1.2, 'short_interest': 1490000.0, 'perf_half_y_percentage': 22.82, 'book_sh': 5.52, 'p_b': 0.99, 'eps_next_y_percentage_percentage': 18.01, 'roa_percentage': -5.2, 'target_price': 8.83, 'perf_year_percentage': -43.05, 'cash_sh': 0.22, 'p_c': 25.2, 'eps_next_5y_percentage': 7.5, 'roe_percentage': -12.7, 'range_from_52w': 3.39, 'range_to_52w': '10.74', 'perf_ytd_percentage': 47.58, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': 13.7, 'high_52w_percentage': -48.88, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 0.9, 'sales_past_5y_percentage': None, 'gross_margin_percentage': 62.8, 'low_52w_percentage': 61.95, 'atr': '0.38', 'employees': 300.0, 'current_ratio': 3.6, 'sales_q_q_percentage': 47.3, 'oper_margin_percentage': -0.3, 'rsi_14': 75.36, 'volatility_w_percentage': 14.91, 'volatility_m_percentage': 6.74, 'optionable': True, 'debt_eq': 0.49, 'eps_q_q_percentage': -384.2, 'profit_margin_percentage': -9.1, 'rel_volume': '14.76', 'prev_close': '4.53', 'shortable': True, 'lt_debt_eq': 0.48, 'payout_percentage': None, 'avg_volume': 294700.0, 'recom': 1.4, 'sma20_percentage': 32.42, 'sma50_percentage': 32.05, 'sma200_percentage': 25.75, 'short_float_percentage': 2.36, 'short_float_ratio': 5.07, 'earnings_date': datetime.datetime(2023, 3, 9, 0, 0), 'earnings_timing': 'BMO', 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'CYTO', 'market_cap': 1500000.0, 'p_e': None, 'price': 1.56, 'change_percentage': 0.20929999999999999, 'volume': 2519647.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -26.36, 'insider_own_percentage': 7.1, 'shs_outstand': 1170000.0, 'perf_week_percentage': -37.35, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': 0.0, 'shs_float': 1090000.0, 'perf_month_percentage': -46.39, 'income': -19200000.0, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': 1.9, 'perf_quarter_percentage': -70.79, 'sales': 1400000.0, 'p_s': 1.07, 'eps_this_y_percentage': 3.7, 'inst_trans_percentage': 62.28, 'short_interest': 20000.0, 'perf_half_y_percentage': -77.06, 'book_sh': 10.62, 'p_b': 0.15, 'eps_next_y_percentage_percentage': None, 'roa_percentage': -87.7, 'target_price': None, 'perf_year_percentage': -89.37, 'cash_sh': 0.42, 'p_c': 3.74, 'eps_next_5y_percentage': None, 'roe_percentage': -125.4, 'range_from_52w': 1.25, 'range_to_52w': '43.00', 'perf_ytd_percentage': -67.84, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -96.37, 'beta': 1.4, 'dividend_percentage': None, 'quick_ratio': 0.2, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 24.8, 'atr': '0.45', 'employees': 17.0, 'current_ratio': 0.2, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 29.11, 'volatility_w_percentage': 31.81, 'volatility_m_percentage': 18.62, 'optionable': True, 'debt_eq': 0.61, 'eps_q_q_percentage': 18.7, 'profit_margin_percentage': None, 'rel_volume': '4.88', 'prev_close': '1.29', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 541340.0, 'recom': None, 'sma20_percentage': -33.53, 'sma50_percentage': -55.48, 'sma200_percentage': -77.68, 'short_float_percentage': 2.21, 'short_float_ratio': 0.04, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'JFBR', 'market_cap': 9500000.0, 'p_e': None, 'price': 1.66, 'change_percentage': 0.1942, 'volume': 3518904.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -0.63, 'insider_own_percentage': 69.36, 'shs_outstand': 6860000.0, 'perf_week_percentage': 48.21, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': 0.0, 'shs_float': 2100000.0, 'perf_month_percentage': 59.62, 'income': -2200000.0, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': 4.4, 'perf_quarter_percentage': 6.41, 'sales': 6900000.0, 'p_s': 1.38, 'eps_this_y_percentage': None, 'inst_trans_percentage': None, 'short_interest': 260000.0, 'perf_half_y_percentage': 10.67, 'book_sh': 0.24, 'p_b': 7.03, 'eps_next_y_percentage_percentage': None, 'roa_percentage': None, 'target_price': None, 'perf_year_percentage': None, 'cash_sh': 0.02, 'p_c': 94.95, 'eps_next_5y_percentage': None, 'roe_percentage': None, 'range_from_52w': 0.83, 'range_to_52w': '3.30', 'perf_ytd_percentage': 43.1, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -15.5, 'high_52w_percentage': -49.7, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 0.0, 'sales_past_5y_percentage': None, 'gross_margin_percentage': 26.4, 'low_52w_percentage': 99.93, 'atr': '0.16', 'employees': None, 'current_ratio': 0.5, 'sales_q_q_percentage': 91.7, 'oper_margin_percentage': None, 'rsi_14': 76.5, 'volatility_w_percentage': 17.92, 'volatility_m_percentage': 13.31, 'optionable': False, 'debt_eq': 5.71, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '11.69', 'prev_close': '1.39', 'shortable': True, 'lt_debt_eq': 3.57, 'payout_percentage': None, 'avg_volume': 352910.0, 'recom': None, 'sma20_percentage': 55.54, 'sma50_percentage': 45.29, 'sma200_percentage': 29.9, 'short_float_percentage': 12.16, 'short_float_ratio': 0.72, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)}  ... displaying 10 of 1861 total bound parameter sets ...  {'ticker': 'FJP', 'market_cap': None, 'p_e': None, 'price': 44.97, 'change_percentage': -0.0141, 'volume': 906.0, 'signals': 'Head & Shoulders Inverse', 'no_of_signals': 1, 'eps_ttm': None, 'insider_own_percentage': None, 'shs_outstand': None, 'perf_week_percentage': -0.7, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': None, 'shs_float': None, 'perf_month_percentage': 2.26, 'income': None, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': None, 'perf_quarter_percentage': 7.0, 'sales': None, 'p_s': None, 'eps_this_y_percentage': None, 'inst_trans_percentage': None, 'short_interest': None, 'perf_half_y_percentage': 11.43, 'book_sh': None, 'p_b': None, 'eps_next_y_percentage_percentage': None, 'roa_percentage': None, 'target_price': None, 'perf_year_percentage': -6.58, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': None, 'range_from_52w': 36.88, 'range_to_52w': '49.47', 'perf_ytd_percentage': 5.92, 'dividend': 0.94, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -9.09, 'beta': None, 'dividend_percentage': 2.09, 'quick_ratio': None, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 21.95, 'atr': '0.57', 'employees': None, 'current_ratio': None, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 54.11, 'volatility_w_percentage': 0.89, 'volatility_m_percentage': 0.72, 'optionable': True, 'debt_eq': None, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '0.13', 'prev_close': '45.62', 'shortable': False, 'lt_debt_eq': None, 'payout_percentage': None, 'avg_volume': 7080.0, 'recom': None, 'sma20_percentage': 0.87, 'sma50_percentage': 2.57, 'sma200_percentage': 7.23, 'short_float_percentage': None, 'short_float_ratio': None, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)}, {'ticker': 'AGZD', 'market_cap': None, 'p_e': None, 'price': 43.55, 'change_percentage': -0.0059, 'volume': 14367.0, 'signals': 'Head & Shoulders Inverse', 'no_of_signals': 1, 'eps_ttm': None, 'insider_own_percentage': None, 'shs_outstand': None, 'perf_week_percentage': -0.71, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': None, 'shs_float': None, 'perf_month_percentage': -0.75, 'income': None, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': None, 'perf_quarter_percentage': 0.0, 'sales': None, 'p_s': None, 'eps_this_y_percentage': None, 'inst_trans_percentage': None, 'short_interest': None, 'perf_half_y_percentage': 0.75, 'book_sh': None, 'p_b': None, 'eps_next_y_percentage_percentage': None, 'roa_percentage': None, 'target_price': None, 'perf_year_percentage': 0.23, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': None, 'range_from_52w': 42.62, 'range_to_52w': '44.17', 'perf_ytd_percentage': 0.22, 'dividend': 1.25, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -1.4, 'beta': None, 'dividend_percentage': 2.87, 'quick_ratio': None, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 2.18, 'atr': '0.17', 'employees': None, 'current_ratio': None, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 36.17, 'volatility_w_percentage': 0.29, 'volatility_m_percentage': 0.34, 'optionable': False, 'debt_eq': None, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '0.13', 'prev_close': '43.81', 'shortable': True, 'lt_debt_eq': None, 'payout_percentage': None, 'avg_volume': 107610.0, 'recom': None, 'sma20_percentage': -0.81, 'sma50_percentage': -0.5, 'sma200_percentage': 0.37, 'short_float_percentage': None, 'short_float_ratio': None, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 13, 8, 13)})]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+News, Blogs, Calendar, Insider Trades; 2023-03-13 08:59:03.375007
+News, Blogs, Calendar, Insider Trades; 2023-03-13 09:59:03.049731
+All Signal Screener; 2023-03-13 10:12:16.530315
+News, Blogs, Calendar, Insider Trades; 2023-03-13 10:59:03.106180
+News, Blogs, Calendar, Insider Trades; 2023-03-13 11:59:02.642231
+All Signal Screener; 2023-03-13 12:14:05.892512
+News, Blogs, Calendar, Insider Trades; 2023-03-13 12:59:02.480666
+News, Blogs, Calendar, Insider Trades; 2023-03-13 13:59:03.222864
+All Signal Screener; 2023-03-13 14:13:27.783665
+News, Blogs, Calendar, Insider Trades; 2023-03-13 14:59:03.382686
+News, Blogs, Calendar, Insider Trades; 2023-03-13 15:59:02.911106
+All Signal Screener; 2023-03-13 16:13:52.847894
+News, Blogs, Calendar, Insider Trades; 2023-03-13 16:59:02.548030
+News, Blogs, Calendar, Insider Trades; 2023-03-13 17:59:03.220845
+All Signal Screener; 2023-03-13 18:13:30.060165
+News, Blogs, Calendar, Insider Trades; 2023-03-13 18:59:02.649662
+News, Blogs, Calendar, Insider Trades; 2023-03-13 19:59:03.647883
+All Signal Screener; 2023-03-13 20:13:52.395548
+Ticker Data; 2023-03-13 20:40:27.861424
+News, Blogs, Calendar, Insider Trades; 2023-03-13 20:59:02.899560
+News, Blogs, Calendar, Insider Trades; 2023-03-13 21:59:03.067999
+All Signal Screener; 2023-03-13 22:14:05.607711
+News, Blogs, Calendar, Insider Trades; 2023-03-13 22:59:03.323734
+News, Blogs, Calendar, Insider Trades; 2023-03-13 23:59:02.971261
+All Signal Screener; 2023-03-14 00:13:43.055070
+News, Blogs, Calendar, Insider Trades; 2023-03-14 00:59:02.560345
+News, Blogs, Calendar, Insider Trades; 2023-03-14 01:59:03.199625
+All Signal Screener; 2023-03-14 02:13:02.564862
+News, Blogs, Calendar, Insider Trades; 2023-03-14 02:59:03.053220
+News, Blogs, Calendar, Insider Trades; 2023-03-14 03:59:02.693678
+All Signal Screener; 2023-03-14 04:13:03.325286
+News, Blogs, Calendar, Insider Trades; 2023-03-14 04:59:03.153884
+News, Blogs, Calendar, Insider Trades; 2023-03-14 05:59:02.756700
+All Signal Screener; 2023-03-14 06:13:15.267722
+News, Blogs, Calendar, Insider Trades; 2023-03-14 06:59:02.886772
+News, Blogs, Calendar, Insider Trades; 2023-03-14 07:59:02.539920
+All Signal Screener; 2023-03-14 08:13:39.911946
+News, Blogs, Calendar, Insider Trades; 2023-03-14 08:59:02.817715
+News, Blogs, Calendar, Insider Trades; 2023-03-14 09:59:02.457739
+All Signal Screener; 2023-03-14 10:11:23.817182
+News, Blogs, Calendar, Insider Trades; 2023-03-14 10:59:02.945256
+News, Blogs, Calendar, Insider Trades; 2023-03-14 11:59:02.600981
+All Signal Screener; 2023-03-14 12:12:28.408973
+News, Blogs, Calendar, Insider Trades; 2023-03-14 12:59:03.107922
+News, Blogs, Calendar, Insider Trades; 2023-03-14 13:59:02.889668
+All Signal Screener; 2023-03-14 14:13:17.771373
+News, Blogs, Calendar, Insider Trades; 2023-03-14 14:59:02.486423
+News, Blogs, Calendar, Insider Trades; 2023-03-14 15:59:03.223371
+All Signal Screener; 2023-03-14 16:14:14.836472
+News, Blogs, Calendar, Insider Trades; 2023-03-14 16:59:02.624200
+News, Blogs, Calendar, Insider Trades; 2023-03-14 17:59:03.274756
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 59, in <module>
+    database_connection.update_sql_table("UPDATE api_requests SET updated_tickers = '{}'WHERE request_date = '{}'".format(updated_tickers, today), conn=transform_load_conn)
+  File "/home/naveen/code/financial_data_analysis/scripts/database_connection.py", line 79, in update_sql_table
+    conn.execute(statement)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+[SQL: UPDATE api_requests SET updated_tickers = 'None'WHERE request_date = '2023-03-14']
+(Background on this error at: https://sqlalche.me/e/14/f405)
+All Signal Screener; 2023-03-14 18:14:01.732428
+News, Blogs, Calendar, Insider Trades; 2023-03-14 18:59:03.381950
+News, Blogs, Calendar, Insider Trades; 2023-03-14 19:59:03.045487
+All Signal Screener; 2023-03-14 20:14:01.665051
+Ticker Data; 2023-03-14 20:40:21.421897
+News, Blogs, Calendar, Insider Trades; 2023-03-14 20:59:03.100029
+News, Blogs, Calendar, Insider Trades; 2023-03-14 21:59:02.740464
+All Signal Screener; 2023-03-14 22:14:08.156562
+News, Blogs, Calendar, Insider Trades; 2023-03-14 22:59:02.733824
+News, Blogs, Calendar, Insider Trades; 2023-03-14 23:59:03.796434
+All Signal Screener; 2023-03-15 00:13:57.340254
+News, Blogs, Calendar, Insider Trades; 2023-03-15 00:59:03.253867
+News, Blogs, Calendar, Insider Trades; 2023-03-15 01:59:02.861431
+All Signal Screener; 2023-03-15 02:13:47.870250
+News, Blogs, Calendar, Insider Trades; 2023-03-15 02:59:02.477938
+News, Blogs, Calendar, Insider Trades; 2023-03-15 03:59:03.122966
+All Signal Screener; 2023-03-15 04:13:35.072613
+News, Blogs, Calendar, Insider Trades; 2023-03-15 04:59:02.637739
+News, Blogs, Calendar, Insider Trades; 2023-03-15 05:59:03.198058
+All Signal Screener; 2023-03-15 06:13:32.502928
+News, Blogs, Calendar, Insider Trades; 2023-03-15 06:59:03.108555
+News, Blogs, Calendar, Insider Trades; 2023-03-15 07:59:02.720113
+All Signal Screener; 2023-03-15 08:14:22.948869
+News, Blogs, Calendar, Insider Trades; 2023-03-15 08:59:02.465204
+News, Blogs, Calendar, Insider Trades; 2023-03-15 09:59:03.415386
+All Signal Screener; 2023-03-15 10:12:59.719061
+News, Blogs, Calendar, Insider Trades; 2023-03-15 10:59:02.734305
+News, Blogs, Calendar, Insider Trades; 2023-03-15 11:59:02.691370
+All Signal Screener; 2023-03-15 12:14:19.861885
+News, Blogs, Calendar, Insider Trades; 2023-03-15 12:59:02.789075
+News, Blogs, Calendar, Insider Trades; 2023-03-15 13:59:03.325775
+All Signal Screener; 2023-03-15 14:13:39.250432
+News, Blogs, Calendar, Insider Trades; 2023-03-15 14:59:03.355997
+News, Blogs, Calendar, Insider Trades; 2023-03-15 15:59:03.570497
+All Signal Screener; 2023-03-15 16:13:53.792303
+News, Blogs, Calendar, Insider Trades; 2023-03-15 16:59:02.924491
+News, Blogs, Calendar, Insider Trades; 2023-03-15 17:59:02.980914
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 59, in <module>
+    database_connection.update_sql_table("UPDATE api_requests SET updated_tickers = '{}'WHERE request_date = '{}'".format(updated_tickers, today), conn=transform_load_conn)
+  File "/home/naveen/code/financial_data_analysis/scripts/database_connection.py", line 79, in update_sql_table
+    conn.execute(statement)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+[SQL: UPDATE api_requests SET updated_tickers = 'None'WHERE request_date = '2023-03-15']
+(Background on this error at: https://sqlalche.me/e/14/f405)
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.AdminShutdown: terminating connection due to administrator command
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_screeners.py", line 11, in <module>
+    get_data.update_screeners()
+  File "/home/naveen/code/financial_data_analysis/scripts/get_data.py", line 196, in update_screeners
+    self.transform_load.transform_load_screener_data(df=signals_df)
+  File "/home/naveen/code/financial_data_analysis/scripts/transform_load_data.py", line 553, in transform_load_screener_data
+    signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/core/generic.py", line 2987, in to_sql
+    return sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 695, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1728, in to_sql
+    table = self.prep_table(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1631, in prep_table
+    table.create()
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 827, in create
+    if self.exists():
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 814, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1761, in has_table
+    return insp.has_table(name, schema or self.meta.schema)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py", line 283, in has_table
+    return self.dialect.has_table(conn, table_name, schema)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/base.py", line 3496, in has_table
+    cursor = connection.execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1306, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 332, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1498, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (psycopg2.errors.AdminShutdown) terminating connection due to administrator command
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+[SQL: select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s]
+[parameters: {'name': 'all_signal_screener'}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+News, Blogs, Calendar, Insider Trades; 2023-03-15 18:59:03.135897
+News, Blogs, Calendar, Insider Trades; 2023-03-15 19:59:03.277702
+All Signal Screener; 2023-03-15 20:14:10.226713
+Ticker Data; 2023-03-15 20:40:25.500112
+News, Blogs, Calendar, Insider Trades; 2023-03-15 20:59:03.616872
+News, Blogs, Calendar, Insider Trades; 2023-03-15 21:59:03.410020
+All Signal Screener; 2023-03-15 22:13:30.766385
+News, Blogs, Calendar, Insider Trades; 2023-03-15 22:59:03.419060
+News, Blogs, Calendar, Insider Trades; 2023-03-15 23:59:03.019670
+All Signal Screener; 2023-03-16 00:13:17.850883
+News, Blogs, Calendar, Insider Trades; 2023-03-16 00:59:02.367448
+News, Blogs, Calendar, Insider Trades; 2023-03-16 01:59:03.415679
+All Signal Screener; 2023-03-16 02:13:54.534474
+News, Blogs, Calendar, Insider Trades; 2023-03-16 02:59:03.482201
+News, Blogs, Calendar, Insider Trades; 2023-03-16 03:59:03.030398
+All Signal Screener; 2023-03-16 04:13:45.958986
+News, Blogs, Calendar, Insider Trades; 2023-03-16 04:59:02.573587
+News, Blogs, Calendar, Insider Trades; 2023-03-16 05:59:03.183008
+All Signal Screener; 2023-03-16 06:12:50.871368
+News, Blogs, Calendar, Insider Trades; 2023-03-16 06:59:02.538957
+News, Blogs, Calendar, Insider Trades; 2023-03-16 07:59:03.155320
+All Signal Screener; 2023-03-16 08:13:04.329891
+News, Blogs, Calendar, Insider Trades; 2023-03-16 08:59:02.946092
+News, Blogs, Calendar, Insider Trades; 2023-03-16 09:59:02.546554
+All Signal Screener; 2023-03-16 10:10:51.226407
+News, Blogs, Calendar, Insider Trades; 2023-03-16 10:59:02.865454
+News, Blogs, Calendar, Insider Trades; 2023-03-16 11:59:02.354445
+All Signal Screener; 2023-03-16 12:12:22.102017
+News, Blogs, Calendar, Insider Trades; 2023-03-16 12:59:02.588667
+News, Blogs, Calendar, Insider Trades; 2023-03-16 13:59:03.075622
+All Signal Screener; 2023-03-16 14:12:13.001903
+News, Blogs, Calendar, Insider Trades; 2023-03-16 14:59:02.687747
+News, Blogs, Calendar, Insider Trades; 2023-03-16 15:59:03.669782
+News, Blogs, Calendar, Insider Trades; 2023-03-16 16:59:10.725408
+News, Blogs, Calendar, Insider Trades; 2023-03-16 17:59:03.252334
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None, ADBE, ADBE,...
+                                ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 59, in <module>
+    database_connection.update_sql_table("UPDATE api_requests SET updated_tickers = '{}'WHERE request_date = '{}'".format(updated_tickers, today), conn=transform_load_conn)
+  File "/home/naveen/code/financial_data_analysis/scripts/database_connection.py", line 79, in update_sql_table
+    conn.execute(statement)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None, ADBE, ADBE,...
+                                ^
+
+[SQL: UPDATE api_requests SET updated_tickers = 'None, ADBE, ADBE, ADBE, ADBE, ADBE'WHERE request_date = '2023-03-16']
+(Background on this error at: https://sqlalche.me/e/14/f405)
+All Signal Screener; 2023-03-16 18:13:36.690130
+News, Blogs, Calendar, Insider Trades; 2023-03-16 18:59:03.672704
+News, Blogs, Calendar, Insider Trades; 2023-03-16 19:59:02.902116
+All Signal Screener; 2023-03-16 20:14:46.361033
+Ticker Data; 2023-03-16 20:40:32.412276
+News, Blogs, Calendar, Insider Trades; 2023-03-16 20:59:03.621467
+News, Blogs, Calendar, Insider Trades; 2023-03-16 21:59:03.759222
+All Signal Screener; 2023-03-16 22:14:33.493846
+News, Blogs, Calendar, Insider Trades; 2023-03-16 22:59:03.045354
+News, Blogs, Calendar, Insider Trades; 2023-03-16 23:59:03.042404
+All Signal Screener; 2023-03-17 00:13:48.507321
+News, Blogs, Calendar, Insider Trades; 2023-03-17 00:59:03.451238
+News, Blogs, Calendar, Insider Trades; 2023-03-17 01:59:02.974331
+All Signal Screener; 2023-03-17 02:13:23.908109
+News, Blogs, Calendar, Insider Trades; 2023-03-17 02:59:02.554414
+News, Blogs, Calendar, Insider Trades; 2023-03-17 03:59:03.163584
+All Signal Screener; 2023-03-17 04:13:08.524097
+News, Blogs, Calendar, Insider Trades; 2023-03-17 04:59:03.060192
+News, Blogs, Calendar, Insider Trades; 2023-03-17 05:59:02.650864
+All Signal Screener; 2023-03-17 06:13:10.418792
+News, Blogs, Calendar, Insider Trades; 2023-03-17 06:59:02.975453
+News, Blogs, Calendar, Insider Trades; 2023-03-17 07:59:02.571026
+All Signal Screener; 2023-03-17 08:12:50.580272
+News, Blogs, Calendar, Insider Trades; 2023-03-17 08:59:03.205913
+News, Blogs, Calendar, Insider Trades; 2023-03-17 09:59:02.903477
+All Signal Screener; 2023-03-17 10:11:17.086020
+News, Blogs, Calendar, Insider Trades; 2023-03-17 10:59:02.741550
+News, Blogs, Calendar, Insider Trades; 2023-03-17 11:59:03.403308
+All Signal Screener; 2023-03-17 12:13:14.000539
+News, Blogs, Calendar, Insider Trades; 2023-03-17 12:59:02.630426
+News, Blogs, Calendar, Insider Trades; 2023-03-17 13:59:03.291402
+All Signal Screener; 2023-03-17 14:13:05.569762
+News, Blogs, Calendar, Insider Trades; 2023-03-17 14:59:03.342372
+News, Blogs, Calendar, Insider Trades; 2023-03-17 15:59:02.943289
+All Signal Screener; 2023-03-17 16:13:18.117444
+News, Blogs, Calendar, Insider Trades; 2023-03-17 16:59:02.806315
+News, Blogs, Calendar, Insider Trades; 2023-03-17 17:59:02.578473
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 59, in <module>
+    database_connection.update_sql_table("UPDATE api_requests SET updated_tickers = '{}'WHERE request_date = '{}'".format(updated_tickers, today), conn=transform_load_conn)
+  File "/home/naveen/code/financial_data_analysis/scripts/database_connection.py", line 79, in update_sql_table
+    conn.execute(statement)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+[SQL: UPDATE api_requests SET updated_tickers = 'None'WHERE request_date = '2023-03-17']
+(Background on this error at: https://sqlalche.me/e/14/f405)
+All Signal Screener; 2023-03-17 18:13:27.437321
+News, Blogs, Calendar, Insider Trades; 2023-03-17 18:59:03.018539
+News, Blogs, Calendar, Insider Trades; 2023-03-17 19:59:02.728747
+All Signal Screener; 2023-03-17 20:13:10.232164
+Ticker Data; 2023-03-17 20:40:22.865009
+News, Blogs, Calendar, Insider Trades; 2023-03-17 20:59:02.464921
+News, Blogs, Calendar, Insider Trades; 2023-03-17 21:59:03.362614
+All Signal Screener; 2023-03-17 22:13:44.444127
+News, Blogs, Calendar, Insider Trades; 2023-03-17 22:59:03.581556
+News, Blogs, Calendar, Insider Trades; 2023-03-17 23:59:03.607012
+All Signal Screener; 2023-03-18 00:13:48.445030
+News, Blogs, Calendar, Insider Trades; 2023-03-18 00:59:03.483601
+News, Blogs, Calendar, Insider Trades; 2023-03-18 01:59:03.129652
+All Signal Screener; 2023-03-18 02:12:45.945070
+News, Blogs, Calendar, Insider Trades; 2023-03-18 02:59:02.475835
+News, Blogs, Calendar, Insider Trades; 2023-03-18 03:59:03.063120
+All Signal Screener; 2023-03-18 04:12:39.912224
+News, Blogs, Calendar, Insider Trades; 2023-03-18 04:59:02.456202
+News, Blogs, Calendar, Insider Trades; 2023-03-18 05:59:03.114883
+All Signal Screener; 2023-03-18 06:12:57.806701
+News, Blogs, Calendar, Insider Trades; 2023-03-18 06:59:02.479186
+News, Blogs, Calendar, Insider Trades; 2023-03-18 07:59:03.044902
+All Signal Screener; 2023-03-18 08:12:48.982735
+News, Blogs, Calendar, Insider Trades; 2023-03-18 08:59:02.603076
+News, Blogs, Calendar, Insider Trades; 2023-03-18 09:59:03.202129
+All Signal Screener; 2023-03-18 10:12:56.555830
+News, Blogs, Calendar, Insider Trades; 2023-03-18 10:59:03.216467
+News, Blogs, Calendar, Insider Trades; 2023-03-18 11:59:03.214853
+All Signal Screener; 2023-03-18 12:14:10.254100
+News, Blogs, Calendar, Insider Trades; 2023-03-18 12:59:02.976920
+News, Blogs, Calendar, Insider Trades; 2023-03-18 13:59:02.582821
+All Signal Screener; 2023-03-18 14:13:11.948262
+News, Blogs, Calendar, Insider Trades; 2023-03-18 14:59:02.536481
+News, Blogs, Calendar, Insider Trades; 2023-03-18 15:59:03.145070
+All Signal Screener; 2023-03-18 16:13:04.434705
+News, Blogs, Calendar, Insider Trades; 2023-03-18 16:59:03.294576
+News, Blogs, Calendar, Insider Trades; 2023-03-18 17:59:03.097114
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 59, in <module>
+    database_connection.update_sql_table("UPDATE api_requests SET updated_tickers = '{}'WHERE request_date = '{}'".format(updated_tickers, today), conn=transform_load_conn)
+  File "/home/naveen/code/financial_data_analysis/scripts/database_connection.py", line 79, in update_sql_table
+    conn.execute(statement)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+[SQL: UPDATE api_requests SET updated_tickers = 'None'WHERE request_date = '2023-03-18']
+(Background on this error at: https://sqlalche.me/e/14/f405)
+All Signal Screener; 2023-03-18 18:13:13.610067
+News, Blogs, Calendar, Insider Trades; 2023-03-18 18:59:03.428762
+News, Blogs, Calendar, Insider Trades; 2023-03-18 19:59:03.043481
+All Signal Screener; 2023-03-18 20:12:45.729334
+News, Blogs, Calendar, Insider Trades; 2023-03-18 20:59:03.658777
+News, Blogs, Calendar, Insider Trades; 2023-03-18 21:59:03.212108
+All Signal Screener; 2023-03-18 22:12:49.311450
+News, Blogs, Calendar, Insider Trades; 2023-03-18 22:59:02.870989
+News, Blogs, Calendar, Insider Trades; 2023-03-18 23:59:02.407544
+All Signal Screener; 2023-03-19 00:12:31.520805
+News, Blogs, Calendar, Insider Trades; 2023-03-19 00:59:03.086408
+News, Blogs, Calendar, Insider Trades; 2023-03-19 01:59:02.717961
+All Signal Screener; 2023-03-19 02:13:23.931394
+News, Blogs, Calendar, Insider Trades; 2023-03-19 02:59:02.861618
+News, Blogs, Calendar, Insider Trades; 2023-03-19 03:59:02.576442
+All Signal Screener; 2023-03-19 04:13:28.480575
+News, Blogs, Calendar, Insider Trades; 2023-03-19 04:59:03.097123
+News, Blogs, Calendar, Insider Trades; 2023-03-19 05:59:02.678303
+All Signal Screener; 2023-03-19 06:13:36.662829
+News, Blogs, Calendar, Insider Trades; 2023-03-19 06:59:03.311471
+News, Blogs, Calendar, Insider Trades; 2023-03-19 07:59:03.002757
+All Signal Screener; 2023-03-19 08:13:29.803523
+News, Blogs, Calendar, Insider Trades; 2023-03-19 08:59:02.580041
+News, Blogs, Calendar, Insider Trades; 2023-03-19 09:59:03.264652
+All Signal Screener; 2023-03-19 10:13:05.567978
+News, Blogs, Calendar, Insider Trades; 2023-03-19 10:59:03.202501
+News, Blogs, Calendar, Insider Trades; 2023-03-19 11:59:02.793613
+All Signal Screener; 2023-03-19 12:13:36.618062
+News, Blogs, Calendar, Insider Trades; 2023-03-19 12:59:03.177515
+News, Blogs, Calendar, Insider Trades; 2023-03-19 13:59:02.761784
+All Signal Screener; 2023-03-19 14:13:11.886955
+News, Blogs, Calendar, Insider Trades; 2023-03-19 14:59:02.458830
+News, Blogs, Calendar, Insider Trades; 2023-03-19 15:59:03.031555
+All Signal Screener; 2023-03-19 16:13:12.114896
+News, Blogs, Calendar, Insider Trades; 2023-03-19 16:59:02.592945
+News, Blogs, Calendar, Insider Trades; 2023-03-19 17:59:03.485821
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 59, in <module>
+    database_connection.update_sql_table("UPDATE api_requests SET updated_tickers = '{}'WHERE request_date = '{}'".format(updated_tickers, today), conn=transform_load_conn)
+  File "/home/naveen/code/financial_data_analysis/scripts/database_connection.py", line 79, in update_sql_table
+    conn.execute(statement)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+[SQL: UPDATE api_requests SET updated_tickers = 'None'WHERE request_date = '2023-03-19']
+(Background on this error at: https://sqlalche.me/e/14/f405)
+All Signal Screener; 2023-03-19 18:13:35.556005
+News, Blogs, Calendar, Insider Trades; 2023-03-19 18:59:03.558494
+News, Blogs, Calendar, Insider Trades; 2023-03-19 19:59:03.708267
+All Signal Screener; 2023-03-19 20:13:46.236128
+News, Blogs, Calendar, Insider Trades; 2023-03-19 20:59:02.943385
+News, Blogs, Calendar, Insider Trades; 2023-03-19 21:59:02.522270
+All Signal Screener; 2023-03-19 22:13:38.142915
+News, Blogs, Calendar, Insider Trades; 2023-03-19 22:59:03.071762
+News, Blogs, Calendar, Insider Trades; 2023-03-19 23:59:02.750727
+All Signal Screener; 2023-03-20 00:13:30.901662
+News, Blogs, Calendar, Insider Trades; 2023-03-20 00:59:02.536807
+News, Blogs, Calendar, Insider Trades; 2023-03-20 01:59:03.102653
+All Signal Screener; 2023-03-20 02:13:01.134474
+News, Blogs, Calendar, Insider Trades; 2023-03-20 02:59:02.977228
+News, Blogs, Calendar, Insider Trades; 2023-03-20 03:59:02.604710
+All Signal Screener; 2023-03-20 04:13:26.740851
+News, Blogs, Calendar, Insider Trades; 2023-03-20 04:59:03.291442
+News, Blogs, Calendar, Insider Trades; 2023-03-20 05:59:02.909041
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1799, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 953, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type double precision: "-"
+LINE 1: ..., 5.1, NULL, 62.16, 0.18, 16.38, NULL, 7.4, NULL, '-', 1.69,...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_screeners.py", line 11, in <module>
+    get_data.update_screeners()
+  File "/home/naveen/code/financial_data_analysis/scripts/get_data.py", line 196, in update_screeners
+    self.transform_load.transform_load_screener_data(df=signals_df)
+  File "/home/naveen/code/financial_data_analysis/scripts/transform_load_data.py", line 553, in transform_load_screener_data
+    signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/core/generic.py", line 2987, in to_sql
+    return sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 695, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1738, in to_sql
+    total_inserted = sql_engine.insert_records(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1335, in insert_records
+    raise err
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1325, in insert_records
+    return table.insert(chunksize=chunksize, method=method)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 946, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 853, in _execute_insert
+    result = conn.execute(self.table.insert(), data)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1306, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 332, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1498, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1799, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 953, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type double precision: "-"
+LINE 1: ..., 5.1, NULL, 62.16, 0.18, 16.38, NULL, 7.4, NULL, '-', 1.69,...
+                                                             ^
+
+[SQL: INSERT INTO all_signal_screener (ticker, market_cap, p_e, price, change_percentage, volume, signals, no_of_signals, eps_ttm, insider_own_percentage, shs_outstand, perf_week_percentage, forward_p_e, eps_next_y, insider_trans_percentage, shs_float, perf_month_percentage, income, peg, eps_next_q, inst_own_percentage, perf_quarter_percentage, sales, p_s, eps_this_y_percentage, inst_trans_percentage, short_interest, perf_half_y_percentage, book_sh, p_b, eps_next_y_percentage_percentage, roa_percentage, target_price, perf_year_percentage, cash_sh, p_c, eps_next_5y_percentage, roe_percentage, range_from_52w, range_to_52w, perf_ytd_percentage, dividend, p_fcf, eps_past_5y_percentage, roi_percentage, high_52w_percentage, beta, dividend_percentage, quick_ratio, sales_past_5y_percentage, gross_margin_percentage, low_52w_percentage, atr, employees, current_ratio, sales_q_q_percentage, oper_margin_percentage, rsi_14, volatility_w_percentage, volatility_m_percentage, optionable, debt_eq, eps_q_q_percentage, profit_margin_percentage, rel_volume, prev_close, shortable, lt_debt_eq, payout_percentage, avg_volume, recom, sma20_percentage, sma50_percentage, sma200_percentage, short_float_percentage, short_float_ratio, earnings_date, earnings_timing, date) VALUES (%(ticker)s, %(market_cap)s, %(p_e)s, %(price)s, %(change_percentage)s, %(volume)s, %(signals)s, %(no_of_signals)s, %(eps_ttm)s, %(insider_own_percentage)s, %(shs_outstand)s, %(perf_week_percentage)s, %(forward_p_e)s, %(eps_next_y)s, %(insider_trans_percentage)s, %(shs_float)s, %(perf_month_percentage)s, %(income)s, %(peg)s, %(eps_next_q)s, %(inst_own_percentage)s, %(perf_quarter_percentage)s, %(sales)s, %(p_s)s, %(eps_this_y_percentage)s, %(inst_trans_percentage)s, %(short_interest)s, %(perf_half_y_percentage)s, %(book_sh)s, %(p_b)s, %(eps_next_y_percentage_percentage)s, %(roa_percentage)s, %(target_price)s, %(perf_year_percentage)s, %(cash_sh)s, %(p_c)s, %(eps_next_5y_percentage)s, %(roe_percentage)s, %(range_from_52w)s, %(range_to_52w)s, %(perf_ytd_percentage)s, %(dividend)s, %(p_fcf)s, %(eps_past_5y_percentage)s, %(roi_percentage)s, %(high_52w_percentage)s, %(beta)s, %(dividend_percentage)s, %(quick_ratio)s, %(sales_past_5y_percentage)s, %(gross_margin_percentage)s, %(low_52w_percentage)s, %(atr)s, %(employees)s, %(current_ratio)s, %(sales_q_q_percentage)s, %(oper_margin_percentage)s, %(rsi_14)s, %(volatility_w_percentage)s, %(volatility_m_percentage)s, %(optionable)s, %(debt_eq)s, %(eps_q_q_percentage)s, %(profit_margin_percentage)s, %(rel_volume)s, %(prev_close)s, %(shortable)s, %(lt_debt_eq)s, %(payout_percentage)s, %(avg_volume)s, %(recom)s, %(sma20_percentage)s, %(sma50_percentage)s, %(sma200_percentage)s, %(short_float_percentage)s, %(short_float_ratio)s, %(earnings_date)s, %(earnings_timing)s, %(date)s)]
+[parameters: ({'ticker': 'ENZ', 'market_cap': 58010000.0, 'p_e': None, 'price': 2.25, 'change_percentage': 0.8908, 'volume': 36143744.0, 'signals': "['Most Active', 'Most Volatile', 'Overbought', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 5, 'eps_ttm': -0.55, 'insider_own_percentage': 9.7, 'shs_outstand': 48720000.0, 'perf_week_percentage': 102.7, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': 6.37, 'shs_float': 37770000.0, 'perf_month_percentage': 75.78, 'income': -26600000.0, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': 42.2, 'perf_quarter_percentage': 78.57, 'sales': 98800000.0, 'p_s': 0.59, 'eps_this_y_percentage': -330.6, 'inst_trans_percentage': -5.46, 'short_interest': 320000.0, 'perf_half_y_percentage': -0.44, 'book_sh': 0.92, 'p_b': 2.45, 'eps_next_y_percentage_percentage': None, 'roa_percentage': -27.0, 'target_price': None, 'perf_year_percentage': -28.12, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': -46.9, 'range_from_52w': 1.0, 'range_to_52w': '3.19', 'perf_ytd_percentage': 57.34, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': -47.4, 'roi_percentage': -25.5, 'high_52w_percentage': -29.47, 'beta': 0.85, 'dividend_percentage': None, 'quick_ratio': 1.2, 'sales_past_5y_percentage': 0.4, 'gross_margin_percentage': 34.7, 'low_52w_percentage': 125.0, 'atr': '0.18', 'employees': 465.0, 'current_ratio': 1.8, 'sales_q_q_percentage': -30.9, 'oper_margin_percentage': -23.4, 'rsi_14': 80.89, 'volatility_w_percentage': 14.17, 'volatility_m_percentage': 9.24, 'optionable': True, 'debt_eq': 0.1, 'eps_q_q_percentage': -356.3, 'profit_margin_percentage': -26.9, 'rel_volume': '324.03', 'prev_close': '1.19', 'shortable': True, 'lt_debt_eq': 0.09, 'payout_percentage': None, 'avg_volume': 701390.0, 'recom': None, 'sma20_percentage': 93.3, 'sma50_percentage': 70.61, 'sma200_percentage': 14.27, 'short_float_percentage': 0.85, 'short_float_ratio': 0.46, 'earnings_date': datetime.datetime(2022, 12, 12, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'BKKT', 'market_cap': 314190000.0, 'p_e': None, 'price': 1.72, 'change_percentage': 0.4454, 'volume': 7100894.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -7.51, 'insider_own_percentage': 1.5, 'shs_outstand': 76590000.0, 'perf_week_percentage': 57.8, 'forward_p_e': None, 'eps_next_y': -0.47, 'insider_trans_percentage': -23.32, 'shs_float': 60700000.0, 'perf_month_percentage': -1.15, 'income': -575700000.0, 'peg': None, 'eps_next_q': -0.18, 'inst_own_percentage': 30.8, 'perf_quarter_percentage': 13.16, 'sales': 54600000.0, 'p_s': 5.75, 'eps_this_y_percentage': 91.7, 'inst_trans_percentage': 3.06, 'short_interest': 13160000.0, 'perf_half_y_percentage': -36.3, 'book_sh': 2.42, 'p_b': 0.71, 'eps_next_y_percentage_percentage': 29.9, 'roa_percentage': -10.3, 'target_price': 2.02, 'perf_year_percentage': -66.8, 'cash_sh': 1.5, 'p_c': 1.15, 'eps_next_5y_percentage': None, 'roe_percentage': -48.4, 'range_from_52w': 1.08, 'range_to_52w': '7.76', 'perf_ytd_percentage': 44.54, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -48.2, 'high_52w_percentage': -77.84, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 2.5, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 59.26, 'atr': '0.18', 'employees': 579.0, 'current_ratio': 2.5, 'sales_q_q_percentage': 41.8, 'oper_margin_percentage': None, 'rsi_14': 60.97, 'volatility_w_percentage': 24.15, 'volatility_m_percentage': 11.71, 'optionable': True, 'debt_eq': 0.0, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '2.17', 'prev_close': '1.19', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 3220000.0, 'recom': 3.2, 'sma20_percentage': 25.73, 'sma50_percentage': 9.68, 'sma200_percentage': -18.7, 'short_float_percentage': 21.68, 'short_float_ratio': 4.09, 'earnings_date': datetime.datetime(2023, 3, 9, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'HMPT', 'market_cap': 250510000.0, 'p_e': None, 'price': 2.55, 'change_percentage': 0.40880000000000005, 'volume': 231151.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -1.18, 'insider_own_percentage': 1.43, 'shs_outstand': 138400000.0, 'perf_week_percentage': 34.21, 'forward_p_e': 24.06, 'eps_next_y': 0.11, 'insider_trans_percentage': 0.0, 'shs_float': 136440000.0, 'perf_month_percentage': 34.92, 'income': -163500000.0, 'peg': None, 'eps_next_q': -0.07, 'inst_own_percentage': 94.0, 'perf_quarter_percentage': 109.02, 'sales': 465600000.0, 'p_s': 0.54, 'eps_this_y_percentage': -199.3, 'inst_trans_percentage': -0.1, 'short_interest': 170000.0, 'perf_half_y_percentage': 12.33, 'book_sh': 4.36, 'p_b': 0.58, 'eps_next_y_percentage_percentage': 173.3, 'roa_percentage': -4.4, 'target_price': 1.91, 'perf_year_percentage': -24.33, 'cash_sh': 0.99, 'p_c': 2.58, 'eps_next_5y_percentage': 2.0, 'roe_percentage': -23.7, 'range_from_52w': 0.99, 'range_to_52w': '4.65', 'perf_ytd_percentage': 86.13, 'dividend': 0.16, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -1.9, 'high_52w_percentage': -45.16, 'beta': None, 'dividend_percentage': 6.27, 'quick_ratio': 1.5, 'sales_past_5y_percentage': None, 'gross_margin_percentage': 63.6, 'low_52w_percentage': 157.58, 'atr': '0.18', 'employees': 830.0, 'current_ratio': 1.5, 'sales_q_q_percentage': -67.3, 'oper_margin_percentage': -17.5, 'rsi_14': 74.2, 'volatility_w_percentage': 17.27, 'volatility_m_percentage': 8.89, 'optionable': True, 'debt_eq': 2.53, 'eps_q_q_percentage': -294.0, 'profit_margin_percentage': -35.1, 'rel_volume': '9.94', 'prev_close': '1.81', 'shortable': True, 'lt_debt_eq': 2.38, 'payout_percentage': None, 'avg_volume': 25960.0, 'recom': 3.2, 'sma20_percentage': 45.59, 'sma50_percentage': 43.36, 'sma200_percentage': 8.27, 'short_float_percentage': 0.12, 'short_float_ratio': 6.42, 'earnings_date': datetime.datetime(2023, 3, 9, 0, 0), 'earnings_timing': 'BMO', 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'DFLI', 'market_cap': 119020000.0, 'p_e': None, 'price': 3.6, 'change_percentage': 0.3091, 'volume': 224112.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -0.13, 'insider_own_percentage': 62.0, 'shs_outstand': 15810000.0, 'perf_week_percentage': -9.32, 'forward_p_e': None, 'eps_next_y': -0.18, 'insider_trans_percentage': 0.0, 'shs_float': 9300000.0, 'perf_month_percentage': -43.93, 'income': -2100000.0, 'peg': None, 'eps_next_q': -0.2, 'inst_own_percentage': 11.9, 'perf_quarter_percentage': -74.79, 'sales': 86220000.0, 'p_s': 1.38, 'eps_this_y_percentage': None, 'inst_trans_percentage': -70.82, 'short_interest': 260000.0, 'perf_half_y_percentage': -65.01, 'book_sh': 1.83, 'p_b': 1.97, 'eps_next_y_percentage_percentage': 63.3, 'roa_percentage': -2.0, 'target_price': 12.33, 'perf_year_percentage': -64.0, 'cash_sh': 0.01, 'p_c': 396.72, 'eps_next_5y_percentage': None, 'roe_percentage': -2.0, 'range_from_52w': 2.62, 'range_to_52w': '28.75', 'perf_ytd_percentage': -69.75, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -87.48, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 0.3, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 37.16, 'atr': '0.58', 'employees': 168.0, 'current_ratio': 0.3, 'sales_q_q_percentage': 38.6, 'oper_margin_percentage': None, 'rsi_14': 35.33, 'volatility_w_percentage': 18.83, 'volatility_m_percentage': 12.88, 'optionable': True, 'debt_eq': 0.01, 'eps_q_q_percentage': -171.3, 'profit_margin_percentage': None, 'rel_volume': '1.46', 'prev_close': '2.75', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': 0.0, 'avg_volume': 152780.0, 'recom': 1.3, 'sma20_percentage': -14.58, 'sma50_percentage': -44.27, 'sma200_percentage': -61.66, 'short_float_percentage': 2.84, 'short_float_ratio': 1.73, 'earnings_date': datetime.datetime(2023, 3, 20, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'OPRT', 'market_cap': 94890000.0, 'p_e': None, 'price': 3.64, 'change_percentage': 0.2817, 'volume': 2556313.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -2.37, 'insider_own_percentage': 5.9, 'shs_outstand': 33240000.000000004, 'perf_week_percentage': -15.74, 'forward_p_e': 1.86, 'eps_next_y': 1.96, 'insider_trans_percentage': 6.29, 'shs_float': 30270000.0, 'perf_month_percentage': -48.59, 'income': -77700000.0, 'peg': None, 'eps_next_q': -0.41, 'inst_own_percentage': 72.1, 'perf_quarter_percentage': -33.82, 'sales': 640700000.0, 'p_s': 0.15, 'eps_this_y_percentage': -251.5, 'inst_trans_percentage': -4.65, 'short_interest': 990000.0, 'perf_half_y_percentage': -33.21, 'book_sh': 16.48, 'p_b': 0.22, 'eps_next_y_percentage_percentage': 160.51, 'roa_percentage': -2.3, 'target_price': 8.8, 'perf_year_percentage': -73.72, 'cash_sh': 3.79, 'p_c': 0.96, 'eps_next_5y_percentage': -3.8, 'roe_percentage': -13.0, 'range_from_52w': 2.19, 'range_to_52w': '14.91', 'perf_ytd_percentage': -33.94, 'dividend': None, 'p_fcf': 0.39, 'eps_past_5y_percentage': -44.0, 'roi_percentage': -2.2, 'high_52w_percentage': -75.59, 'beta': 1.77, 'dividend_percentage': None, 'quick_ratio': None, 'sales_past_5y_percentage': 14.6, 'gross_margin_percentage': None, 'low_52w_percentage': 66.2, 'atr': '0.54', 'employees': 3000.0, 'current_ratio': None, 'sales_q_q_percentage': -10.7, 'oper_margin_percentage': -11.8, 'rsi_14': 33.75, 'volatility_w_percentage': 26.02, 'volatility_m_percentage': 11.33, 'optionable': True, 'debt_eq': 5.35, 'eps_q_q_percentage': -151.6, 'profit_margin_percentage': -12.1, 'rel_volume': '7.24', 'prev_close': '2.84', 'shortable': True, 'lt_debt_eq': 5.35, 'payout_percentage': None, 'avg_volume': 388380.0, 'recom': 2.0, 'sma20_percentage': -31.22, 'sma50_percentage': -39.63, 'sma200_percentage': -44.59, 'short_float_percentage': 3.27, 'short_float_ratio': 2.55, 'earnings_date': datetime.datetime(2023, 3, 13, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'PYXS', 'market_cap': 75790000.0, 'p_e': None, 'price': 2.76, 'change_percentage': 0.2778, 'volume': 507249.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -3.16, 'insider_own_percentage': 11.9, 'shs_outstand': 32560000.000000004, 'perf_week_percentage': 55.93, 'forward_p_e': None, 'eps_next_y': -3.09, 'insider_trans_percentage': 0.0, 'shs_float': 27750000.0, 'perf_month_percentage': 78.06, 'income': -101400000.0, 'peg': None, 'eps_next_q': -0.93, 'inst_own_percentage': 55.4, 'perf_quarter_percentage': 135.9, 'sales': None, 'p_s': None, 'eps_this_y_percentage': -501.7, 'inst_trans_percentage': -3.76, 'short_interest': 170000.0, 'perf_half_y_percentage': 15.97, 'book_sh': 5.8, 'p_b': 0.48, 'eps_next_y_percentage_percentage': 15.6, 'roa_percentage': -40.6, 'target_price': 11.0, 'perf_year_percentage': -41.89, 'cash_sh': 7.23, 'p_c': 0.38, 'eps_next_5y_percentage': None, 'roe_percentage': -45.3, 'range_from_52w': 1.1, 'range_to_52w': '5.78', 'perf_ytd_percentage': 105.97, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -52.25, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 10.6, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 150.91, 'atr': '0.23', 'employees': 73.0, 'current_ratio': 10.6, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 70.46, 'volatility_w_percentage': 15.17, 'volatility_m_percentage': 12.13, 'optionable': False, 'debt_eq': 0.0, 'eps_q_q_percentage': -96.3, 'profit_margin_percentage': None, 'rel_volume': '5.25', 'prev_close': '2.16', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 101630.0, 'recom': 1.8, 'sma20_percentage': 32.44, 'sma50_percentage': 57.36, 'sma200_percentage': 36.79, 'short_float_percentage': 0.6, 'short_float_ratio': 1.65, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'OMGA', 'market_cap': 375550000.0, 'p_e': None, 'price': 9.78, 'change_percentage': 0.2522, 'volume': 268588.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -2.14, 'insider_own_percentage': 1.6, 'shs_outstand': 48010000.0, 'perf_week_percentage': 51.63, 'forward_p_e': None, 'eps_next_y': -2.38, 'insider_trans_percentage': None, 'shs_float': 46280000.0, 'perf_month_percentage': 76.22, 'income': -102700000.0, 'peg': None, 'eps_next_q': -0.59, 'inst_own_percentage': 88.8, 'perf_quarter_percentage': 51.39, 'sales': 2100000.0, 'p_s': 178.83, 'eps_this_y_percentage': 29.6, 'inst_trans_percentage': 0.35, 'short_interest': 380000.0, 'perf_half_y_percentage': 58.51, 'book_sh': 2.21, 'p_b': 4.43, 'eps_next_y_percentage_percentage': -27.2, 'roa_percentage': -56.6, 'target_price': 12.71, 'perf_year_percentage': 30.57, 'cash_sh': 3.25, 'p_c': 3.01, 'eps_next_5y_percentage': None, 'roe_percentage': -71.0, 'range_from_52w': 1.98, 'range_to_52w': '11.98', 'perf_ytd_percentage': 71.28, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -81.6, 'high_52w_percentage': -18.36, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 6.3, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 395.19, 'atr': '0.80', 'employees': 116.0, 'current_ratio': 6.3, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 74.34, 'volatility_w_percentage': 16.47, 'volatility_m_percentage': 10.4, 'optionable': True, 'debt_eq': 0.19, 'eps_q_q_percentage': -47.1, 'profit_margin_percentage': None, 'rel_volume': '3.85', 'prev_close': '7.81', 'shortable': True, 'lt_debt_eq': 0.16, 'payout_percentage': None, 'avg_volume': 71600.0, 'recom': 1.8, 'sma20_percentage': 51.92, 'sma50_percentage': 40.62, 'sma200_percentage': 78.03, 'short_float_percentage': 0.81, 'short_float_ratio': 5.26, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'RPHM', 'market_cap': 111920000.0, 'p_e': None, 'price': 5.71, 'change_percentage': 0.2522, 'volume': 109461.0, 'signals': "['Most Volatile', 'New High', 'Top Gainers']", 'no_of_signals': 3, 'eps_ttm': -2.0, 'insider_own_percentage': 1.2, 'shs_outstand': 24500000.0, 'perf_week_percentage': 34.35, 'forward_p_e': None, 'eps_next_y': -2.29, 'insider_trans_percentage': 0.0, 'shs_float': 23730000.0, 'perf_month_percentage': 103.93, 'income': -49000000.0, 'peg': None, 'eps_next_q': -0.6, 'inst_own_percentage': 75.4, 'perf_quarter_percentage': 166.82, 'sales': None, 'p_s': None, 'eps_this_y_percentage': -102.3, 'inst_trans_percentage': 0.53, 'short_interest': 100000.0, 'perf_half_y_percentage': 17.73, 'book_sh': 4.57, 'p_b': 1.25, 'eps_next_y_percentage_percentage': -5.0, 'roa_percentage': -35.3, 'target_price': 26.33, 'perf_year_percentage': 66.96, 'cash_sh': 5.92, 'p_c': 0.96, 'eps_next_5y_percentage': None, 'roe_percentage': -37.8, 'range_from_52w': 1.79, 'range_to_52w': '5.20', 'perf_ytd_percentage': 145.06, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': 9.81, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 12.8, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 218.99, 'atr': '0.44', 'employees': 32.0, 'current_ratio': 12.8, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 75.25, 'volatility_w_percentage': 12.46, 'volatility_m_percentage': 11.32, 'optionable': False, 'debt_eq': 0.0, 'eps_q_q_percentage': -1.7, 'profit_margin_percentage': None, 'rel_volume': '2.12', 'prev_close': '4.56', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 52570.0, 'recom': 1.3, 'sma20_percentage': 49.35, 'sma50_percentage': 80.88, 'sma200_percentage': 94.6, 'short_float_percentage': 0.4, 'short_float_ratio': 1.81, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 6, 12)}  ... displaying 10 of 1892 total bound parameter sets ...  {'ticker': 'AGZD', 'market_cap': None, 'p_e': None, 'price': 43.29, 'change_percentage': -0.0053, 'volume': 42273.0, 'signals': 'Head & Shoulders Inverse', 'no_of_signals': 1, 'eps_ttm': None, 'insider_own_percentage': None, 'shs_outstand': None, 'perf_week_percentage': -0.6, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': None, 'shs_float': None, 'perf_month_percentage': -1.57, 'income': None, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': None, 'perf_quarter_percentage': -0.92, 'sales': None, 'p_s': None, 'eps_this_y_percentage': None, 'inst_trans_percentage': None, 'short_interest': None, 'perf_half_y_percentage': -0.11, 'book_sh': None, 'p_b': None, 'eps_next_y_percentage_percentage': None, 'roa_percentage': None, 'target_price': None, 'perf_year_percentage': -0.63, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': None, 'range_from_52w': 42.62, 'range_to_52w': '44.17', 'perf_ytd_percentage': -0.38, 'dividend': 1.25, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -1.99, 'beta': None, 'dividend_percentage': 2.89, 'quick_ratio': None, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 1.57, 'atr': '0.29', 'employees': None, 'current_ratio': None, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 39.18, 'volatility_w_percentage': 1.18, 'volatility_m_percentage': 0.54, 'optionable': False, 'debt_eq': None, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '0.42', 'prev_close': '43.52', 'shortable': True, 'lt_debt_eq': None, 'payout_percentage': None, 'avg_volume': 99690.0, 'recom': None, 'sma20_percentage': -1.18, 'sma50_percentage': -1.12, 'sma200_percentage': -0.24, 'short_float_percentage': None, 'short_float_ratio': None, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 6, 12)}, {'ticker': 'NYF', 'market_cap': None, 'p_e': None, 'price': 53.19, 'change_percentage': 0.0059, 'volume': 23944.0, 'signals': 'Head & Shoulders Inverse', 'no_of_signals': 1, 'eps_ttm': None, 'insider_own_percentage': None, 'shs_outstand': None, 'perf_week_percentage': 0.95, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': None, 'shs_float': None, 'perf_month_percentage': 0.45, 'income': None, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': None, 'perf_quarter_percentage': 0.38, 'sales': None, 'p_s': None, 'eps_this_y_percentage': None, 'inst_trans_percentage': None, 'short_interest': None, 'perf_half_y_percentage': 2.6, 'book_sh': None, 'p_b': None, 'eps_next_y_percentage_percentage': None, 'roa_percentage': None, 'target_price': None, 'perf_year_percentage': -3.36, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': None, 'range_from_52w': 49.91, 'range_to_52w': '55.22', 'perf_ytd_percentage': 1.51, 'dividend': 1.1, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -3.68, 'beta': None, 'dividend_percentage': 2.07, 'quick_ratio': None, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 6.57, 'atr': '0.24', 'employees': None, 'current_ratio': None, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 62.47, 'volatility_w_percentage': 0.49, 'volatility_m_percentage': 0.34, 'optionable': False, 'debt_eq': None, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '0.40', 'prev_close': '52.88', 'shortable': True, 'lt_debt_eq': None, 'payout_percentage': None, 'avg_volume': 59720.0, 'recom': None, 'sma20_percentage': 1.41, 'sma50_percentage': 0.31, 'sma200_percentage': 1.51, 'short_float_percentage': None, 'short_float_ratio': None, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 6, 12)})]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+News, Blogs, Calendar, Insider Trades; 2023-03-20 06:59:02.755529
+News, Blogs, Calendar, Insider Trades; 2023-03-20 07:59:03.312217
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1799, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 953, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type double precision: "-"
+LINE 1: ..., 5.1, NULL, 62.16, 0.18, 16.38, NULL, 7.4, NULL, '-', 1.69,...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_screeners.py", line 11, in <module>
+    get_data.update_screeners()
+  File "/home/naveen/code/financial_data_analysis/scripts/get_data.py", line 196, in update_screeners
+    self.transform_load.transform_load_screener_data(df=signals_df)
+  File "/home/naveen/code/financial_data_analysis/scripts/transform_load_data.py", line 553, in transform_load_screener_data
+    signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/core/generic.py", line 2987, in to_sql
+    return sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 695, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1738, in to_sql
+    total_inserted = sql_engine.insert_records(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1335, in insert_records
+    raise err
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1325, in insert_records
+    return table.insert(chunksize=chunksize, method=method)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 946, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 853, in _execute_insert
+    result = conn.execute(self.table.insert(), data)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1306, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 332, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1498, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1799, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 953, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type double precision: "-"
+LINE 1: ..., 5.1, NULL, 62.16, 0.18, 16.38, NULL, 7.4, NULL, '-', 1.69,...
+                                                             ^
+
+[SQL: INSERT INTO all_signal_screener (ticker, market_cap, p_e, price, change_percentage, volume, signals, no_of_signals, eps_ttm, insider_own_percentage, shs_outstand, perf_week_percentage, forward_p_e, eps_next_y, insider_trans_percentage, shs_float, perf_month_percentage, income, peg, eps_next_q, inst_own_percentage, perf_quarter_percentage, sales, p_s, eps_this_y_percentage, inst_trans_percentage, short_interest, perf_half_y_percentage, book_sh, p_b, eps_next_y_percentage_percentage, roa_percentage, target_price, perf_year_percentage, cash_sh, p_c, eps_next_5y_percentage, roe_percentage, range_from_52w, range_to_52w, perf_ytd_percentage, dividend, p_fcf, eps_past_5y_percentage, roi_percentage, high_52w_percentage, beta, dividend_percentage, quick_ratio, sales_past_5y_percentage, gross_margin_percentage, low_52w_percentage, atr, employees, current_ratio, sales_q_q_percentage, oper_margin_percentage, rsi_14, volatility_w_percentage, volatility_m_percentage, optionable, debt_eq, eps_q_q_percentage, profit_margin_percentage, rel_volume, prev_close, shortable, lt_debt_eq, payout_percentage, avg_volume, recom, sma20_percentage, sma50_percentage, sma200_percentage, short_float_percentage, short_float_ratio, earnings_date, earnings_timing, date) VALUES (%(ticker)s, %(market_cap)s, %(p_e)s, %(price)s, %(change_percentage)s, %(volume)s, %(signals)s, %(no_of_signals)s, %(eps_ttm)s, %(insider_own_percentage)s, %(shs_outstand)s, %(perf_week_percentage)s, %(forward_p_e)s, %(eps_next_y)s, %(insider_trans_percentage)s, %(shs_float)s, %(perf_month_percentage)s, %(income)s, %(peg)s, %(eps_next_q)s, %(inst_own_percentage)s, %(perf_quarter_percentage)s, %(sales)s, %(p_s)s, %(eps_this_y_percentage)s, %(inst_trans_percentage)s, %(short_interest)s, %(perf_half_y_percentage)s, %(book_sh)s, %(p_b)s, %(eps_next_y_percentage_percentage)s, %(roa_percentage)s, %(target_price)s, %(perf_year_percentage)s, %(cash_sh)s, %(p_c)s, %(eps_next_5y_percentage)s, %(roe_percentage)s, %(range_from_52w)s, %(range_to_52w)s, %(perf_ytd_percentage)s, %(dividend)s, %(p_fcf)s, %(eps_past_5y_percentage)s, %(roi_percentage)s, %(high_52w_percentage)s, %(beta)s, %(dividend_percentage)s, %(quick_ratio)s, %(sales_past_5y_percentage)s, %(gross_margin_percentage)s, %(low_52w_percentage)s, %(atr)s, %(employees)s, %(current_ratio)s, %(sales_q_q_percentage)s, %(oper_margin_percentage)s, %(rsi_14)s, %(volatility_w_percentage)s, %(volatility_m_percentage)s, %(optionable)s, %(debt_eq)s, %(eps_q_q_percentage)s, %(profit_margin_percentage)s, %(rel_volume)s, %(prev_close)s, %(shortable)s, %(lt_debt_eq)s, %(payout_percentage)s, %(avg_volume)s, %(recom)s, %(sma20_percentage)s, %(sma50_percentage)s, %(sma200_percentage)s, %(short_float_percentage)s, %(short_float_ratio)s, %(earnings_date)s, %(earnings_timing)s, %(date)s)]
+[parameters: ({'ticker': 'ENZ', 'market_cap': 58010000.0, 'p_e': None, 'price': 2.25, 'change_percentage': 0.8908, 'volume': 36143744.0, 'signals': "['Most Active', 'Most Volatile', 'Overbought', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 5, 'eps_ttm': -0.55, 'insider_own_percentage': 9.7, 'shs_outstand': 48720000.0, 'perf_week_percentage': 102.7, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': 6.37, 'shs_float': 37770000.0, 'perf_month_percentage': 75.78, 'income': -26600000.0, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': 42.2, 'perf_quarter_percentage': 78.57, 'sales': 98800000.0, 'p_s': 0.59, 'eps_this_y_percentage': -330.6, 'inst_trans_percentage': -5.46, 'short_interest': 320000.0, 'perf_half_y_percentage': -0.44, 'book_sh': 0.92, 'p_b': 2.45, 'eps_next_y_percentage_percentage': None, 'roa_percentage': -27.0, 'target_price': None, 'perf_year_percentage': -28.12, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': -46.9, 'range_from_52w': 1.0, 'range_to_52w': '3.19', 'perf_ytd_percentage': 57.34, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': -47.4, 'roi_percentage': -25.5, 'high_52w_percentage': -29.47, 'beta': 0.85, 'dividend_percentage': None, 'quick_ratio': 1.2, 'sales_past_5y_percentage': 0.4, 'gross_margin_percentage': 34.7, 'low_52w_percentage': 125.0, 'atr': '0.18', 'employees': 465.0, 'current_ratio': 1.8, 'sales_q_q_percentage': -30.9, 'oper_margin_percentage': -23.4, 'rsi_14': 80.89, 'volatility_w_percentage': 14.17, 'volatility_m_percentage': 9.24, 'optionable': True, 'debt_eq': 0.1, 'eps_q_q_percentage': -356.3, 'profit_margin_percentage': -26.9, 'rel_volume': '324.03', 'prev_close': '1.19', 'shortable': True, 'lt_debt_eq': 0.09, 'payout_percentage': None, 'avg_volume': 701390.0, 'recom': None, 'sma20_percentage': 93.3, 'sma50_percentage': 70.61, 'sma200_percentage': 14.27, 'short_float_percentage': 0.85, 'short_float_ratio': 0.46, 'earnings_date': datetime.datetime(2022, 12, 12, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'BKKT', 'market_cap': 314190000.0, 'p_e': None, 'price': 1.72, 'change_percentage': 0.4454, 'volume': 7100894.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -7.51, 'insider_own_percentage': 1.5, 'shs_outstand': 76590000.0, 'perf_week_percentage': 57.8, 'forward_p_e': None, 'eps_next_y': -0.47, 'insider_trans_percentage': -23.32, 'shs_float': 60700000.0, 'perf_month_percentage': -1.15, 'income': -575700000.0, 'peg': None, 'eps_next_q': -0.18, 'inst_own_percentage': 30.8, 'perf_quarter_percentage': 13.16, 'sales': 54600000.0, 'p_s': 5.75, 'eps_this_y_percentage': 91.7, 'inst_trans_percentage': 3.06, 'short_interest': 13160000.0, 'perf_half_y_percentage': -36.3, 'book_sh': 2.42, 'p_b': 0.71, 'eps_next_y_percentage_percentage': 29.9, 'roa_percentage': -10.3, 'target_price': 2.02, 'perf_year_percentage': -66.8, 'cash_sh': 1.5, 'p_c': 1.15, 'eps_next_5y_percentage': None, 'roe_percentage': -48.4, 'range_from_52w': 1.08, 'range_to_52w': '7.76', 'perf_ytd_percentage': 44.54, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -48.2, 'high_52w_percentage': -77.84, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 2.5, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 59.26, 'atr': '0.18', 'employees': 579.0, 'current_ratio': 2.5, 'sales_q_q_percentage': 41.8, 'oper_margin_percentage': None, 'rsi_14': 60.97, 'volatility_w_percentage': 24.15, 'volatility_m_percentage': 11.71, 'optionable': True, 'debt_eq': 0.0, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '2.17', 'prev_close': '1.19', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 3220000.0, 'recom': 3.2, 'sma20_percentage': 25.73, 'sma50_percentage': 9.68, 'sma200_percentage': -18.7, 'short_float_percentage': 21.68, 'short_float_ratio': 4.09, 'earnings_date': datetime.datetime(2023, 3, 9, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'HMPT', 'market_cap': 250510000.0, 'p_e': None, 'price': 2.55, 'change_percentage': 0.40880000000000005, 'volume': 231151.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -1.18, 'insider_own_percentage': 1.43, 'shs_outstand': 138400000.0, 'perf_week_percentage': 34.21, 'forward_p_e': 24.06, 'eps_next_y': 0.11, 'insider_trans_percentage': 0.0, 'shs_float': 136440000.0, 'perf_month_percentage': 34.92, 'income': -163500000.0, 'peg': None, 'eps_next_q': -0.07, 'inst_own_percentage': 94.0, 'perf_quarter_percentage': 109.02, 'sales': 465600000.0, 'p_s': 0.54, 'eps_this_y_percentage': -199.3, 'inst_trans_percentage': -0.1, 'short_interest': 170000.0, 'perf_half_y_percentage': 12.33, 'book_sh': 4.36, 'p_b': 0.58, 'eps_next_y_percentage_percentage': 173.3, 'roa_percentage': -4.4, 'target_price': 1.91, 'perf_year_percentage': -24.33, 'cash_sh': 0.99, 'p_c': 2.58, 'eps_next_5y_percentage': 2.0, 'roe_percentage': -23.7, 'range_from_52w': 0.99, 'range_to_52w': '4.65', 'perf_ytd_percentage': 86.13, 'dividend': 0.16, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -1.9, 'high_52w_percentage': -45.16, 'beta': None, 'dividend_percentage': 6.27, 'quick_ratio': 1.5, 'sales_past_5y_percentage': None, 'gross_margin_percentage': 63.6, 'low_52w_percentage': 157.58, 'atr': '0.18', 'employees': 830.0, 'current_ratio': 1.5, 'sales_q_q_percentage': -67.3, 'oper_margin_percentage': -17.5, 'rsi_14': 74.2, 'volatility_w_percentage': 17.27, 'volatility_m_percentage': 8.89, 'optionable': True, 'debt_eq': 2.53, 'eps_q_q_percentage': -294.0, 'profit_margin_percentage': -35.1, 'rel_volume': '9.94', 'prev_close': '1.81', 'shortable': True, 'lt_debt_eq': 2.38, 'payout_percentage': None, 'avg_volume': 25960.0, 'recom': 3.2, 'sma20_percentage': 45.59, 'sma50_percentage': 43.36, 'sma200_percentage': 8.27, 'short_float_percentage': 0.12, 'short_float_ratio': 6.42, 'earnings_date': datetime.datetime(2023, 3, 9, 0, 0), 'earnings_timing': 'BMO', 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'DFLI', 'market_cap': 119020000.0, 'p_e': None, 'price': 3.6, 'change_percentage': 0.3091, 'volume': 224112.0, 'signals': "['Earnings After', 'Most Volatile', 'Top Gainers']", 'no_of_signals': 3, 'eps_ttm': -0.13, 'insider_own_percentage': 62.0, 'shs_outstand': 15810000.0, 'perf_week_percentage': -9.32, 'forward_p_e': None, 'eps_next_y': -0.18, 'insider_trans_percentage': 0.0, 'shs_float': 9300000.0, 'perf_month_percentage': -43.93, 'income': -2100000.0, 'peg': None, 'eps_next_q': -0.2, 'inst_own_percentage': 11.9, 'perf_quarter_percentage': -74.79, 'sales': 86220000.0, 'p_s': 1.38, 'eps_this_y_percentage': None, 'inst_trans_percentage': -70.82, 'short_interest': 260000.0, 'perf_half_y_percentage': -65.01, 'book_sh': 1.83, 'p_b': 1.97, 'eps_next_y_percentage_percentage': 63.3, 'roa_percentage': -2.0, 'target_price': 12.33, 'perf_year_percentage': -64.0, 'cash_sh': 0.01, 'p_c': 396.72, 'eps_next_5y_percentage': None, 'roe_percentage': -2.0, 'range_from_52w': 2.62, 'range_to_52w': '28.75', 'perf_ytd_percentage': -69.75, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -87.48, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 0.3, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 37.16, 'atr': '0.58', 'employees': 168.0, 'current_ratio': 0.3, 'sales_q_q_percentage': 38.6, 'oper_margin_percentage': None, 'rsi_14': 35.33, 'volatility_w_percentage': 18.83, 'volatility_m_percentage': 12.88, 'optionable': True, 'debt_eq': 0.01, 'eps_q_q_percentage': -171.3, 'profit_margin_percentage': None, 'rel_volume': '1.46', 'prev_close': '2.75', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': 0.0, 'avg_volume': 152780.0, 'recom': 1.3, 'sma20_percentage': -14.58, 'sma50_percentage': -44.27, 'sma200_percentage': -61.66, 'short_float_percentage': 2.84, 'short_float_ratio': 1.73, 'earnings_date': datetime.datetime(2023, 3, 20, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'OPRT', 'market_cap': 94890000.0, 'p_e': None, 'price': 3.64, 'change_percentage': 0.2817, 'volume': 2556313.0, 'signals': "['Most Volatile', 'Top Gainers', 'Unusual Volume']", 'no_of_signals': 3, 'eps_ttm': -2.37, 'insider_own_percentage': 5.9, 'shs_outstand': 33240000.000000004, 'perf_week_percentage': -15.74, 'forward_p_e': 1.86, 'eps_next_y': 1.96, 'insider_trans_percentage': 6.29, 'shs_float': 30270000.0, 'perf_month_percentage': -48.59, 'income': -77700000.0, 'peg': None, 'eps_next_q': -0.41, 'inst_own_percentage': 72.1, 'perf_quarter_percentage': -33.82, 'sales': 640700000.0, 'p_s': 0.15, 'eps_this_y_percentage': -251.5, 'inst_trans_percentage': -4.65, 'short_interest': 990000.0, 'perf_half_y_percentage': -33.21, 'book_sh': 16.48, 'p_b': 0.22, 'eps_next_y_percentage_percentage': 160.51, 'roa_percentage': -2.3, 'target_price': 8.8, 'perf_year_percentage': -73.72, 'cash_sh': 3.79, 'p_c': 0.96, 'eps_next_5y_percentage': -3.8, 'roe_percentage': -13.0, 'range_from_52w': 2.19, 'range_to_52w': '14.91', 'perf_ytd_percentage': -33.94, 'dividend': None, 'p_fcf': 0.39, 'eps_past_5y_percentage': -44.0, 'roi_percentage': -2.2, 'high_52w_percentage': -75.59, 'beta': 1.77, 'dividend_percentage': None, 'quick_ratio': None, 'sales_past_5y_percentage': 14.6, 'gross_margin_percentage': None, 'low_52w_percentage': 66.2, 'atr': '0.54', 'employees': 3000.0, 'current_ratio': None, 'sales_q_q_percentage': -10.7, 'oper_margin_percentage': -11.8, 'rsi_14': 33.75, 'volatility_w_percentage': 26.02, 'volatility_m_percentage': 11.33, 'optionable': True, 'debt_eq': 5.35, 'eps_q_q_percentage': -151.6, 'profit_margin_percentage': -12.1, 'rel_volume': '7.24', 'prev_close': '2.84', 'shortable': True, 'lt_debt_eq': 5.35, 'payout_percentage': None, 'avg_volume': 388380.0, 'recom': 2.0, 'sma20_percentage': -31.22, 'sma50_percentage': -39.63, 'sma200_percentage': -44.59, 'short_float_percentage': 3.27, 'short_float_ratio': 2.55, 'earnings_date': datetime.datetime(2023, 3, 13, 0, 0), 'earnings_timing': 'AMC', 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'PYXS', 'market_cap': 75790000.0, 'p_e': None, 'price': 2.76, 'change_percentage': 0.2778, 'volume': 507249.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -3.16, 'insider_own_percentage': 11.9, 'shs_outstand': 32560000.000000004, 'perf_week_percentage': 55.93, 'forward_p_e': None, 'eps_next_y': -3.09, 'insider_trans_percentage': 0.0, 'shs_float': 27750000.0, 'perf_month_percentage': 78.06, 'income': -101400000.0, 'peg': None, 'eps_next_q': -0.93, 'inst_own_percentage': 55.4, 'perf_quarter_percentage': 135.9, 'sales': None, 'p_s': None, 'eps_this_y_percentage': -501.7, 'inst_trans_percentage': -3.76, 'short_interest': 170000.0, 'perf_half_y_percentage': 15.97, 'book_sh': 5.8, 'p_b': 0.48, 'eps_next_y_percentage_percentage': 15.6, 'roa_percentage': -40.6, 'target_price': 11.0, 'perf_year_percentage': -41.89, 'cash_sh': 7.23, 'p_c': 0.38, 'eps_next_5y_percentage': None, 'roe_percentage': -45.3, 'range_from_52w': 1.1, 'range_to_52w': '5.78', 'perf_ytd_percentage': 105.97, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -52.25, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 10.6, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 150.91, 'atr': '0.23', 'employees': 73.0, 'current_ratio': 10.6, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 70.46, 'volatility_w_percentage': 15.17, 'volatility_m_percentage': 12.13, 'optionable': False, 'debt_eq': 0.0, 'eps_q_q_percentage': -96.3, 'profit_margin_percentage': None, 'rel_volume': '5.25', 'prev_close': '2.16', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 101630.0, 'recom': 1.8, 'sma20_percentage': 32.44, 'sma50_percentage': 57.36, 'sma200_percentage': 36.79, 'short_float_percentage': 0.6, 'short_float_ratio': 1.65, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'OMGA', 'market_cap': 375550000.0, 'p_e': None, 'price': 9.78, 'change_percentage': 0.2522, 'volume': 268588.0, 'signals': "['Most Volatile', 'Top Gainers']", 'no_of_signals': 2, 'eps_ttm': -2.14, 'insider_own_percentage': 1.6, 'shs_outstand': 48010000.0, 'perf_week_percentage': 51.63, 'forward_p_e': None, 'eps_next_y': -2.38, 'insider_trans_percentage': None, 'shs_float': 46280000.0, 'perf_month_percentage': 76.22, 'income': -102700000.0, 'peg': None, 'eps_next_q': -0.59, 'inst_own_percentage': 88.8, 'perf_quarter_percentage': 51.39, 'sales': 2100000.0, 'p_s': 178.83, 'eps_this_y_percentage': 29.6, 'inst_trans_percentage': 0.35, 'short_interest': 380000.0, 'perf_half_y_percentage': 58.51, 'book_sh': 2.21, 'p_b': 4.43, 'eps_next_y_percentage_percentage': -27.2, 'roa_percentage': -56.6, 'target_price': 12.71, 'perf_year_percentage': 30.57, 'cash_sh': 3.25, 'p_c': 3.01, 'eps_next_5y_percentage': None, 'roe_percentage': -71.0, 'range_from_52w': 1.98, 'range_to_52w': '11.98', 'perf_ytd_percentage': 71.28, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': -81.6, 'high_52w_percentage': -18.36, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 6.3, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 395.19, 'atr': '0.80', 'employees': 116.0, 'current_ratio': 6.3, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 74.34, 'volatility_w_percentage': 16.47, 'volatility_m_percentage': 10.4, 'optionable': True, 'debt_eq': 0.19, 'eps_q_q_percentage': -47.1, 'profit_margin_percentage': None, 'rel_volume': '3.85', 'prev_close': '7.81', 'shortable': True, 'lt_debt_eq': 0.16, 'payout_percentage': None, 'avg_volume': 71600.0, 'recom': 1.8, 'sma20_percentage': 51.92, 'sma50_percentage': 40.62, 'sma200_percentage': 78.03, 'short_float_percentage': 0.81, 'short_float_ratio': 5.26, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'RPHM', 'market_cap': 111920000.0, 'p_e': None, 'price': 5.71, 'change_percentage': 0.2522, 'volume': 109461.0, 'signals': "['Most Volatile', 'New High', 'Top Gainers']", 'no_of_signals': 3, 'eps_ttm': -2.0, 'insider_own_percentage': 1.2, 'shs_outstand': 24500000.0, 'perf_week_percentage': 34.35, 'forward_p_e': None, 'eps_next_y': -2.29, 'insider_trans_percentage': 0.0, 'shs_float': 23730000.0, 'perf_month_percentage': 103.93, 'income': -49000000.0, 'peg': None, 'eps_next_q': -0.6, 'inst_own_percentage': 75.4, 'perf_quarter_percentage': 166.82, 'sales': None, 'p_s': None, 'eps_this_y_percentage': -102.3, 'inst_trans_percentage': 0.53, 'short_interest': 100000.0, 'perf_half_y_percentage': 17.73, 'book_sh': 4.57, 'p_b': 1.25, 'eps_next_y_percentage_percentage': -5.0, 'roa_percentage': -35.3, 'target_price': 26.33, 'perf_year_percentage': 66.96, 'cash_sh': 5.92, 'p_c': 0.96, 'eps_next_5y_percentage': None, 'roe_percentage': -37.8, 'range_from_52w': 1.79, 'range_to_52w': '5.20', 'perf_ytd_percentage': 145.06, 'dividend': None, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': 9.81, 'beta': None, 'dividend_percentage': None, 'quick_ratio': 12.8, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 218.99, 'atr': '0.44', 'employees': 32.0, 'current_ratio': 12.8, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 75.25, 'volatility_w_percentage': 12.46, 'volatility_m_percentage': 11.32, 'optionable': False, 'debt_eq': 0.0, 'eps_q_q_percentage': -1.7, 'profit_margin_percentage': None, 'rel_volume': '2.12', 'prev_close': '4.56', 'shortable': True, 'lt_debt_eq': 0.0, 'payout_percentage': None, 'avg_volume': 52570.0, 'recom': 1.3, 'sma20_percentage': 49.35, 'sma50_percentage': 80.88, 'sma200_percentage': 94.6, 'short_float_percentage': 0.4, 'short_float_ratio': 1.81, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 8, 13)}  ... displaying 10 of 1884 total bound parameter sets ...  {'ticker': 'AGZD', 'market_cap': None, 'p_e': None, 'price': 43.29, 'change_percentage': -0.0053, 'volume': 42273.0, 'signals': 'Head & Shoulders Inverse', 'no_of_signals': 1, 'eps_ttm': None, 'insider_own_percentage': None, 'shs_outstand': None, 'perf_week_percentage': -0.6, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': None, 'shs_float': None, 'perf_month_percentage': -1.57, 'income': None, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': None, 'perf_quarter_percentage': -0.92, 'sales': None, 'p_s': None, 'eps_this_y_percentage': None, 'inst_trans_percentage': None, 'short_interest': None, 'perf_half_y_percentage': -0.11, 'book_sh': None, 'p_b': None, 'eps_next_y_percentage_percentage': None, 'roa_percentage': None, 'target_price': None, 'perf_year_percentage': -0.63, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': None, 'range_from_52w': 42.62, 'range_to_52w': '44.17', 'perf_ytd_percentage': -0.38, 'dividend': 1.25, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -1.99, 'beta': None, 'dividend_percentage': 2.89, 'quick_ratio': None, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 1.57, 'atr': '0.29', 'employees': None, 'current_ratio': None, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 39.18, 'volatility_w_percentage': 1.18, 'volatility_m_percentage': 0.54, 'optionable': False, 'debt_eq': None, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '0.42', 'prev_close': '43.52', 'shortable': True, 'lt_debt_eq': None, 'payout_percentage': None, 'avg_volume': 99690.0, 'recom': None, 'sma20_percentage': -1.18, 'sma50_percentage': -1.12, 'sma200_percentage': -0.24, 'short_float_percentage': None, 'short_float_ratio': None, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 8, 13)}, {'ticker': 'NYF', 'market_cap': None, 'p_e': None, 'price': 53.19, 'change_percentage': 0.0059, 'volume': 23944.0, 'signals': 'Head & Shoulders Inverse', 'no_of_signals': 1, 'eps_ttm': None, 'insider_own_percentage': None, 'shs_outstand': None, 'perf_week_percentage': 0.95, 'forward_p_e': None, 'eps_next_y': None, 'insider_trans_percentage': None, 'shs_float': None, 'perf_month_percentage': 0.45, 'income': None, 'peg': None, 'eps_next_q': None, 'inst_own_percentage': None, 'perf_quarter_percentage': 0.38, 'sales': None, 'p_s': None, 'eps_this_y_percentage': None, 'inst_trans_percentage': None, 'short_interest': None, 'perf_half_y_percentage': 2.6, 'book_sh': None, 'p_b': None, 'eps_next_y_percentage_percentage': None, 'roa_percentage': None, 'target_price': None, 'perf_year_percentage': -3.36, 'cash_sh': None, 'p_c': None, 'eps_next_5y_percentage': None, 'roe_percentage': None, 'range_from_52w': 49.91, 'range_to_52w': '55.22', 'perf_ytd_percentage': 1.51, 'dividend': 1.1, 'p_fcf': None, 'eps_past_5y_percentage': None, 'roi_percentage': None, 'high_52w_percentage': -3.68, 'beta': None, 'dividend_percentage': 2.07, 'quick_ratio': None, 'sales_past_5y_percentage': None, 'gross_margin_percentage': None, 'low_52w_percentage': 6.57, 'atr': '0.24', 'employees': None, 'current_ratio': None, 'sales_q_q_percentage': None, 'oper_margin_percentage': None, 'rsi_14': 62.47, 'volatility_w_percentage': 0.49, 'volatility_m_percentage': 0.34, 'optionable': False, 'debt_eq': None, 'eps_q_q_percentage': None, 'profit_margin_percentage': None, 'rel_volume': '0.40', 'prev_close': '52.88', 'shortable': True, 'lt_debt_eq': None, 'payout_percentage': None, 'avg_volume': 59720.0, 'recom': None, 'sma20_percentage': 1.41, 'sma50_percentage': 0.31, 'sma200_percentage': 1.51, 'short_float_percentage': None, 'short_float_ratio': None, 'earnings_date': None, 'earnings_timing': None, 'date': datetime.datetime(2023, 3, 20, 8, 13)})]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+News, Blogs, Calendar, Insider Trades; 2023-03-20 08:59:02.961627
+News, Blogs, Calendar, Insider Trades; 2023-03-20 09:59:02.534142
+All Signal Screener; 2023-03-20 10:10:42.050103
+News, Blogs, Calendar, Insider Trades; 2023-03-20 10:59:02.754307
+News, Blogs, Calendar, Insider Trades; 2023-03-20 11:59:03.403063
+All Signal Screener; 2023-03-20 12:12:37.775572
+News, Blogs, Calendar, Insider Trades; 2023-03-20 12:59:02.397003
+News, Blogs, Calendar, Insider Trades; 2023-03-20 13:59:03.066438
+All Signal Screener; 2023-03-20 14:12:59.672708
+News, Blogs, Calendar, Insider Trades; 2023-03-20 14:59:03.228972
+News, Blogs, Calendar, Insider Trades; 2023-03-20 15:59:02.841289
+All Signal Screener; 2023-03-20 16:13:00.592836
+News, Blogs, Calendar, Insider Trades; 2023-03-20 16:59:03.243365
+News, Blogs, Calendar, Insider Trades; 2023-03-20 17:59:02.950565
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 59, in <module>
+    database_connection.update_sql_table("UPDATE api_requests SET updated_tickers = '{}'WHERE request_date = '{}'".format(updated_tickers, today), conn=transform_load_conn)
+  File "/home/naveen/code/financial_data_analysis/scripts/database_connection.py", line 79, in update_sql_table
+    conn.execute(statement)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "updated_tickers" of relation "api_requests" does not exist
+LINE 1: UPDATE api_requests SET updated_tickers = 'None'WHERE reques...
+                                ^
+
+[SQL: UPDATE api_requests SET updated_tickers = 'None'WHERE request_date = '2023-03-20']
+(Background on this error at: https://sqlalche.me/e/14/f405)
+All Signal Screener; 2023-03-20 18:13:02.980848
+News, Blogs, Calendar, Insider Trades; 2023-03-20 18:59:02.896080
+News, Blogs, Calendar, Insider Trades; 2023-03-20 19:59:02.967618
+All Signal Screener; 2023-03-20 20:13:48.329936
+Ticker Data; 2023-03-20 20:40:23.955514
+News, Blogs, Calendar, Insider Trades; 2023-03-20 20:59:03.116497
+News, Blogs, Calendar, Insider Trades; 2023-03-20 21:59:03.198032
+All Signal Screener; 2023-03-20 22:13:59.380504
+News, Blogs, Calendar, Insider Trades; 2023-03-20 22:59:03.477543
+News, Blogs, Calendar, Insider Trades; 2023-03-20 23:59:03.506236
+All Signal Screener; 2023-03-21 00:12:47.297545
+News, Blogs, Calendar, Insider Trades; 2023-03-21 00:59:03.270425
+News, Blogs, Calendar, Insider Trades; 2023-03-21 01:59:02.998240
+All Signal Screener; 2023-03-21 02:12:41.117191
+News, Blogs, Calendar, Insider Trades; 2023-03-21 02:59:02.929222
+News, Blogs, Calendar, Insider Trades; 2023-03-21 03:59:02.481018
+All Signal Screener; 2023-03-21 04:12:58.284245
+News, Blogs, Calendar, Insider Trades; 2023-03-21 04:59:02.916936
+News, Blogs, Calendar, Insider Trades; 2023-03-21 05:59:02.507811
+All Signal Screener; 2023-03-21 06:12:50.219854
+News, Blogs, Calendar, Insider Trades; 2023-03-21 06:59:02.822151
+News, Blogs, Calendar, Insider Trades; 2023-03-21 07:59:02.450263
+All Signal Screener; 2023-03-21 08:13:05.019779
+News, Blogs, Calendar, Insider Trades; 2023-03-21 08:59:02.565419
+News, Blogs, Calendar, Insider Trades; 2023-03-21 09:59:03.055250
+All Signal Screener; 2023-03-21 10:10:04.020885
+News, Blogs, Calendar, Insider Trades; 2023-03-21 10:59:02.561187
+News, Blogs, Calendar, Insider Trades; 2023-03-21 11:59:03.167367
+All Signal Screener; 2023-03-21 12:11:51.781203
+News, Blogs, Calendar, Insider Trades; 2023-03-21 12:59:02.415095
+News, Blogs, Calendar, Insider Trades; 2023-03-21 13:59:02.966091
+All Signal Screener; 2023-03-21 14:11:36.532450
+News, Blogs, Calendar, Insider Trades; 2023-03-21 14:59:03.177767
+News, Blogs, Calendar, Insider Trades; 2023-03-21 15:59:02.745276
+All Signal Screener; 2023-03-21 16:11:57.203201
+News, Blogs, Calendar, Insider Trades; 2023-03-21 16:59:02.853810
+News, Blogs, Calendar, Insider Trades; 2023-03-21 17:59:02.847316
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_financialStatements.py", line 67, in <module>
+    get_data.update_financial_statements(ticker=ticker)
+  File "/home/naveen/code/financial_data_analysis/scripts/get_data.py", line 154, in update_financial_statements
+    self.transform_load.transform_load_balance_sheets(data=data, ticker=ticker)
+  File "/home/naveen/code/financial_data_analysis/scripts/transform_load_data.py", line 435, in transform_load_balance_sheets
+    data = self.format_statements(data, ticker, table='dim_balance_sheets')
+  File "/home/naveen/code/financial_data_analysis/scripts/transform_load_data.py", line 187, in format_statements
+    quarter_reports = pd.DataFrame(data=data['quarterlyReports'])
+KeyError: 'quarterlyReports'
+All Signal Screener; 2023-03-21 18:12:57.838482
+News, Blogs, Calendar, Insider Trades; 2023-03-21 18:59:03.354760
+News, Blogs, Calendar, Insider Trades; 2023-03-21 19:59:03.539986
+All Signal Screener; 2023-03-21 20:12:45.085382
+Ticker Data; 2023-03-21 20:40:23.417804
+News, Blogs, Calendar, Insider Trades; 2023-03-21 20:59:03.479420
+News, Blogs, Calendar, Insider Trades; 2023-03-21 21:59:03.433421
+All Signal Screener; 2023-03-21 22:12:57.223362
+News, Blogs, Calendar, Insider Trades; 2023-03-21 22:59:03.287617
+News, Blogs, Calendar, Insider Trades; 2023-03-21 23:59:02.994933
+All Signal Screener; 2023-03-22 00:12:31.551730
+News, Blogs, Calendar, Insider Trades; 2023-03-22 00:59:03.080352
+News, Blogs, Calendar, Insider Trades; 2023-03-22 01:59:02.702835
+All Signal Screener; 2023-03-22 02:12:10.068737
+News, Blogs, Calendar, Insider Trades; 2023-03-22 02:59:03.068980
+News, Blogs, Calendar, Insider Trades; 2023-03-22 03:59:02.722498
+All Signal Screener; 2023-03-22 04:12:09.320932
+News, Blogs, Calendar, Insider Trades; 2023-03-22 04:59:02.956828
+News, Blogs, Calendar, Insider Trades; 2023-03-22 05:59:02.808759
+All Signal Screener; 2023-03-22 06:12:24.847956
+News, Blogs, Calendar, Insider Trades; 2023-03-22 06:59:02.598745
+News, Blogs, Calendar, Insider Trades; 2023-03-22 07:59:03.259324
+All Signal Screener; 2023-03-22 08:12:21.658710
+News, Blogs, Calendar, Insider Trades; 2023-03-22 08:59:03.282255
+News, Blogs, Calendar, Insider Trades; 2023-03-22 09:59:02.852142
+All Signal Screener; 2023-03-22 10:08:55.032148
+News, Blogs, Calendar, Insider Trades; 2023-03-22 10:59:02.648781
+News, Blogs, Calendar, Insider Trades; 2023-03-22 11:59:03.262535
+All Signal Screener; 2023-03-22 12:11:24.891575
+News, Blogs, Calendar, Insider Trades; 2023-03-22 12:59:02.431072
+News, Blogs, Calendar, Insider Trades; 2023-03-22 13:59:02.973361
+All Signal Screener; 2023-03-22 14:11:43.298287
+News, Blogs, Calendar, Insider Trades; 2023-03-22 14:59:02.802829
+News, Blogs, Calendar, Insider Trades; 2023-03-22 15:59:02.590102
+All Signal Screener; 2023-03-22 16:13:43.183398
+News, Blogs, Calendar, Insider Trades; 2023-03-22 16:59:03.309552
+News, Blogs, Calendar, Insider Trades; 2023-03-22 17:59:02.983622
+['AAPL']
+[]
+['AAPL', 'CM', 'CRM', 'SHOP']
+All Signal Screener; 2023-03-22 18:11:47.863255
+News, Blogs, Calendar, Insider Trades; 2023-03-22 18:59:02.830290
+News, Blogs, Calendar, Insider Trades; 2023-03-22 19:59:02.869250
+All Signal Screener; 2023-03-22 20:12:49.046948
+Ticker Data; 2023-03-22 20:40:29.593467
+News, Blogs, Calendar, Insider Trades; 2023-03-22 20:59:02.981306
+News, Blogs, Calendar, Insider Trades; 2023-03-22 21:59:04.933498
+All Signal Screener; 2023-03-22 22:16:45.661214
+News, Blogs, Calendar, Insider Trades; 2023-03-22 22:59:03.915609
+News, Blogs, Calendar, Insider Trades; 2023-03-22 23:59:03.515782
+All Signal Screener; 2023-03-23 00:23:06.145271
+News, Blogs, Calendar, Insider Trades; 2023-03-23 00:59:04.258122
+News, Blogs, Calendar, Insider Trades; 2023-03-23 01:59:04.012476
+All Signal Screener; 2023-03-23 02:18:58.627022
+News, Blogs, Calendar, Insider Trades; 2023-03-23 02:59:04.284933
+News, Blogs, Calendar, Insider Trades; 2023-03-23 03:59:03.459908
+All Signal Screener; 2023-03-23 04:21:24.221369
+News, Blogs, Calendar, Insider Trades; 2023-03-23 04:59:05.524273
+News, Blogs, Calendar, Insider Trades; 2023-03-23 05:59:04.276597
+All Signal Screener; 2023-03-23 06:21:07.665491
+News, Blogs, Calendar, Insider Trades; 2023-03-23 06:59:03.869821
+News, Blogs, Calendar, Insider Trades; 2023-03-23 07:59:03.981457
+All Signal Screener; 2023-03-23 08:21:20.686088
+News, Blogs, Calendar, Insider Trades; 2023-03-23 08:59:03.258102
+News, Blogs, Calendar, Insider Trades; 2023-03-23 09:59:02.898258
+All Signal Screener; 2023-03-23 10:10:12.944792
+News, Blogs, Calendar, Insider Trades; 2023-03-23 10:59:02.626188
+News, Blogs, Calendar, Insider Trades; 2023-03-23 11:59:03.458822
+All Signal Screener; 2023-03-23 12:13:01.246897
+News, Blogs, Calendar, Insider Trades; 2023-03-23 12:59:03.249038
+News, Blogs, Calendar, Insider Trades; 2023-03-23 13:59:02.861486
+All Signal Screener; 2023-03-23 14:12:52.126655
+News, Blogs, Calendar, Insider Trades; 2023-03-23 14:59:03.179228
+News, Blogs, Calendar, Insider Trades; 2023-03-23 15:59:03.232600
+All Signal Screener; 2023-03-23 16:14:26.557049
+News, Blogs, Calendar, Insider Trades; 2023-03-23 16:59:03.229432
+News, Blogs, Calendar, Insider Trades; 2023-03-23 17:59:03.060265
+ AAPL financial statements and earnings; 2023-03-23 18:01:02.831262
+ CM financial statements and earnings; 2023-03-23 18:02:05.539872
+ CRM financial statements and earnings; 2023-03-23 18:03:07.486696
+ SHOP financial statements and earnings; 2023-03-23 18:04:09.559964
+All Signal Screener; 2023-03-23 18:13:22.881253
+News, Blogs, Calendar, Insider Trades; 2023-03-23 18:59:02.491688
+News, Blogs, Calendar, Insider Trades; 2023-03-23 19:59:03.189618
+All Signal Screener; 2023-03-23 20:15:02.264896
+Ticker Data; 2023-03-23 20:40:22.844441
+News, Blogs, Calendar, Insider Trades; 2023-03-23 20:59:02.483937
+News, Blogs, Calendar, Insider Trades; 2023-03-23 21:59:03.907231
+All Signal Screener; 2023-03-23 22:18:01.806782
+News, Blogs, Calendar, Insider Trades; 2023-03-23 22:59:02.592048
+News, Blogs, Calendar, Insider Trades; 2023-03-23 23:59:03.245279
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/ssl.py", line 1130, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/urllib3/connectionpool.py", line 340, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='finviz.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/finvizfinance/util.py", line 96, in web_scrap
+    website = session.get(url, headers=headers, timeout=10)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='finviz.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_screeners.py", line 11, in <module>
+    get_data.update_screeners()
+  File "/home/naveen/code/financial_data_analysis/scripts/get_data.py", line 188, in update_screeners
+    one_signal_df = screener.screener_view(verbose=False)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/finvizfinance/screener/overview.py", line 303, in screener_view
+    soup = web_scrap(url)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/finvizfinance/util.py", line 102, in web_scrap
+    raise Exception(err)
+Exception: HTTPSConnectionPool(host='finviz.com', port=443): Read timed out. (read timeout=10)
+News, Blogs, Calendar, Insider Trades; 2023-03-24 00:59:03.049751
+News, Blogs, Calendar, Insider Trades; 2023-03-24 01:59:03.129808
+All Signal Screener; 2023-03-24 02:18:46.032244
+News, Blogs, Calendar, Insider Trades; 2023-03-24 02:59:02.764541
+News, Blogs, Calendar, Insider Trades; 2023-03-24 03:59:03.589802
+All Signal Screener; 2023-03-24 04:18:08.260223
+News, Blogs, Calendar, Insider Trades; 2023-03-24 04:59:03.140755
+News, Blogs, Calendar, Insider Trades; 2023-03-24 05:59:02.941558
+All Signal Screener; 2023-03-24 06:18:19.133749
+News, Blogs, Calendar, Insider Trades; 2023-03-24 06:59:02.879731
+News, Blogs, Calendar, Insider Trades; 2023-03-24 07:59:03.678394

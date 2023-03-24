@@ -167,7 +167,7 @@ class GetData():
         """
         credentials = configparser.ConfigParser()
         credentials.read('./scripts/config.ini')
-        api_key = credentials.get('alphavintage', 'api_key')
+        api_key = credentials.get('alphavantage', 'api_key')
         function = 'EARNINGS'
         url = "https://www.alphavantage.co/query?function={function}&symbol={ticker}&apikey={api_key}".format(function=function, ticker=ticker, api_key=api_key)
         data = requests.get(url)

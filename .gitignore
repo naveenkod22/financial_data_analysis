@@ -17,4 +17,4 @@ __pycache__/
 /scripts/sql/tables.sql
 /scripts/old_scripts/
 /scripts/migration_to_db/
-/scripts/sql/dvdrenta/
+/scripts/sql/dvdrenta/*.sql

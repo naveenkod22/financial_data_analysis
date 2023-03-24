@@ -15,4 +15,6 @@ __pycache__/
 /crontab.txt
 /data/
 /scripts/sql/tables.sql
-
+/scripts/old_scripts/
+/scripts/migration_to_db/
+/scripts/sql/dvdrenta/

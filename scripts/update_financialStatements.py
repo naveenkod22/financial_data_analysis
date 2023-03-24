@@ -22,6 +22,8 @@ if remaining_tickers != []:
     remaining_tickers = str(remaining_tickers[0][0])
     remaining_tickers = remaining_tickers.split(', ')
     remaining_tickers = [i.strip("'") for i in remaining_tickers]
+    if remaining_tickers == ['None']:
+        remaining_tickers = []
 
 
 date = (datetime.date.today() - datetime.timedelta(1)).strftime("%Y-%m-%d")
@@ -51,8 +53,8 @@ else:
     database_connection.update_sql_table("INSERT INTO api_requests (request_date, no_of_requests, website) VALUES ('{}', {}, '{}')".format(today, no_of_requests,'alphavantage'), conn=transform_load_conn)
 
 available_requests = (400 - no_of_requests)//4
-tickers = tickers[:available_requests]
 remaining_tickers = tickers[available_requests:]
+tickers = tickers[:available_requests]
 
 if len(tickers) != 0:
     updated_tickers = str(tickers).strip('[').strip(']').replace("'", "")

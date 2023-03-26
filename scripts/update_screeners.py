@@ -3,7 +3,7 @@ from get_data import GetData
 from database_connection import DatabaseConnection
 
 database_connection = DatabaseConnection()
-conn_url = database_connection.conn_url()
+conn_url = database_connection.conn_url(database='all_signal_screener')
 
 get_data = GetData(conn_url=conn_url)
 transform_load_conn = get_data.transform_load.conn

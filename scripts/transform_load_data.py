@@ -526,7 +526,7 @@ class TransformLoad():
         df.drop_duplicates(subset=['ticker'], inplace=True)
         df.drop(columns=['signal'], inplace=True)
 
-        # adding fundamental data to all_signal_screener table
+        # Transforming fundamental data to  match with all_signal_screener table
         for_columns = quote.finvizfinance(ticker = 'AAPL').ticker_fundament()
         fundamental_df = pd.DataFrame(index=for_columns.keys())
 
@@ -550,8 +550,6 @@ class TransformLoad():
         signals_df = self.format_fundamentals(signals_df)
         signals_df['date'] = datetime.datetime.now().strftime("%Y%m%d_%H%M")
         signals_df['date'] = pd.to_datetime(signals_df['date'], format='%Y%m%d_%H%M')
-        signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)
-
 
         # Updating ticker_info table
         ticker_info = pd.read_sql('ticker_info', self.conn)
@@ -567,5 +565,9 @@ class TransformLoad():
         
         new_ticker_info['description'] = new_ticker_info['ticker'].map(description)
         new_ticker_info.dropna(inplace=True)
+        new_ticker_info.drop(new_ticker_info[new_ticker_info['company']=='Nano Labs Ltd'].index, inplace= True)
         new_ticker_info.to_sql('ticker_info', self.conn, if_exists='append', index=False)
-        
+
+        # Loading into all_signal_screener 
+        signals_df.drop(signals_df[signals_df['ticker'] == 'NA'].index, inplace = True)
+        signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)

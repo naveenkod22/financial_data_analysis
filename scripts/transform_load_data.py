@@ -547,13 +547,17 @@ class TransformLoad():
         new_ticker_info.columns = new_ticker_info.columns.str.lower()
         fundamental_df = fundamental_df.drop(columns=['Company', 'Sector', 'Industry', 'Country', 'Market Cap', 'P/E', 'Price', 'Change', 'Volume'])
         signals_df = pd.merge(df, fundamental_df, on='ticker')        
+        signals_df.drop(signals_df[signals_df['ticker'] == 'NA'].index, inplace = True)
         signals_df = self.format_fundamentals(signals_df)
         signals_df['date'] = datetime.datetime.now().strftime("%Y%m%d_%H%M")
         signals_df['date'] = pd.to_datetime(signals_df['date'], format='%Y%m%d_%H%M')
-
+        
         # Updating ticker_info table
-        ticker_info = pd.read_sql('ticker_info', self.conn)
-        tickers = new_ticker_info['ticker'][~new_ticker_info['ticker'].isin(ticker_info['ticker'])]
+        existing_tickers = database_connection.get_sql_data("SELECT ticker FROM ticker_info", conn = self.conn)
+        existing_tickers = [i[0] for i in existing_tickers]
+        signal_tickers = signals_df['ticker']
+        tickers = signal_tickers[~signal_tickers.isin(existing_tickers)]
+        new_ticker_info = new_ticker_info[new_ticker_info['ticker'].isin(tickers)]
 
         description = pd.Series(name='description', dtype='str')
         for ticker in tickers:
@@ -561,13 +565,12 @@ class TransformLoad():
                 description[ticker] = quote.finvizfinance(ticker = ticker).ticker_description()
                 time.sleep(0.2)
             except:
-                pass
-        
+                description[ticker] = 'No description found'
+
         new_ticker_info['description'] = new_ticker_info['ticker'].map(description)
         new_ticker_info.dropna(inplace=True)
-        new_ticker_info.drop(new_ticker_info[new_ticker_info['company']=='Nano Labs Ltd'].index, inplace= True)
         new_ticker_info.to_sql('ticker_info', self.conn, if_exists='append', index=False)
 
         # Loading into all_signal_screener 
-        signals_df.drop(signals_df[signals_df['ticker'] == 'NA'].index, inplace = True)
+        signals_df.to_csv('./signals_df.csv')
         signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)

@@ -1087,3 +1087,130 @@ News, Blogs, Calendar, Insider Trades; 2023-03-24 05:59:02.941558
 All Signal Screener; 2023-03-24 06:18:19.133749
 News, Blogs, Calendar, Insider Trades; 2023-03-24 06:59:02.879731
 News, Blogs, Calendar, Insider Trades; 2023-03-24 07:59:03.678394
+All Signal Screener; 2023-03-24 08:17:47.386158
+News, Blogs, Calendar, Insider Trades; 2023-03-24 08:59:03.304296
+News, Blogs, Calendar, Insider Trades; 2023-03-24 09:59:03.138607
+All Signal Screener; 2023-03-24 10:13:23.765074
+News, Blogs, Calendar, Insider Trades; 2023-03-24 10:59:11.677254
+News, Blogs, Calendar, Insider Trades; 2023-03-24 11:59:03.155614
+All Signal Screener; 2023-03-24 12:11:49.518875
+News, Blogs, Calendar, Insider Trades; 2023-03-24 12:59:03.161415
+News, Blogs, Calendar, Insider Trades; 2023-03-24 13:59:02.712535
+All Signal Screener; 2023-03-24 14:11:53.528382
+News, Blogs, Calendar, Insider Trades; 2023-03-24 14:59:03.395113
+News, Blogs, Calendar, Insider Trades; 2023-03-24 15:59:03.348094
+All Signal Screener; 2023-03-24 16:13:38.906311
+News, Blogs, Calendar, Insider Trades; 2023-03-24 16:59:02.703307
+News, Blogs, Calendar, Insider Trades; 2023-03-24 17:59:04.625113
+All Signal Screener; 2023-03-24 18:12:45.786857
+News, Blogs, Calendar, Insider Trades; 2023-03-24 18:59:02.970246
+News, Blogs, Calendar, Insider Trades; 2023-03-24 19:59:02.952151
+All Signal Screener; 2023-03-24 20:12:56.194661
+Ticker Data; 2023-03-24 20:40:23.924714
+News, Blogs, Calendar, Insider Trades; 2023-03-24 20:59:03.118038
+News, Blogs, Calendar, Insider Trades; 2023-03-24 21:59:03.179953
+News, Blogs, Calendar, Insider Trades; 2023-03-24 22:59:03.301944
+News, Blogs, Calendar, Insider Trades; 2023-03-24 23:59:03.265546
+All Signal Screener; 2023-03-25 00:13:01.191306
+News, Blogs, Calendar, Insider Trades; 2023-03-25 00:59:03.413305
+News, Blogs, Calendar, Insider Trades; 2023-03-25 01:59:03.153370
+All Signal Screener; 2023-03-25 02:12:52.807769
+News, Blogs, Calendar, Insider Trades; 2023-03-25 02:59:02.678944
+News, Blogs, Calendar, Insider Trades; 2023-03-25 03:59:03.242325
+All Signal Screener; 2023-03-25 04:12:30.988166
+News, Blogs, Calendar, Insider Trades; 2023-03-25 04:59:02.861540
+News, Blogs, Calendar, Insider Trades; 2023-03-25 05:59:02.411228
+All Signal Screener; 2023-03-25 06:12:31.586946
+News, Blogs, Calendar, Insider Trades; 2023-03-25 06:59:03.511035
+News, Blogs, Calendar, Insider Trades; 2023-03-25 07:59:03.074898
+All Signal Screener; 2023-03-25 08:12:53.261214
+News, Blogs, Calendar, Insider Trades; 2023-03-25 08:59:02.845891
+News, Blogs, Calendar, Insider Trades; 2023-03-25 09:59:02.437712
+All Signal Screener; 2023-03-25 10:12:37.626299
+News, Blogs, Calendar, Insider Trades; 2023-03-25 10:59:03.599054
+News, Blogs, Calendar, Insider Trades; 2023-03-25 11:59:03.799576
+All Signal Screener; 2023-03-25 12:12:48.413263
+News, Blogs, Calendar, Insider Trades; 2023-03-25 12:59:02.956125
+News, Blogs, Calendar, Insider Trades; 2023-03-25 13:59:02.734168
+All Signal Screener; 2023-03-25 14:12:22.892282
+News, Blogs, Calendar, Insider Trades; 2023-03-25 14:59:02.478658
+News, Blogs, Calendar, Insider Trades; 2023-03-25 15:59:03.291785
+Traceback (most recent call last):
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.AdminShutdown: terminating connection due to administrator command
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/naveen/code/financial_data_analysis/scripts/update_screeners.py", line 11, in <module>
+    get_data.update_screeners()
+  File "/home/naveen/code/financial_data_analysis/scripts/get_data.py", line 196, in update_screeners
+    self.transform_load.transform_load_screener_data(df=signals_df)
+  File "/home/naveen/code/financial_data_analysis/scripts/transform_load_data.py", line 553, in transform_load_screener_data
+    signals_df.to_sql('all_signal_screener', self.conn, if_exists='append', index=False)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/core/generic.py", line 2987, in to_sql
+    return sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 695, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1728, in to_sql
+    table = self.prep_table(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1631, in prep_table
+    table.create()
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 827, in create
+    if self.exists():
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 814, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/pandas/io/sql.py", line 1761, in has_table
+    return insp.has_table(name, schema or self.meta.schema)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py", line 283, in has_table
+    return self.dialect.has_table(conn, table_name, schema)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/base.py", line 3496, in has_table
+    cursor = connection.execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1306, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 332, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1498, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/naveen/miniconda3/envs/stock_data/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (psycopg2.errors.AdminShutdown) terminating connection due to administrator command
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+[SQL: select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s]
+[parameters: {'name': 'all_signal_screener'}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+News, Blogs, Calendar, Insider Trades; 2023-03-25 16:59:02.645807
+News, Blogs, Calendar, Insider Trades; 2023-03-25 17:59:03.269883
+All Signal Screener; 2023-03-25 18:12:47.145170
+News, Blogs, Calendar, Insider Trades; 2023-03-25 18:59:10.338625
+News, Blogs, Calendar, Insider Trades; 2023-03-25 19:59:03.485325
+All Signal Screener; 2023-03-25 20:13:58.546733
+News, Blogs, Calendar, Insider Trades; 2023-03-25 20:59:03.674604
+News, Blogs, Calendar, Insider Trades; 2023-03-25 21:59:08.319709
+All Signal Screener; 2023-03-25 22:13:33.733241
+News, Blogs, Calendar, Insider Trades; 2023-03-25 22:59:02.741538
+News, Blogs, Calendar, Insider Trades; 2023-03-25 23:59:02.796901
+All Signal Screener; 2023-03-26 00:13:36.155628
+News, Blogs, Calendar, Insider Trades; 2023-03-26 00:59:03.167542
+News, Blogs, Calendar, Insider Trades; 2023-03-26 01:59:03.577528
+All Signal Screener; 2023-03-26 02:13:14.191360
+News, Blogs, Calendar, Insider Trades; 2023-03-26 02:59:03.271453
+News, Blogs, Calendar, Insider Trades; 2023-03-26 12:59:02.573025

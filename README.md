@@ -18,11 +18,6 @@
 6. Macro Economic Data
 7. Daily Active, gainer, looser stocks
 
-## Analyzing Data.
-1. creating functions to visualize the collected data.
-2. Performing technical analysis.
-3. Comparing an Equity with an other Equity in same sector.
-
 ---
 # Repository structure:
 ```
